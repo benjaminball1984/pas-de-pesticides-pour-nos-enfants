@@ -9,9 +9,9 @@ import {
 
 // Illustrations décoratives des 3 cartes « Agir » (SVG inline)
 const illustrations = [
-  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><path d="M40 38 100 22l60 16-60 18-60-18Z" fill="#E76F4A"/><path d="M40 38v42l60 18V56L40 38Z" fill="#C95535"/><path d="M160 38v42l-60 18V56l60-18Z" fill="#F2C53D"/><path d="M70 30l60 16M70 30v42M130 30l-30 8" stroke="#1F3F2C" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
-  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><rect x="20" y="30" width="160" height="76" rx="8" fill="#C9DCAE"/><path d="M20 78c20-8 38 4 60-4s44-12 70-2v34H20V78Z" fill="#9DBE6F"/><circle cx="70" cy="62" r="10" fill="#fff" stroke="#1F3F2C" stroke-width="2"/><path d="M70 52v-8M70 52a10 10 0 0 0 0 20" stroke="#E76F4A" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="62" r="3" fill="#1F3F2C"/><circle cx="130" cy="50" r="6" fill="#F2C53D" stroke="#1F3F2C" stroke-width="2"/><circle cx="155" cy="80" r="5" fill="#fff" stroke="#1F3F2C" stroke-width="2"/></svg>`,
-  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><rect x="30" y="68" width="140" height="6" rx="2" fill="#1F3F2C"/><rect x="40" y="74" width="6" height="22" rx="1" fill="#1F3F2C"/><rect x="154" y="74" width="6" height="22" rx="1" fill="#1F3F2C"/><circle cx="70" cy="50" r="10" fill="#E76F4A"/><path d="M55 70c0-8 7-12 15-12s15 4 15 12" fill="#E76F4A"/><circle cx="130" cy="50" r="10" fill="#F2C53D" stroke="#1F3F2C" stroke-width="2"/><path d="M115 70c0-8 7-12 15-12s15 4 15 12" fill="#F2C53D" stroke="#1F3F2C" stroke-width="2"/><path d="M85 32h30c3 0 6 2 6 6v8c0 3-3 6-6 6h-22l-8 6 1-6h-1c-3 0-6-3-6-6v-8c0-4 3-6 6-6Z" fill="#fff" stroke="#1F3F2C" stroke-width="2"/><circle cx="95" cy="42" r="2" fill="#1F3F2C"/><circle cx="103" cy="42" r="2" fill="#1F3F2C"/><circle cx="111" cy="42" r="2" fill="#1F3F2C"/></svg>`,
+  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><path d="M40 38 100 22l60 16-60 18-60-18Z" fill="#EB734D"/><path d="M40 38v42l60 18V56L40 38Z" fill="#CC5733"/><path d="M160 38v42l-60 18V56l60-18Z" fill="#FFCC45"/><path d="M70 30l60 16M70 30v42M130 30l-30 8" stroke="#004D40" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><rect x="20" y="30" width="160" height="76" rx="8" fill="#CEDCAE"/><path d="M20 78c20-8 38 4 60-4s44-12 70-2v34H20V78Z" fill="#B0C27D"/><circle cx="70" cy="62" r="10" fill="#fff" stroke="#004D40" stroke-width="2"/><path d="M70 52v-8M70 52a10 10 0 0 0 0 20" stroke="#EB734D" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="62" r="3" fill="#004D40"/><circle cx="130" cy="50" r="6" fill="#FFCC45" stroke="#004D40" stroke-width="2"/><circle cx="155" cy="80" r="5" fill="#fff" stroke="#004D40" stroke-width="2"/></svg>`,
+  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><rect x="30" y="68" width="140" height="6" rx="2" fill="#004D40"/><rect x="40" y="74" width="6" height="22" rx="1" fill="#004D40"/><rect x="154" y="74" width="6" height="22" rx="1" fill="#004D40"/><circle cx="70" cy="50" r="10" fill="#EB734D"/><path d="M55 70c0-8 7-12 15-12s15 4 15 12" fill="#EB734D"/><circle cx="130" cy="50" r="10" fill="#FFCC45" stroke="#004D40" stroke-width="2"/><path d="M115 70c0-8 7-12 15-12s15 4 15 12" fill="#FFCC45" stroke="#004D40" stroke-width="2"/><path d="M85 32h30c3 0 6 2 6 6v8c0 3-3 6-6 6h-22l-8 6 1-6h-1c-3 0-6-3-6-6v-8c0-4 3-6 6-6Z" fill="#fff" stroke="#004D40" stroke-width="2"/><circle cx="95" cy="42" r="2" fill="#004D40"/><circle cx="103" cy="42" r="2" fill="#004D40"/><circle cx="111" cy="42" r="2" fill="#004D40"/></svg>`,
 ];
 ---
 
@@ -28,138 +28,34 @@ const illustrations = [
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO (épuré : boutons + compteur posés sur l'affiche) -->
   <section class="hero">
     <div class="wrap">
       <div class="stage">
         <div class="poster">
           <img src="/images/affiche-pesticides.jpg" alt="Pas de pesticides pour nos enfants — une petite signature pour vous, un grand pas pour leur santé. Affiche officielle de la campagne." />
         </div>
-        <div class="stage-top">
-          <span class="kicker"><span class="pulse"></span>Pétition citoyenne</span>
-        </div>
-        <div class="panel">
-          <div class="left">
-            <div class="ctas">
-              <a href="#signer" class="btn btn-primary">✍️ Je signe la pétition</a>
-              <a href="/appel" class="btn btn-ghost" style="color:var(--cream);border-color:rgba(250,247,240,.5);background:rgba(15,36,24,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">Lire l'appel</a>
-            </div>
+        <div class="overlay">
+          <div class="ctas">
+            <a href="#signer" class="btn btn-primary">✍️ Je signe la pétition</a>
+            <a href="/appel" class="btn btn-appel">Lire l'appel</a>
           </div>
-          <div class="counter">
-            <div class="big" id="counter">{fmt(compteur.signataires)}</div>
-            <div>
-              <div class="lbl"><strong>signataires</strong> à ce jour</div>
-              <div class="bar"><i id="counter-bar" style={`width:${pourcentObjectif(compteur.signataires)}%`}></i></div>
-              <div class="goal" id="counter-goal">{pourcentObjectif(compteur.signataires)} % de l'objectif des {fmt(objectifDynamique(compteur.signataires))}</div>
+          <div class="meter">
+            <p class="count">
+              <span class="num" id="counter">{fmt(compteur.signataires)}</span>
+              <span class="cl"><strong>signataires</strong> à ce jour</span>
+            </p>
+            <div class="prog">
+              <span class="bar"><i id="counter-bar" style={`width:${pourcentObjectif(compteur.signataires)}%`}></i></span>
+              <span class="goal" id="counter-goal">{pourcentObjectif(compteur.signataires)} % de l'objectif des {fmt(objectifDynamique(compteur.signataires))}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="hero-mobile">
-      <div class="wrap">
-        <p class="slogan">Une petite signature pour vous,<br />un grand pas pour leur santé.</p>
-        <div class="ctas">
-          <a href="#signer" class="btn btn-primary">✍️ Je signe la pétition</a>
-          <a href="/appel" class="btn btn-ghost" style="color:var(--cream);border-color:rgba(250,247,240,.5)">Lire l'appel</a>
-        </div>
-      </div>
-    </div>
   </section>
 
-  <!-- POURQUOI MAINTENANT -->
-  <section class="urgency" id="manifeste">
-    <div class="wrap">
-      <div class="lead-row">
-        <div>
-          <span class="eyebrow">{urgence.eyebrow}</span>
-          <h2 set:html={urgence.titreHtml}></h2>
-        </div>
-        <div class="body">
-          {urgence.corpsHtml.map((p) => <p set:html={p}></p>)}
-          <div class="pull">{urgence.pull}</div>
-        </div>
-      </div>
-      <div class="stats">
-        {urgence.stats.map((s) => (
-          <div class={s.alt ? "stat alt" : "stat"}>
-            <span class="corner">{s.n}</span>
-            <div class="big">{s.big}<span class="u">{s.u}</span></div>
-            {s.only && <div class="only">{s.only}</div>}
-            <div class="ttl">{s.ttl}</div>
-            <div class="src">{s.src}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- MANIFESTE -->
-  <section class="voice">
-    <div class="frame">
-      <span class="quote-mark">“</span>
-      <blockquote>
-        {manifeste.paragraphesHtml.map((p) => <p set:html={p}></p>)}
-      </blockquote>
-      <div class="read-more">
-        <a href="/appel">Lire l'appel en entier <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOS DEMANDES -->
-  <section class="demands" id="demandes">
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <span class="eyebrow">{demandes.eyebrow}</span>
-          <h2 set:html={demandes.titreHtml}></h2>
-        </div>
-        <p class="intro">{demandes.intro}</p>
-      </div>
-      <div class="demand-grid">
-        {demandes.liste.map((d) => (
-          <article class={d.variante ? `demand ${d.variante}` : "demand"}>
-            <div class="n">{d.n}</div>
-            <div class="verb">{d.verbe}</div>
-            <p>{d.texte}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMENT AGIR -->
-  <section class="act" id="agir">
-    <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">{actions.eyebrow}</span>
-        <h2 set:html={actions.titreHtml}></h2>
-        <p class="sub">{actions.sous}</p>
-      </div>
-      <div class="actions">
-        {actions.cartes.map((c, i) => (
-          <article class={c.featured ? "action featured" : "action"}>
-            <div class="top">
-              <div class="step">{c.step}</div>
-              <h3>{c.titre}</h3>
-              <p set:html={c.texteHtml}></p>
-              <ul>
-                {c.points.map((pt) => <li set:html={pt}></li>)}
-              </ul>
-            </div>
-            <div class="ill" style={c.illStyle || undefined} set:html={illustrations[i]}></div>
-            <div class="foot">
-              <span class="small">{c.footSmall}</span>
-              <a href={c.cta.href} class={`btn ${c.cta.classe}`}>{c.cta.label}</a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- SIGNER -->
+  <!-- SIGNER (remonté juste sous le hero) -->
   <section class="sign" id="signer">
     <div class="wrap">
       <div class="grid">
@@ -224,6 +120,85 @@ const illustrations = [
             <p class="rgpd" id="form-message" aria-live="polite">Vos données sont collectées par Bio Consom'acteurs (responsable de traitement). Elles sont hébergées en Europe par Supabase (Frankfurt) et ne sont jamais cédées à des tiers. Vous disposez de droits d'accès, de rectification, d'opposition et d'effacement, détaillés dans notre <a href="/confidentialite" style="color:var(--muted);text-decoration:underline">politique de confidentialité</a> (contact : <a href="mailto:contact@bioconsomacteurs.org" style="color:var(--muted);text-decoration:underline">contact@bioconsomacteurs.org</a>).</p>
           </form>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI MAINTENANT -->
+  <section class="urgency" id="manifeste">
+    <div class="wrap">
+      <div class="lead-row">
+        <div>
+          <span class="eyebrow">{urgence.eyebrow}</span>
+          <h2 set:html={urgence.titreHtml}></h2>
+        </div>
+        <div class="body">
+          {urgence.corpsHtml.map((p) => <p set:html={p}></p>)}
+          <div class="pull">{urgence.pull}</div>
+        </div>
+      </div>
+      <div class="stats">
+        {urgence.stats.map((s) => (
+          <div class={s.alt ? "stat alt" : "stat"}>
+            <span class="corner">{s.n}</span>
+            <div class="big">{s.big}<span class="u">{s.u}</span></div>
+            {s.only && <div class="only">{s.only}</div>}
+            <div class="ttl">{s.ttl}</div>
+            <div class="src">{s.src}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NOS DEMANDES -->
+  <section class="demands" id="demandes">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">{demandes.eyebrow}</span>
+          <h2 set:html={demandes.titreHtml}></h2>
+        </div>
+        <p class="intro">{demandes.intro}</p>
+      </div>
+      <div class="demand-grid">
+        {demandes.liste.map((d) => (
+          <article class={d.variante ? `demand ${d.variante}` : "demand"}>
+            <div class="n">{d.n}</div>
+            <div class="verb">{d.verbe}</div>
+            <p>{d.texte}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT AGIR -->
+  <section class="act" id="agir">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">{actions.eyebrow}</span>
+        <h2 set:html={actions.titreHtml}></h2>
+        <p class="sub">{actions.sous}</p>
+      </div>
+      <div class="actions">
+        {actions.cartes.map((c, i) => (
+          <article class={c.featured ? "action featured" : "action"}>
+            <div class="top">
+              <div class="step">{c.step}</div>
+              <h3>{c.titre}</h3>
+              <p set:html={c.texteHtml}></p>
+              <ul>
+                {c.points.map((pt) => <li set:html={pt}></li>)}
+              </ul>
+            </div>
+            <div class="ill" style={c.illStyle || undefined} set:html={illustrations[i]}></div>
+            <div class="foot">
+              <span class="small">{c.footSmall}</span>
+              <a href={c.cta.href} class={`btn ${c.cta.classe}`}>{c.cta.label}</a>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>

@@ -1,15 +1,20 @@
 ---
 // Polices auto-hébergées (RGPD : pas d'appel au CDN Google) via @fontsource
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/inter/700.css";
+// Corps de texte : PT Sans (police de la charte BCA 2024)
+import "@fontsource/pt-sans/400.css";
+import "@fontsource/pt-sans/700.css";
+import "@fontsource/pt-sans/400-italic.css";
+import "@fontsource/pt-sans/700-italic.css";
+// Titres : Antonio (alternative libre à « Chantal » de la charte)
+import "@fontsource/antonio/400.css";
+import "@fontsource/antonio/600.css";
+import "@fontsource/antonio/700.css";
+// Accents éditoriaux et manuscrits (conservés)
 import "@fontsource/fraunces/400.css";
 import "@fontsource/fraunces/500.css";
 import "@fontsource/fraunces/400-italic.css";
 import "@fontsource/fraunces/500-italic.css";
 import "@fontsource/caveat-brush/400.css";
-import "@fontsource/bagel-fat-one/400.css";
 import "../styles/global.css";
 
 import { site, nav, footer } from "../data/contenu.ts";
@@ -46,11 +51,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <!-- Header (logo + nav) -->
     <header class="site">
       <div class="wrap row">
-        <a class="logo" href="/">
+        <a class="logo" href="/" aria-label="Bio Consom'acteurs — accueil">
           <img src="/images/logo-bca.jpg" alt="Bio Consom'acteurs" />
-          <div>
-            <div class="ttl">Pas de pesticides<em>pour nos enfants !</em></div>
-          </div>
         </a>
         <nav class="main">
           {nav.map((item) => (

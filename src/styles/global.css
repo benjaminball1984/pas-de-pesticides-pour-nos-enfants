@@ -1,21 +1,23 @@
 :root{
-    --green-900:#15301F;
-    --green-800:#1F3F2C;
-    --green-700:#2E5A41;
-    --green-300:#9DBE6F;
-    --green-200:#C9DCAE;
+    /* Palette charte Bio Consom'acteurs 2024 (agence PDGM) : vert profond #004D40, vert tilleul #B0C27D, jaune #FFCC45, bleu ciel #9EBFCC, orange corail #EB734D */
+    --green-900:#00352C;
+    --green-800:#004D40;
+    --green-700:#0E6B5C;
+    --green-300:#B0C27D;
+    --green-200:#CEDCAE;
     --leaf:#8FBE3D;
-    --yellow:#F2C53D;
-    --yellow-warm:#F4D26B;
-    --orange:#E76F4A;
-    --orange-dark:#C95535;
+    --yellow:#FFCC45;
+    --yellow-warm:#FFD873;
+    --orange:#EB734D;
+    --orange-dark:#CC5733;
+    --blue:#9EBFCC;
     --cream:#FAF7F0;
     --cream-2:#F2EDE0;
     --paper:#FFFDF8;
-    --ink:#15301F;
+    --ink:#0E2E27;
     --ink-2:#3B4A41;
     --muted:#6B7A70;
-    --line:rgba(21,48,31,0.12);
+    --line:rgba(0,53,44,0.12);
   }
 
 *{box-sizing:border-box}
@@ -24,7 +26,7 @@ html{scroll-behavior:smooth}
 
 body{
     margin:0;
-    font-family:'Inter',system-ui,sans-serif;
+    font-family:'PT Sans',system-ui,sans-serif;
     background:var(--cream);
     color:var(--ink);
     line-height:1.55;
@@ -47,6 +49,8 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 
 p{margin:0}
 
+header.site{background:var(--green-900)}
+
 header.site .row{
     display:flex;align-items:center;justify-content:space-between;
     gap:24px;padding:16px 0;
@@ -56,7 +60,7 @@ header.site .row{
 
 .logo img{height:52px;width:52px;display:block;border-radius:10px;object-fit:cover}
 
-.logo .ttl{font-family:'Bagel Fat One';font-size:15.5px;line-height:1.05;letter-spacing:-.01em;border-left:1.5px solid rgba(250,247,240,.22);padding-left:14px}
+.logo .ttl{font-family:'Antonio';font-size:17px;font-weight:700;line-height:1;letter-spacing:.02em;text-transform:uppercase;border-left:1.5px solid rgba(250,247,240,.3);padding-left:14px}
 
 .logo .ttl em{font-style:normal;color:var(--yellow);display:block;margin-top:3px}
 
@@ -102,7 +106,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .ticker .item + .item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:var(--green-300)}
 
-.ticker .num{font-family:'Bagel Fat One';font-size:18px;color:var(--green-800);line-height:1;letter-spacing:-.01em}
+.ticker .num{font-family:'Antonio';font-weight:700;font-size:20px;color:var(--green-800);line-height:1;letter-spacing:0}
 
 .ticker .lbl{color:var(--ink-2)}
 
@@ -116,79 +120,19 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
     isolation:isolate;
   }
 
-.hero .poster{position:relative;aspect-ratio:1280/720;min-height:480px;background:#0f2418}
+.hero .poster{position:relative;aspect-ratio:1280/720;min-height:480px;background:#00352C}
 
-.hero .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.45) contrast(1.13) brightness(.99)}
 
 .hero .poster::after{
     content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
     background:
-      linear-gradient(0deg,rgba(15,36,24,.92) 0%,rgba(15,36,24,.55) 30%,rgba(15,36,24,0) 55%),
-      linear-gradient(180deg,rgba(15,36,24,.25) 0%,rgba(15,36,24,0) 30%);
+      linear-gradient(0deg,rgba(0,53,44,.92) 0%,rgba(0,53,44,.55) 30%,rgba(0,53,44,0) 55%),
+      linear-gradient(180deg,rgba(0,53,44,.25) 0%,rgba(0,53,44,0) 30%);
   }
 
-.hero .kicker{
-    display:inline-flex;align-items:center;gap:10px;
-    background:rgba(15,36,24,.55);border:1px solid rgba(250,247,240,.22);
-    padding:8px 16px;border-radius:999px;font-size:12.5px;font-weight:600;
-    letter-spacing:.06em;text-transform:uppercase;color:var(--yellow);
-    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  }
-
-.hero .kicker .pulse{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 var(--yellow);animation:pulse 2s infinite}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(242,197,61,.6)}
-    70%{box-shadow:0 0 0 10px rgba(242,197,61,0)}
-    100%{box-shadow:0 0 0 0 rgba(242,197,61,0)}
-  }
-
-.hero .stage-bottom-right{
-    position:absolute;left:24px;right:24px;bottom:140px;z-index:3;
-    display:flex;justify-content:center;pointer-events:none;
-  }
-
-.hero .stage-bottom-right .meta-pill{
-    display:inline-flex;align-items:center;gap:10px;
-    background:rgba(15,36,24,.65);border:1px solid rgba(250,247,240,.22);
-    padding:8px 16px;border-radius:999px;font-size:12.5px;line-height:1.45;color:var(--cream);
-    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:auto;
-  }
-
-.hero .stage-bottom-right .meta-pill strong{color:var(--yellow);font-weight:700}
-
-.hero .panel .left{display:flex;flex-direction:column;gap:18px;max-width:640px}
-
-.hero .slogan{
-    font-family:'Caveat Brush';font-size:clamp(24px,2.4vw,34px);
-    color:var(--cream);opacity:.96;margin:0;line-height:1.05;
-    text-shadow:0 2px 12px rgba(15,36,24,.5);
-  }
-
-.hero .panel .ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-
-.hero .panel .ctas .btn-primary{font-size:16px;padding:15px 24px}
-
-.hero .counter{
-    display:flex;align-items:center;gap:18px;
-    padding:18px 22px;background:rgba(15,36,24,.7);
-    border:1px solid rgba(250,247,240,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    border-radius:18px;min-width:300px;color:var(--cream);
-  }
-
-.hero .counter .big{font-family:'Bagel Fat One';font-size:40px;line-height:1;color:var(--yellow)}
-
-.hero .counter .lbl{font-size:13px;line-height:1.4;opacity:.92}
-
-.hero .counter .lbl strong{color:var(--cream)}
-
-.hero .counter .bar{height:6px;border-radius:999px;background:rgba(250,247,240,.18);overflow:hidden;margin-top:6px;width:140px}
-
-.hero .counter .bar > i{display:block;height:100%;width:62%;background:var(--yellow);border-radius:999px;animation:grow 1.6s cubic-bezier(.2,.7,.2,1) forwards}
-
+/* Animation de remplissage de la jauge du compteur (hero épuré, cf. plus bas). */
 @keyframes grow{from{width:0}}
-
-.hero .counter .goal{font-size:11px;opacity:.7;margin-top:5px;letter-spacing:.04em;text-transform:uppercase}
 
 .urgency .lead-row{display:grid;grid-template-columns:1fr 1.35fr;gap:64px;align-items:start}
 
@@ -223,7 +167,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
   }
 
 .stat .big{
-    font-family:'Bagel Fat One';font-size:64px;line-height:.95;color:var(--green-800);
+    font-family:'Antonio';font-size:64px;line-height:.95;color:var(--green-800);
     letter-spacing:-.02em;display:flex;align-items:baseline;gap:4px;
   }
 
@@ -243,7 +187,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .stat.alt .src{color:rgba(250,247,240,.6)}
 
-.stat .corner{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;background:var(--cream-2);color:var(--green-800);display:grid;place-items:center;font-weight:700;font-size:13px;font-family:'Bagel Fat One'}
+.stat .corner{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;background:var(--cream-2);color:var(--green-800);display:grid;place-items:center;font-weight:700;font-size:13px;font-family:'Antonio'}
 
 .stat.alt .corner{background:rgba(250,247,240,.12);color:var(--yellow)}
 
@@ -257,7 +201,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .stat.alt .only{background:var(--yellow);color:var(--green-900)}
 
-.voice::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(143,190,61,.18),transparent 60%);pointer-events:none}
+.voice::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(176,194,125,.18),transparent 60%);pointer-events:none}
 
 .voice .frame{
     position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 32px;
@@ -292,7 +236,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .voice .read-more a:hover{transform:rotate(-2deg) translateX(4px);gap:14px}
 
-.voice .read-more a .arrow{font-family:'Inter';font-weight:600;font-size:22px}
+.voice .read-more a .arrow{font-family:'PT Sans';font-weight:600;font-size:22px}
 
 .demands .head{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:end;margin-bottom:56px}
 
@@ -310,21 +254,21 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
     display:flex;flex-direction:column;gap:14px;
   }
 
-.demand:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(21,48,31,.08)}
+.demand:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,53,44,.08)}
 
 .demand .n{
-    font-family:'Bagel Fat One';font-size:42px;color:var(--green-200);line-height:.9;letter-spacing:-.03em;
+    font-family:'Antonio';font-size:42px;color:var(--green-200);line-height:.9;letter-spacing:-.03em;
   }
 
 .demand .verb{
-    font-family:'Bagel Fat One';font-size:20px;color:var(--green-800);letter-spacing:-.01em;
+    font-family:'Antonio';font-size:20px;color:var(--green-800);letter-spacing:-.01em;
   }
 
 .demand p{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
 
 .demand.hi{background:var(--green-800);color:var(--cream)}
 
-.demand.hi .n{color:rgba(242,197,61,.35)}
+.demand.hi .n{color:rgba(255,204,69,.35)}
 
 .demand.hi .verb{color:var(--yellow)}
 
@@ -332,7 +276,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .demand.warm{background:var(--yellow-warm);border-color:transparent}
 
-.demand.warm .n{color:rgba(21,48,31,.18)}
+.demand.warm .n{color:rgba(0,53,44,.18)}
 
 .demand.warm .verb{color:var(--green-900)}
 
@@ -352,13 +296,13 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
     transition:transform .2s ease, box-shadow .2s ease;
   }
 
-.action:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(21,48,31,.10)}
+.action:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,53,44,.10)}
 
 .action .top{padding:32px 30px 0;flex:1;display:flex;flex-direction:column;gap:14px}
 
-.action .step{font-family:'Bagel Fat One';font-size:14px;letter-spacing:.06em;color:var(--orange);text-transform:uppercase}
+.action .step{font-family:'Antonio';font-size:14px;letter-spacing:.06em;color:var(--orange);text-transform:uppercase}
 
-.action h3{font-family:'Bagel Fat One';font-size:30px;color:var(--green-900);letter-spacing:-.01em;line-height:1.02}
+.action h3{font-family:'Antonio';font-size:30px;color:var(--green-900);letter-spacing:-.01em;line-height:1.02}
 
 .action p{font-size:15px;color:var(--ink-2);line-height:1.55}
 
@@ -366,7 +310,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .action ul li{display:flex;gap:10px;align-items:flex-start}
 
-.action ul li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--green-200);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F3F2C' stroke-width='3'><polyline points='5 12 10 17 19 7'/></svg>");background-size:14px;background-position:center;background-repeat:no-repeat;margin-top:2px}
+.action ul li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--green-200);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004D40' stroke-width='3'><polyline points='5 12 10 17 19 7'/></svg>");background-size:14px;background-position:center;background-repeat:no-repeat;margin-top:2px}
 
 .action .foot{padding:24px 30px 30px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);background:var(--cream)}
 
@@ -387,7 +331,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .action.featured .step{color:var(--yellow)}
 
-.action.featured ul li::before{background-color:rgba(143,190,61,.3);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F2C53D' stroke-width='3'><polyline points='5 12 10 17 19 7'/></svg>")}
+.action.featured ul li::before{background-color:rgba(176,194,125,.3);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFCC45' stroke-width='3'><polyline points='5 12 10 17 19 7'/></svg>")}
 
 .action.featured .foot{background:var(--green-900);border-color:rgba(250,247,240,.1)}
 
@@ -398,14 +342,14 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 .sign::before{
     content:"";position:absolute;inset:0;
     background:
-      radial-gradient(circle at 12% 18%,rgba(143,190,61,.18),transparent 35%),
-      radial-gradient(circle at 88% 80%,rgba(242,197,61,.14),transparent 32%);
+      radial-gradient(circle at 12% 18%,rgba(176,194,125,.18),transparent 35%),
+      radial-gradient(circle at 88% 80%,rgba(255,204,69,.14),transparent 32%);
     pointer-events:none;
   }
 
 .sign .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;position:relative;z-index:2}
 
-.sign .left h2{font-family:'Bagel Fat One';font-size:clamp(40px,5vw,72px);line-height:.98;letter-spacing:-.01em;color:var(--cream)}
+.sign .left h2{font-family:'Antonio';font-size:clamp(40px,5vw,72px);line-height:.98;letter-spacing:-.01em;color:var(--cream)}
 
 .sign .left h2 .y{color:var(--yellow)}
 
@@ -456,7 +400,7 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .signer .avatar{
     width:48px;height:48px;border-radius:50%;
-    display:grid;place-items:center;font-family:'Bagel Fat One';font-size:18px;color:var(--green-900);
+    display:grid;place-items:center;font-family:'Antonio';font-size:18px;color:var(--green-900);
     background:var(--green-200);letter-spacing:-.02em;
   }
 
@@ -464,23 +408,23 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .signer .avatar.s3{background:#F2C7B7}
 
-.signer .avatar.s4{background:#C9DCAE}
+.signer .avatar.s4{background:#CEDCAE}
 
 .signer .name{font-weight:700;font-size:15px;color:var(--ink);line-height:1.25}
 
 .signer .role{font-size:13px;color:var(--muted);line-height:1.4}
 
-.signer .tag{margin-top:auto;font-family:'Bagel Fat One';font-size:11px;color:var(--orange);letter-spacing:.06em;text-transform:uppercase;padding-top:8px}
+.signer .tag{margin-top:auto;font-family:'Antonio';font-size:11px;color:var(--orange);letter-spacing:.06em;text-transform:uppercase;padding-top:8px}
 
 .orgs{margin-top:48px;padding:36px;background:var(--paper);border-radius:24px;border:1px solid var(--line);display:flex;align-items:center;gap:36px;flex-wrap:wrap;justify-content:space-between}
 
-.orgs .ttl{font-family:'Bagel Fat One';font-size:18px;color:var(--green-800);max-width:280px;line-height:1.1;letter-spacing:-.01em}
+.orgs .ttl{font-family:'Antonio';font-size:18px;color:var(--green-800);max-width:280px;line-height:1.1;letter-spacing:-.01em}
 
 .orgs .ttl em{color:var(--orange);font-style:normal}
 
 .orgs .list{display:flex;gap:18px 28px;flex-wrap:wrap;align-items:center}
 
-.orgs .item{font-family:'Inter';font-weight:600;color:var(--ink-2);font-size:15px;letter-spacing:.01em;padding:8px 14px;background:var(--cream-2);border-radius:10px}
+.orgs .item{font-family:'PT Sans';font-weight:600;color:var(--ink-2);font-size:15px;letter-spacing:.01em;padding:8px 14px;background:var(--cream-2);border-radius:10px}
 
 .about .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center}
 
@@ -492,19 +436,19 @@ nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px
 
 .about .mini{background:var(--paper);border-radius:18px;padding:24px;border:1px solid var(--line)}
 
-.about .mini .big{font-family:'Bagel Fat One';font-size:46px;color:var(--green-800);line-height:.95}
+.about .mini .big{font-family:'Antonio';font-size:46px;color:var(--green-800);line-height:.95}
 
 .about .mini .lbl{margin-top:8px;font-size:14px;color:var(--ink-2);line-height:1.4}
 
 footer.site .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
 
-footer.site .col h4{font-family:'Bagel Fat One';font-size:14px;letter-spacing:.06em;color:var(--yellow);text-transform:uppercase;margin-bottom:18px;font-weight:400}
+footer.site .col h4{font-family:'Antonio';font-size:14px;letter-spacing:.06em;color:var(--yellow);text-transform:uppercase;margin-bottom:18px;font-weight:400}
 
 footer.site .col a{display:block;color:rgba(250,247,240,.78);text-decoration:none;font-size:14.5px;margin-bottom:10px;transition:color .15s ease}
 
 footer.site .col a:hover{color:var(--yellow)}
 
-footer.site .brand-block .display{font-family:'Bagel Fat One';font-size:22px;color:var(--cream);line-height:1.02;margin-bottom:14px}
+footer.site .brand-block .display{font-family:'Antonio';font-size:22px;color:var(--cream);line-height:1.02;margin-bottom:14px}
 
 footer.site .brand-block .display .y{color:var(--yellow)}
 
@@ -520,36 +464,25 @@ footer.site .bottom a:hover{color:var(--yellow)}
     .wrap,.wrap-narrow{padding:0 20px}
     .stats,.demand-grid,.actions,.signers,.about .stats-mini,footer.site .cols{grid-template-columns:1fr}
     .form-card .row{grid-template-columns:1fr}
-    .hero .panel{display:none}
-    .hero .stage-top .meta-pill{display:none}
-    .hero-mobile{display:block}
   }
-
-.hero-mobile{display:none;padding:24px 0 8px;text-align:center}
-
-.hero-mobile .slogan{font-family:'Caveat Brush';font-size:26px;color:var(--cream);line-height:1.05;margin:0 0 18px}
-
-.hero-mobile .ctas{display:flex;gap:10px;flex-direction:column;align-items:stretch;padding:0 20px}
-
-.hero-mobile .ctas .btn{justify-content:center}
 
 :root{
-    --green-900:#15301F;--green-800:#1F3F2C;--green-700:#2E5A41;
-    --green-300:#9DBE6F;--green-200:#C9DCAE;--leaf:#8FBE3D;
-    --yellow:#F2C53D;--yellow-warm:#F4D26B;
-    --orange:#E76F4A;--orange-dark:#C95535;
+    --green-900:#00352C;--green-800:#004D40;--green-700:#0E6B5C;
+    --green-300:#B0C27D;--green-200:#CEDCAE;--leaf:#8FBE3D;
+    --yellow:#FFCC45;--yellow-warm:#FFD873;
+    --orange:#EB734D;--orange-dark:#CC5733;--blue:#9EBFCC;
     --cream:#FAF7F0;--cream-2:#F2EDE0;--paper:#FFFDF8;
-    --ink:#15301F;--ink-2:#3B4A41;--muted:#6B7A70;
-    --line:rgba(21,48,31,0.12);
+    --ink:#0E2E27;--ink-2:#3B4A41;--muted:#6B7A70;
+    --line:rgba(0,53,44,0.12);
   }
 
-body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:'PT Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
 
 .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
 .logo img{height:48px;width:48px;display:block;border-radius:9px;object-fit:cover}
 
-.logo .ttl{font-family:'Bagel Fat One';font-size:15px;line-height:1.05;letter-spacing:-.01em;border-left:1.5px solid rgba(250,247,240,.25);padding-left:14px}
+.logo .ttl{font-family:'Antonio';font-size:15px;line-height:1.05;letter-spacing:-.01em;border-left:1.5px solid rgba(250,247,240,.25);padding-left:14px}
 
 .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .12s,box-shadow .12s;border:0;cursor:pointer;font-family:inherit}
 
@@ -561,7 +494,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--cream);c
 
 .back:hover{color:var(--yellow)}
 
-.head::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(143,190,61,.16),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(242,197,61,.10),transparent 50%);pointer-events:none}
+.head::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(176,194,125,.16),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,204,69,.10),transparent 50%);pointer-events:none}
 
 .head .wrap-narrow{position:relative;z-index:2;text-align:center}
 
@@ -569,19 +502,19 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--cream);c
 
 .head .eyebrow::before{content:"";width:28px;height:2px;background:var(--yellow)}
 
-.head h1{font-family:'Bagel Fat One';font-weight:400;font-size:clamp(48px,7vw,96px);line-height:.98;letter-spacing:-.01em;margin:0;color:var(--cream)}
+.head h1{font-family:'Antonio';font-weight:400;font-size:clamp(48px,7vw,96px);line-height:.98;letter-spacing:-.01em;margin:0;color:var(--cream)}
 
 .head h1 .y{color:var(--yellow);display:block;margin-top:.15em}
 
 .head .hand{font-family:'Caveat Brush';font-size:clamp(22px,2.4vw,30px);color:rgba(250,247,240,.92);margin-top:28px}
 
-.head .addressed{margin-top:36px;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;background:rgba(15,36,24,.55);border:1px solid rgba(250,247,240,.22);font-size:13.5px;color:var(--cream);max-width:680px}
+.head .addressed{margin-top:36px;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;background:rgba(0,53,44,.55);border:1px solid rgba(250,247,240,.22);font-size:13.5px;color:var(--cream);max-width:680px}
 
 .head .addressed strong{color:var(--yellow);font-weight:600}
 
 main.text .wrap-narrow{font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.65;color:var(--ink-2)}
 
-main.text h2{font-family:'Bagel Fat One';font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.05;letter-spacing:-.01em;color:var(--green-900);margin:64px 0 18px;text-wrap:balance}
+main.text h2{font-family:'Antonio';font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.05;letter-spacing:-.01em;color:var(--green-900);margin:64px 0 18px;text-wrap:balance}
 
 main.text h2:first-of-type{margin-top:0}
 
@@ -589,19 +522,19 @@ main.text p{margin:0 0 18px}
 
 main.text p.lede{font-size:22px;line-height:1.5;color:var(--green-900);font-weight:500}
 
-main.text .stab{font-family:'Bagel Fat One';font-size:clamp(28px,3.4vw,42px);color:var(--orange);margin:14px 0 36px;line-height:1;letter-spacing:-.01em}
+main.text .stab{font-family:'Antonio';font-size:clamp(28px,3.4vw,42px);color:var(--orange);margin:14px 0 36px;line-height:1;letter-spacing:-.01em}
 
 main.text strong{color:var(--ink);font-weight:600}
 
-.demands-list li{counter-increment:demand;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 28px 24px 84px;position:relative;font-family:'Inter',sans-serif;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.demands-list li{counter-increment:demand;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 28px 24px 84px;position:relative;font-family:'PT Sans',sans-serif;font-size:16px;line-height:1.55;color:var(--ink-2)}
 
-.demands-list li::before{content:counter(demand,decimal-leading-zero);position:absolute;left:24px;top:22px;font-family:'Bagel Fat One';font-size:32px;line-height:1;color:var(--green-300);letter-spacing:-.03em}
+.demands-list li::before{content:counter(demand,decimal-leading-zero);position:absolute;left:24px;top:22px;font-family:'Antonio';font-size:32px;line-height:1;color:var(--green-300);letter-spacing:-.03em}
 
-.determination::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(143,190,61,.16),transparent 60%);pointer-events:none}
+.determination::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(176,194,125,.16),transparent 60%);pointer-events:none}
 
 .determination .wrap-narrow{position:relative;z-index:2}
 
-.determination h2{font-family:'Bagel Fat One';font-weight:400;font-size:clamp(32px,3.6vw,46px);color:var(--yellow);margin:0 0 28px;line-height:1.02}
+.determination h2{font-family:'Antonio';font-weight:400;font-size:clamp(32px,3.6vw,46px);color:var(--yellow);margin:0 0 28px;line-height:1.02}
 
 .determination p{font-family:'Fraunces',Georgia,serif;font-size:20px;line-height:1.55;margin:0 0 18px;color:rgba(250,247,240,.92)}
 
@@ -609,7 +542,7 @@ main.text strong{color:var(--ink);font-weight:600}
 
 .determination p.last{font-family:'Caveat Brush';font-size:26px;color:var(--yellow);margin-top:32px}
 
-.cta-band h3{font-family:'Bagel Fat One';font-weight:400;font-size:clamp(28px,3.4vw,42px);color:var(--green-900);margin:0 0 8px;line-height:1.05}
+.cta-band h3{font-family:'Antonio';font-weight:400;font-size:clamp(28px,3.4vw,42px);color:var(--green-900);margin:0 0 8px;line-height:1.05}
 
 .cta-band p{margin:0 0 24px;font-size:17px;color:var(--green-900)}
 
@@ -619,7 +552,7 @@ main.text strong{color:var(--ink);font-weight:600}
 
 .refs .wrap-narrow{font-size:13px;line-height:1.7;color:var(--muted);font-style:italic}
 
-.refs h4{font-family:'Inter';font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-800);margin:0 0 12px;font-weight:700}
+.refs h4{font-family:'PT Sans';font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-800);margin:0 0 12px;font-weight:700}
 
 footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
 
@@ -635,9 +568,9 @@ footer.site a{color:var(--yellow);text-decoration:none}
 
 header.site .row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0;flex-wrap:wrap}
 
-.logo .ttl{font-family:'Bagel Fat One';font-size:15px;line-height:1.05;letter-spacing:-.01em;border-left:1.5px solid rgba(250,247,240,.22);padding-left:14px}
+.logo .ttl{font-family:'Antonio';font-size:15px;line-height:1.05;letter-spacing:-.01em;border-left:1.5px solid rgba(250,247,240,.22);padding-left:14px}
 
-.page-head::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(143,190,61,.16),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(242,197,61,.10),transparent 50%);pointer-events:none}
+.page-head::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(176,194,125,.16),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,204,69,.10),transparent 50%);pointer-events:none}
 
 .page-head .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:end}
 
@@ -645,7 +578,7 @@ header.site .row{display:flex;align-items:center;justify-content:space-between;g
 
 .page-head .eyebrow::before{content:"";width:28px;height:2px;background:var(--yellow);display:inline-block}
 
-.page-head h1{font-family:'Bagel Fat One';font-weight:400;font-size:clamp(42px,5.5vw,76px);line-height:.98;letter-spacing:-.01em;margin:0;color:var(--cream);text-wrap:balance}
+.page-head h1{font-family:'Antonio';font-weight:400;font-size:clamp(42px,5.5vw,76px);line-height:.98;letter-spacing:-.01em;margin:0;color:var(--cream);text-wrap:balance}
 
 .page-head h1 .y{color:var(--yellow)}
 
@@ -653,9 +586,9 @@ header.site .row{display:flex;align-items:center;justify-content:space-between;g
 
 .page-head .stats{display:flex;flex-direction:column;gap:14px}
 
-.page-head .stat-mini{display:flex;align-items:baseline;gap:12px;padding:14px 18px;background:rgba(15,36,24,.55);border:1px solid rgba(250,247,240,.18);border-radius:14px;backdrop-filter:blur(8px)}
+.page-head .stat-mini{display:flex;align-items:baseline;gap:12px;padding:14px 18px;background:rgba(0,53,44,.55);border:1px solid rgba(250,247,240,.18);border-radius:14px;backdrop-filter:blur(8px)}
 
-.page-head .stat-mini .num{font-family:'Bagel Fat One';font-size:32px;line-height:1;color:var(--yellow)}
+.page-head .stat-mini .num{font-family:'Antonio';font-size:32px;line-height:1;color:var(--yellow)}
 
 .page-head .stat-mini .lbl{font-size:13.5px;color:rgba(250,247,240,.85)}
 
@@ -667,7 +600,7 @@ header.site .row{display:flex;align-items:center;justify-content:space-between;g
 
 .steps .step.active{color:var(--green-900);font-weight:600}
 
-.steps .step .num{width:28px;height:28px;border-radius:50%;background:var(--green-200);color:var(--green-900);display:grid;place-items:center;font-family:'Bagel Fat One';font-size:14px}
+.steps .step .num{width:28px;height:28px;border-radius:50%;background:var(--green-200);color:var(--green-900);display:grid;place-items:center;font-family:'Antonio';font-size:14px}
 
 .steps .step.active .num{background:var(--yellow);color:var(--green-900)}
 
@@ -687,7 +620,7 @@ section .eyebrow{display:inline-flex;align-items:center;gap:10px;text-transform:
 
 section .eyebrow::before{content:"";width:28px;height:2px;background:var(--orange);display:inline-block}
 
-.card h3{font-family:'Bagel Fat One';font-weight:400;font-size:22px;color:var(--green-900);margin:0 0 18px;letter-spacing:-.01em}
+.card h3{font-family:'Antonio';font-weight:400;font-size:22px;color:var(--green-900);margin:0 0 18px;letter-spacing:-.01em}
 
 .label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
 
@@ -719,25 +652,25 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .format:hover{border-color:var(--green-300)}
 
-.format.selected{border-color:var(--green-800);background:#fff;box-shadow:0 8px 22px rgba(21,48,31,.08)}
+.format.selected{border-color:var(--green-800);background:#fff;box-shadow:0 8px 22px rgba(0,53,44,.08)}
 
 .format.selected::after{content:"✓";position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;background:var(--green-800);color:var(--yellow);display:grid;place-items:center;font-weight:700}
 
 .format .visual{height:140px;border-radius:12px;background:var(--cream-2);display:grid;place-items:center;margin-bottom:16px;position:relative;overflow:hidden}
 
-.format .sheet{background:var(--green-800);color:var(--cream);box-shadow:0 8px 22px rgba(21,48,31,.18);display:flex;flex-direction:column;justify-content:space-between;padding:10px;text-align:center;font-family:'Bagel Fat One';line-height:1;letter-spacing:-.01em}
+.format .sheet{background:var(--green-800);color:var(--cream);box-shadow:0 8px 22px rgba(0,53,44,.18);display:flex;flex-direction:column;justify-content:space-between;padding:10px;text-align:center;font-family:'Antonio';line-height:1;letter-spacing:-.01em}
 
 .format .sheet .t{font-size:11px}
 
 .format .sheet .t .y{color:var(--yellow);display:block;margin-top:2px}
 
-.format .sheet .bca{font-family:'Inter';font-size:7px;font-weight:700;color:var(--yellow);letter-spacing:.08em}
+.format .sheet .bca{font-family:'PT Sans';font-size:7px;font-weight:700;color:var(--yellow);letter-spacing:.08em}
 
 .format.a5 .sheet{width:60px;height:84px}
 
 .format.a3 .sheet{width:90px;height:126px}
 
-.format h4{font-family:'Bagel Fat One';font-size:20px;color:var(--green-900);margin:0 0 4px;letter-spacing:-.01em;font-weight:400}
+.format h4{font-family:'Antonio';font-size:20px;color:var(--green-900);margin:0 0 4px;letter-spacing:-.01em;font-weight:400}
 
 .format .size{color:var(--muted);font-size:13px;margin-bottom:10px}
 
@@ -753,17 +686,17 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .qty button:hover{background:var(--green-200)}
 
-.qty input{width:64px;height:34px;text-align:center;border:1.5px solid var(--line);border-radius:10px;font-family:'Bagel Fat One';font-size:18px;color:var(--green-800);background:var(--cream)}
+.qty input{width:64px;height:34px;text-align:center;border:1.5px solid var(--line);border-radius:10px;font-family:'Antonio';font-size:18px;color:var(--green-800);background:var(--cream)}
 
-.recap h3{font-family:'Bagel Fat One';font-size:20px;color:var(--yellow);margin:0;letter-spacing:-.01em;font-weight:400}
+.recap h3{font-family:'Antonio';font-size:20px;color:var(--yellow);margin:0;letter-spacing:-.01em;font-weight:400}
 
 .recap .line{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;color:rgba(250,247,240,.9);padding:8px 0;border-bottom:1px dashed rgba(250,247,240,.18)}
 
-.recap .line .val{font-family:'Bagel Fat One';color:var(--cream);font-size:16px}
+.recap .line .val{font-family:'Antonio';color:var(--cream);font-size:16px}
 
 .recap .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;font-size:15px;color:var(--cream)}
 
-.recap .total .val{font-family:'Bagel Fat One';font-size:30px;color:var(--yellow)}
+.recap .total .val{font-family:'Antonio';font-size:30px;color:var(--yellow)}
 
 .recap .small{font-size:12px;color:rgba(250,247,240,.6);line-height:1.5;margin-top:6px}
 
@@ -780,7 +713,7 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
     padding:16px 22px;border-bottom:1px solid var(--line);background:var(--paper);gap:14px;flex-wrap:wrap;
   }
 
-.map-wrap .map-head h3{font-family:'Bagel Fat One';font-size:18px;color:var(--green-900);margin:0;letter-spacing:-.01em;font-weight:400;display:flex;align-items:center;gap:10px}
+.map-wrap .map-head h3{font-family:'Antonio';font-size:18px;color:var(--green-900);margin:0;letter-spacing:-.01em;font-weight:400;display:flex;align-items:center;gap:10px}
 
 .map-wrap .map-head h3::before{content:"📍"}
 
@@ -810,11 +743,11 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .event .when{text-align:center;background:var(--green-800);color:var(--cream);border-radius:12px;padding:8px 14px;min-width:64px}
 
-.event .when .d{font-family:'Bagel Fat One';font-size:22px;line-height:1;color:var(--yellow);font-weight:400}
+.event .when .d{font-family:'Antonio';font-size:22px;line-height:1;color:var(--yellow);font-weight:400}
 
 .event .when .m{font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;opacity:.85}
 
-.event .what h4{font-family:'Inter';font-size:15.5px;font-weight:700;margin:0 0 3px;color:var(--ink)}
+.event .what h4{font-family:'PT Sans';font-size:15.5px;font-weight:700;margin:0 0 3px;color:var(--ink)}
 
 .event .what .where{font-size:13.5px;color:var(--muted)}
 
@@ -830,13 +763,13 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .elu-type:hover{border-color:var(--green-300);transform:translateY(-2px)}
 
-.elu-type.selected{border-color:var(--green-800);background:#fff;box-shadow:0 8px 22px rgba(21,48,31,.08)}
+.elu-type.selected{border-color:var(--green-800);background:#fff;box-shadow:0 8px 22px rgba(0,53,44,.08)}
 
 .elu-type .ic{width:48px;height:48px;border-radius:14px;margin:0 auto 12px;display:grid;place-items:center;font-size:24px;background:var(--green-200);color:var(--green-900)}
 
 .elu-type.selected .ic{background:var(--yellow)}
 
-.elu-type h4{font-family:'Inter';font-size:15px;font-weight:700;color:var(--green-900);margin:0 0 4px}
+.elu-type h4{font-family:'PT Sans';font-size:15px;font-weight:700;color:var(--green-900);margin:0 0 4px}
 
 .elu-type .scope{font-size:12px;color:var(--muted);line-height:1.4}
 
@@ -848,21 +781,21 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .letter .head .to{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.5}
 
-.letter h5{font-family:'Inter';font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green-800);margin:0 0 12px}
+.letter h5{font-family:'PT Sans';font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green-800);margin:0 0 12px}
 
-.letter .subject{font-family:'Inter';font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:20px}
+.letter .subject{font-family:'PT Sans';font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:20px}
 
 .letter .subject .ed{color:var(--orange)}
 
 .letter p{margin:0 0 14px}
 
-.letter .ed{background:rgba(242,197,61,.35);padding:1px 4px;border-radius:4px;color:var(--green-900);font-weight:500}
+.letter .ed{background:rgba(255,204,69,.35);padding:1px 4px;border-radius:4px;color:var(--green-900);font-weight:500}
 
 .letter .sign{margin-top:24px;font-family:'Caveat Brush';font-size:24px;color:var(--green-800);transform:rotate(-1deg);display:inline-block}
 
 .arg{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
 
-.arg .big{font-family:'Bagel Fat One';font-size:32px;line-height:.95;color:var(--green-800);letter-spacing:-.02em;font-weight:400}
+.arg .big{font-family:'Antonio';font-size:32px;line-height:.95;color:var(--green-800);letter-spacing:-.02em;font-weight:400}
 
 .arg .big .u{font-size:18px;color:var(--orange);margin-left:2px}
 
@@ -872,9 +805,9 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .tl-step{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;position:relative}
 
-.tl-step .n{font-family:'Bagel Fat One';font-size:36px;line-height:.95;color:var(--green-300);letter-spacing:-.03em;font-weight:400;margin-bottom:10px}
+.tl-step .n{font-family:'Antonio';font-size:36px;line-height:.95;color:var(--green-300);letter-spacing:-.03em;font-weight:400;margin-bottom:10px}
 
-.tl-step h4{font-family:'Bagel Fat One';font-size:18px;color:var(--green-900);margin:0 0 8px;letter-spacing:-.01em;font-weight:400}
+.tl-step h4{font-family:'Antonio';font-size:18px;color:var(--green-900);margin:0 0 8px;letter-spacing:-.01em;font-weight:400}
 
 .tl-step p{font-size:14px;color:var(--ink-2);line-height:1.5;margin:0}
 
@@ -886,7 +819,7 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .tab{
     background:var(--paper);border:2px solid var(--line);border-radius:999px;
-    padding:10px 18px;font:600 14px 'Inter',sans-serif;color:var(--ink-2);
+    padding:10px 18px;font:600 14px 'PT Sans',sans-serif;color:var(--ink-2);
     cursor:pointer;transition:all .15s;
   }
 
@@ -897,7 +830,7 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 .model{
     display:none;
     background:var(--paper);border:1px solid var(--line);border-radius:22px;
-    padding:0;box-shadow:0 12px 30px rgba(21,48,31,.06);overflow:hidden;
+    padding:0;box-shadow:0 12px 30px rgba(0,53,44,.06);overflow:hidden;
   }
 
 .model.active{display:block}
@@ -908,14 +841,14 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
     flex-wrap:wrap;
   }
 
-.model .bar .badge{font:600 12px 'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--green-800)}
+.model .bar .badge{font:600 12px 'PT Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--green-800)}
 
 .model .bar .actions{display:flex;gap:8px;flex-wrap:wrap}
 
 .btn-mini{
     display:inline-flex;align-items:center;gap:6px;
     padding:8px 14px;border-radius:999px;border:1.5px solid var(--green-800);
-    background:transparent;color:var(--green-800);font:600 13px 'Inter',sans-serif;
+    background:transparent;color:var(--green-800);font:600 13px 'PT Sans',sans-serif;
     cursor:pointer;text-decoration:none;transition:all .12s;
   }
 
@@ -928,7 +861,7 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 .model .body .meta{
     display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
     padding-bottom:18px;margin-bottom:22px;border-bottom:1px dashed var(--line);
-    font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);line-height:1.55;
+    font-family:'PT Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.55;
   }
 
 .model .body .meta strong{color:var(--ink);font-weight:600}
@@ -936,7 +869,7 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 .model .body .meta .to{text-align:right}
 
 .model .body .subj{
-    font-family:'Inter',sans-serif;font-size:14.5px;font-weight:700;color:var(--ink);
+    font-family:'PT Sans',sans-serif;font-size:14.5px;font-weight:700;color:var(--ink);
     margin-bottom:22px;
   }
 
@@ -946,7 +879,7 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .model .body .demandes-list li{margin-bottom:6px}
 
-.model .body .var{background:rgba(242,197,61,.4);padding:1px 5px;border-radius:4px;font-style:italic;color:var(--green-900)}
+.model .body .var{background:rgba(255,204,69,.4);padding:1px 5px;border-radius:4px;font-style:italic;color:var(--green-900)}
 
 .model .body .sig{
     margin-top:30px;padding-top:22px;border-top:1px dashed var(--line);
@@ -955,12 +888,12 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 
 .model .body .sig .hand-name{font-family:'Caveat Brush';font-size:28px;color:var(--green-800);transform:rotate(-1deg);display:inline-block;line-height:1}
 
-.model .body .sig .col-name{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.5}
+.model .body .sig .col-name{font-family:'PT Sans',sans-serif;font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.5}
 
 .model .body .sig .col-name strong{color:var(--green-900);display:block;font-size:14.5px;font-weight:700}
 
 .model .body .sig .stamp{
-    font-family:'Bagel Fat One';font-size:13px;line-height:1.1;letter-spacing:-.01em;
+    font-family:'Antonio';font-size:13px;line-height:1.1;letter-spacing:-.01em;
     color:var(--orange);border:2px solid var(--orange);border-radius:10px;
     padding:10px 14px;transform:rotate(-3deg);text-align:center;max-width:200px;
   }
@@ -986,3 +919,78 @@ textarea.field{min-height:140px;resize:vertical;line-height:1.5}
 .legal a:hover{color:var(--orange)}
 .legal .box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:20px 0 0}
 .legal em{color:var(--muted)}
+
+/* ───────── Charte 2024 : rythme vertical, fonds, responsive (ajouts 17/06) ───────── */
+
+/* Espacement vertical cohérent des sections d'accueil (absent jusqu'ici → rythme bancal) */
+.hero{padding:clamp(16px,2vw,28px) 0 clamp(36px,5vw,60px)}
+.ticker{padding:16px 0}
+.urgency,.demands,.act,.about{padding:clamp(48px,7vw,84px) 0}
+
+/* Bloc signature : fond foncé rétabli (son texte crème/jaune était invisible sur fond clair) */
+.sign{background:var(--green-900);padding:clamp(48px,7vw,84px) 0}
+
+/* Footer : fond foncé manquant (texte crème invisible sur le crème de la page) */
+footer.site{background:var(--green-900);color:var(--cream);padding:clamp(44px,5vw,60px) 0 28px}
+
+/* Titres condensés (Antonio) : éviter le chevauchement des lignes */
+.sign .left h2,.head h1,.page-head h1,main.text h2,.determination h2,.cta-band h3,.action h3,.card h3,.format h4{line-height:1.06}
+
+/* Responsive tablette et paysage étroit : les grilles 2 colonnes repassent en 1 */
+@media(max-width:1000px){
+  .urgency .lead-row,
+  .demands .head,
+  .sign .grid,
+  .about .grid{grid-template-columns:1fr;gap:36px}
+}
+
+/* ───────── Hero : affiche entière + barre d'action en dessous ───────── */
+.hero .stage{border-radius:24px}
+.hero .poster{min-height:0}
+/* L'affiche est montrée EN ENTIER (la mention « une petite signature… » et le logo BIO
+   en bas restent visibles) : plus aucun voile sombre par-dessus. */
+.hero .poster::after{display:none}
+
+/* Barre d'action dans la même carte, SOUS l'affiche : CTA à gauche, compteur à droite. */
+.hero .overlay{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  gap:16px 28px;
+  padding:clamp(16px,2.2vw,22px) clamp(18px,3vw,30px);
+  background:var(--green-900);
+}
+.hero .overlay .ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .overlay .ctas .btn{font-size:15.5px}
+
+/* « Lire l'appel » : contour crème franc sur le foncé */
+.hero .btn-appel{background:rgba(250,247,240,.12);color:var(--cream);border:1.6px solid rgba(250,247,240,.85)}
+.hero .btn-appel:hover{background:var(--cream);color:var(--green-900);border-color:var(--cream);transform:translateY(-1px)}
+
+/* Compteur compact à droite */
+.hero .meter{display:flex;flex-direction:column;align-items:flex-end;gap:6px;color:#fff;text-align:right}
+.hero .meter .count{display:flex;align-items:baseline;gap:8px;margin:0}
+.hero .meter .num{font-family:'PT Sans',sans-serif;font-weight:700;font-size:clamp(24px,2.6vw,30px);line-height:1;color:var(--yellow)}
+.hero .meter .cl{font-size:13.5px;color:rgba(255,255,255,.92)}
+.hero .meter .cl strong{color:#fff;font-weight:700}
+.hero .meter .prog{display:flex;align-items:center;gap:10px;justify-content:flex-end}
+.hero .meter .bar{width:clamp(120px,16vw,190px);height:6px;border-radius:999px;background:rgba(255,255,255,.25);overflow:hidden}
+.hero .meter .bar>i{display:block;height:100%;background:var(--yellow);border-radius:999px;animation:grow 1.6s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .meter .goal{font-size:11.5px;color:rgba(255,255,255,.72);letter-spacing:.02em;white-space:nowrap}
+
+/* Tablette : compteur sous les boutons, aligné à gauche */
+@media(max-width:760px){
+  .hero .overlay{justify-content:flex-start;gap:14px}
+  .hero .meter{align-items:flex-start;text-align:left}
+  .hero .meter .prog{justify-content:flex-start}
+}
+/* Mobile : boutons pleine largeur */
+@media(max-width:520px){
+  .hero .overlay{flex-direction:column;align-items:stretch}
+  .hero .overlay .ctas{flex-direction:column;width:100%}
+  .hero .overlay .ctas .btn{justify-content:center;width:100%}
+  .hero .meter{width:100%}
+  .hero .meter .prog{width:100%}
+  .hero .meter .bar{flex:1 1 auto;width:auto;min-width:60px}
+}
+
+/* Numéros/titres Antonio : graisse renforcée (le 400 condensé rendait trop fin) */
+.ticker .num,.stat .big,.about .mini .big,.demand .n,.demand .verb,.action h3,.action .step,.tl-step .n,.arg .big{font-weight:700}
