@@ -1,0 +1,19 @@
+# build output
+dist/
+# generated types
+.astro/
+# dependencies
+node_modules/
+# logs
+npm-debug.log*
+# environment variables / secrets — JAMAIS commités
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+# macOS / editors
+.DS_Store
+
+# cache local Wrangler/Miniflare
+.wrangler/

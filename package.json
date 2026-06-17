@@ -1,0 +1,22 @@
+{
+  "name": "pas-de-pesticides-pour-nos-enfants",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site de la campagne « Pas de pesticides pour nos enfants » — Bio Consom'acteurs",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.7.0",
+    "@fontsource/bagel-fat-one": "^5.2.7",
+    "@fontsource/caveat-brush": "^5.2.8",
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/inter": "^5.2.8",
+    "@supabase/supabase-js": "^2.108.2",
+    "astro": "^6.4.7"
+  }
+}

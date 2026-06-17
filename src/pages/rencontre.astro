@@ -1,0 +1,436 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base titre="Organiser une rencontre — Pas de pesticides pour nos enfants" navActive="">
+  <section class="page-head">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Action 3 · Mobilisation</span>
+        <h1>Organiser<br />
+<span class="y">une rencontre élu·e</span>
+</h1>
+        <p class="lede">La pétition s'adresse aux élu·es à toutes les échelles. À vous, citoyen·nes, de leur demander concrètement de prendre position. On vous fournit le modèle de courrier, l'argumentaire chiffré, et un accompagnement BCA pour préparer le rendez-vous.</p>
+      </div>
+      <div class="stats">
+        <div class="stat-mini">
+<div class="num">12</div>
+<div class="lbl">rencontres déjà obtenues</div>
+</div>
+        <div class="stat-mini">
+<div class="num">487</div>
+<div class="lbl">communes mobilisées en France</div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cream">
+    <div class="wrap">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2>Quatre étapes, deux semaines en moyenne pour décrocher un rendez-vous.</h2>
+
+      <div class="timeline">
+        <article class="tl-step">
+          <div class="n">01</div>
+          <h4>Choisir son élu·e</h4>
+          <p>Maire, conseiller·e départemental·e, député·e ou conseiller·e régional·e — selon le périmètre que vous voulez faire bouger.</p>
+        </article>
+        <article class="tl-step">
+          <div class="n">02</div>
+          <h4>Adapter le modèle</h4>
+          <p>Personnaliser le courrier pré-rédigé avec votre nom, votre commune, et 2-3 phrases sur votre attache locale (parent d'élève, riverain·e d'une école…).</p>
+        </article>
+        <article class="tl-step">
+          <div class="n">03</div>
+          <h4>Envoyer + relancer</h4>
+          <p>Le courrier part par email + courrier postal recommandé. BCA vous fournit le bon timing pour la relance si pas de réponse sous 10 jours.</p>
+        </article>
+        <article class="tl-step">
+          <div class="n">04</div>
+          <h4>Préparer le RDV</h4>
+          <p>Argumentaire chiffré, fiches sources INSERM / PestiRiv / EGalim, et appui d'un·e bénévole BCA si vous le souhaitez.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper" id="formulaire">
+    <div class="wrap">
+      <span class="eyebrow">Solliciter un·e élu·e</span>
+      <h2>Quel·le élu·e voulez-vous solliciter&nbsp;?</h2>
+      <p style="font-family:'Inter';color:var(--ink-2);max-width:720px;margin:6px 0 22px;font-size:15.5px">Choisissez le périmètre d'action ci-dessous : le modèle de courrier ci-dessous se met à jour automatiquement. Remplacez ensuite les variables en jaune par les informations de votre collectif local et de votre élu·e.</p>
+
+      <!-- Elu type picker -->
+      <div class="elus">
+        <label class="elu-type selected" onclick="selectElu(this,'maire')">
+          <div class="ic">🏛️</div>
+          <h4>Maire de votre commune</h4>
+          <div class="scope">Responsable des cantines des écoles maternelles et élémentaires.</div>
+        </label>
+        <label class="elu-type" onclick="selectElu(this,'depart')">
+          <div class="ic">🏫</div>
+          <h4>Conseil départemental</h4>
+          <div class="scope">Responsable des cantines des collèges.</div>
+        </label>
+        <label class="elu-type" onclick="selectElu(this,'region')">
+          <div class="ic">🎓</div>
+          <h4>Conseil régional</h4>
+          <div class="scope">Responsable des cantines des lycées.</div>
+        </label>
+        <label class="elu-type" onclick="selectElu(this,'depute')">
+          <div class="ic">🗳️</div>
+          <h4>Député·e de votre circonscription</h4>
+          <div class="scope">Vote la loi (EGalim, sanctions, gratuité).</div>
+        </label>
+      </div>
+
+      <!-- Models: one shown at a time depending on elu type -->
+      <div class="models-wrap">
+
+        <!-- MODEL: MAIRE -->
+        <article class="model active" data-model="maire">
+          <div class="bar">
+            <span class="badge">📄 Modèle · Maire de la commune</span>
+            <div class="actions">
+              <button type="button" class="btn-mini" onclick="copyModel(this)">📋 Copier le texte</button>            </div>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <div>
+                <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                Commune de <span class="var">[VOTRE COMMUNE]</span>
+<br />
+                <span class="var">[adresse de contact]</span>
+<br />
+                <span class="var">[email du collectif]</span>
+              </div>
+              <div class="to">
+                <strong>
+<span class="var">[Madame / Monsieur] la / le Maire</span>
+</strong>
+                Mairie de <span class="var">[VOTRE COMMUNE]</span>
+<br />
+                <span class="var">[adresse de la mairie]</span>
+<br />
+                <em>Fait à <span class="var">[VOTRE COMMUNE]</span>, le <span class="var">[date]</span>
+</em>
+              </div>
+            </div>
+
+            <div class="subj">Objet&nbsp;: Pétition citoyenne « Pas de pesticides pour nos enfants » — demande de rencontre</div>
+
+            <p>
+<span class="var">[Madame / Monsieur] la / le Maire</span>,</p>
+
+            <p>Nous, parents, habitant·es et citoyen·nes de la commune de <span class="var">[VOTRE COMMUNE]</span>, réuni·es au sein du collectif local <strong>Pas de pesticides pour nos enfants</strong>, sollicitons une rencontre avec vous parce que la santé de nos enfants ne peut plus attendre, et que la cantine scolaire est le premier levier dont vous disposez pour la protéger.</p>
+
+            <p>Nous portons une pétition citoyenne lancée par l'association <strong>Bio Consom'acteurs</strong>, signée à ce jour par plus de <strong class="sig-count">12 487</strong> personnes. Elle s'appuie sur des constats désormais établis&nbsp;: l'expertise collective de l'<strong>INSERM (2021)</strong> confirme une présomption forte de lien entre l'exposition aux pesticides chez l'enfant et la survenue de cancers pédiatriques ; l'étude <strong>PestiRiv</strong> (Santé publique France / ANSES, septembre 2025) documente une exposition chronique. Sept ans après son entrée en vigueur, <strong>seules 18 %</strong> des communes respectent les seuils de la loi EGalim (AMF, 2024).</p>
+
+            <p>Cette pétition formule huit demandes concrètes, immédiates et chiffrées, aux élu·es à toutes les échelles&nbsp;:</p>
+            <ol class="demandes-list">
+              <li>Respecter immédiatement la loi EGalim&nbsp;: 50 % de produits durables dont 20 % de bio dans toutes les cantines, et trajectoire vers 100 % bio.</li>
+              <li>Revenir à une cuisine faite sur place, par des cuisinier·es formé·es et dignement rémunéré·es.</li>
+              <li>Privilégier l'achat direct, local et de saison auprès des paysannes et paysans bio du territoire.</li>
+              <li>Proposer une alternative végétarienne chaque jour et réduire la part des produits carnés.</li>
+              <li>Réduire les déchets, bannir les contenants plastiques de cuisson, de réchauffe et de service.</li>
+              <li>Garantir progressivement la gratuité de la cantine, en commençant par les familles les plus modestes.</li>
+              <li>Interdire les pesticides de synthèse dans tous les espaces publics, en particulier autour des crèches et des écoles.</li>
+              <li>Renforcer EGalim avec des sanctions effectives, et donner aux collectivités les moyens nécessaires à son application.</li>
+            </ol>
+
+            <p>En tant que Maire, vous avez la responsabilité directe des cantines des <strong>écoles maternelles et élémentaires</strong> de notre commune, ainsi que de l'usage des pesticides sur les espaces publics autour de ces écoles. C'est donc à vous, en premier lieu, que nous adressons cette demande&nbsp;: <strong>engager publiquement la commune de <span class="var">[VOTRE COMMUNE]</span> sur ces huit mesures</strong>, dans le périmètre de vos compétences.</p>
+
+            <p>Nous sollicitons à cet effet une rencontre avec vous, à votre convenance, dans les semaines qui viennent. Une délégation de notre collectif sera heureuse de vous présenter en détail nos demandes, les chiffres qui les fondent, et les pistes d'action concrètes déjà mises en œuvre par d'autres communes françaises.</p>
+
+            <p>Dans l'attente de votre réponse, nous vous prions d'agréer, <span class="var">[Madame / Monsieur] la / le Maire</span>, l'expression de notre considération distinguée.</p>
+
+            <div class="sig">
+              <div>
+                <div class="hand-name">Le collectif</div>
+                <div class="col-name">
+                  <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                  Commune de <span class="var">[VOTRE COMMUNE]</span>
+                </div>
+              </div>
+              <div class="stamp">Pas de pesticides<em>pour nos enfants</em>
+</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODEL: DEPARTEMENT -->
+        <article class="model" data-model="depart">
+          <div class="bar">
+            <span class="badge">📄 Modèle · Conseil départemental</span>
+            <div class="actions">
+              <button type="button" class="btn-mini" onclick="copyModel(this)">📋 Copier le texte</button>            </div>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <div>
+                <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                Commune de <span class="var">[VOTRE COMMUNE]</span>
+<br />
+                <span class="var">[adresse de contact]</span>
+<br />
+                <span class="var">[email du collectif]</span>
+              </div>
+              <div class="to">
+                <strong>
+<span class="var">[Madame / Monsieur] la / le Président·e</span>
+</strong>
+                Conseil départemental <span class="var">[de XXX]</span>
+<br />
+                <span class="var">[adresse du conseil]</span>
+<br />
+                <em>Fait à <span class="var">[VOTRE COMMUNE]</span>, le <span class="var">[date]</span>
+</em>
+              </div>
+            </div>
+
+            <div class="subj">Objet&nbsp;: Pétition citoyenne « Pas de pesticides pour nos enfants » — demande de rencontre pour les collèges du département</div>
+
+            <p>
+<span class="var">[Madame / Monsieur] la / le Président·e</span>,</p>
+
+            <p>Nous, parents et citoyen·nes du département <span class="var">[de XXX]</span>, réuni·es au sein du collectif local <strong>Pas de pesticides pour nos enfants</strong> dans la commune de <span class="var">[VOTRE COMMUNE]</span>, sollicitons une rencontre avec vous parce que la restauration scolaire dans les <strong>collèges</strong> est une compétence du Département — et que ces collèges accueillent chaque jour des enfants exposés à un système alimentaire qu'il est de votre responsabilité de transformer.</p>
+
+            <p>Nous portons la pétition lancée par l'association <strong>Bio Consom'acteurs</strong>, signée à ce jour par plus de <strong class="sig-count">12 487</strong> personnes. Elle s'appuie sur des constats désormais établis&nbsp;: l'expertise collective de l'<strong>INSERM (2021)</strong> confirme une présomption forte de lien entre l'exposition aux pesticides chez l'enfant et la survenue de cancers pédiatriques ; l'étude <strong>PestiRiv</strong> (Santé publique France / ANSES, septembre 2025) documente une exposition chronique ; et sept ans après son entrée en vigueur, la loi EGalim n'est respectée que par <strong>18 %</strong> des collectivités (AMF, 2024).</p>
+
+            <p>Cette pétition formule huit demandes concrètes, immédiates et chiffrées&nbsp;:</p>
+            <ol class="demandes-list">
+              <li>Respecter EGalim&nbsp;: 50 % durable dont 20 % bio dans toutes les cantines, trajectoire vers 100 % bio.</li>
+              <li>Revenir à une cuisine faite sur place, par des cuisinier·es formé·es et dignement rémunéré·es.</li>
+              <li>Privilégier l'achat direct, local et de saison auprès des paysan·nes bio du territoire.</li>
+              <li>Proposer une alternative végétarienne quotidienne, et réduire la part des produits carnés.</li>
+              <li>Réduire les déchets, bannir les contenants plastiques de cuisson, de réchauffe et de service.</li>
+              <li>Garantir progressivement la gratuité de la cantine, en commençant par les familles les plus modestes.</li>
+              <li>Interdire les pesticides de synthèse autour des établissements scolaires.</li>
+              <li>Renforcer EGalim avec des sanctions effectives et les moyens humains et financiers nécessaires.</li>
+            </ol>
+
+            <p>Le Département a la responsabilité directe des <strong>cantines des collèges</strong>, de la passation des marchés publics de restauration, et de l'accompagnement des cuisines des établissements. C'est à ce titre que nous sollicitons votre engagement public, immédiat et chiffré, sur ces huit mesures pour les collèges du département.</p>
+
+            <p>Une délégation de notre collectif souhaiterait vous rencontrer dans les prochaines semaines pour vous présenter en détail nos demandes, les chiffres qui les fondent, et les expériences déjà conduites par d'autres conseils départementaux (Drôme, Gers, Pyrénées-Atlantiques notamment).</p>
+
+            <p>Dans l'attente de votre réponse, nous vous prions d'agréer, <span class="var">[Madame / Monsieur] la / le Président·e</span>, l'expression de notre considération distinguée.</p>
+
+            <div class="sig">
+              <div>
+                <div class="hand-name">Le collectif</div>
+                <div class="col-name">
+                  <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                  Commune de <span class="var">[VOTRE COMMUNE]</span>
+                </div>
+              </div>
+              <div class="stamp">Pas de pesticides<em>pour nos enfants</em>
+</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODEL: REGION -->
+        <article class="model" data-model="region">
+          <div class="bar">
+            <span class="badge">📄 Modèle · Conseil régional</span>
+            <div class="actions">
+              <button type="button" class="btn-mini" onclick="copyModel(this)">📋 Copier le texte</button>            </div>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <div>
+                <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                Commune de <span class="var">[VOTRE COMMUNE]</span>
+<br />
+                <span class="var">[adresse de contact]</span>
+<br />
+                <span class="var">[email du collectif]</span>
+              </div>
+              <div class="to">
+                <strong>
+<span class="var">[Madame / Monsieur] la / le Président·e</span>
+</strong>
+                Conseil régional <span class="var">[de XXX]</span>
+<br />
+                <span class="var">[adresse du conseil]</span>
+<br />
+                <em>Fait à <span class="var">[VOTRE COMMUNE]</span>, le <span class="var">[date]</span>
+</em>
+              </div>
+            </div>
+
+            <div class="subj">Objet&nbsp;: Pétition citoyenne « Pas de pesticides pour nos enfants » — demande de rencontre pour les lycées de la région</div>
+
+            <p>
+<span class="var">[Madame / Monsieur] la / le Président·e</span>,</p>
+
+            <p>Nous, parents, lycéen·nes et citoyen·nes de la région <span class="var">[de XXX]</span>, réuni·es au sein du collectif local <strong>Pas de pesticides pour nos enfants</strong> dans la commune de <span class="var">[VOTRE COMMUNE]</span>, sollicitons une rencontre avec vous parce que la restauration scolaire des <strong>lycées</strong> est une compétence régionale — et que la Région dispose des leviers les plus puissants pour transformer en profondeur l'alimentation servie à nos adolescent·es.</p>
+
+            <p>Nous portons la pétition lancée par l'association <strong>Bio Consom'acteurs</strong>, signée à ce jour par plus de <strong class="sig-count">12 487</strong> personnes. Elle s'appuie sur des constats désormais établis&nbsp;: l'<strong>INSERM (2021)</strong> confirme une présomption forte de lien entre exposition aux pesticides et cancers pédiatriques ; l'étude <strong>PestiRiv</strong> (Santé publique France / ANSES, 2025) documente une exposition chronique ; et la loi EGalim n'est respectée que par <strong>18 %</strong> des collectivités, sept ans après son entrée en vigueur (AMF, 2024).</p>
+
+            <p>La pétition formule huit demandes concrètes&nbsp;:</p>
+            <ol class="demandes-list">
+              <li>Respecter EGalim&nbsp;: 50 % durable dont 20 % bio, trajectoire vers 100 % bio.</li>
+              <li>Revenir à une cuisine faite sur place, par des cuisinier·es formé·es et dignement rémunéré·es.</li>
+              <li>Privilégier l'achat direct, local et de saison auprès des paysan·nes bio du territoire.</li>
+              <li>Proposer une alternative végétarienne quotidienne, et réduire la part des produits carnés.</li>
+              <li>Réduire les déchets, bannir les contenants plastiques.</li>
+              <li>Garantir progressivement la gratuité, en commençant par les familles les plus modestes.</li>
+              <li>Interdire les pesticides de synthèse autour des établissements scolaires.</li>
+              <li>Renforcer EGalim avec sanctions effectives et moyens humains et financiers nécessaires.</li>
+            </ol>
+
+            <p>La Région a la responsabilité directe des <strong>cantines des lycées</strong> — soit plusieurs centaines de milliers de repas servis chaque jour sur le territoire. Elle a aussi un rôle majeur sur le développement de la <strong>filière bio régionale</strong>, les Projets alimentaires territoriaux (PAT) et l'accompagnement des paysan·nes du territoire. Nous sollicitons votre engagement public, immédiat et chiffré, sur ces huit mesures.</p>
+
+            <p>Une délégation de notre collectif souhaiterait vous rencontrer dans les prochaines semaines pour vous présenter en détail nos demandes et les expériences déjà conduites par d'autres conseils régionaux (Nouvelle-Aquitaine, Occitanie notamment).</p>
+
+            <p>Dans l'attente de votre réponse, nous vous prions d'agréer, <span class="var">[Madame / Monsieur] la / le Président·e</span>, l'expression de notre considération distinguée.</p>
+
+            <div class="sig">
+              <div>
+                <div class="hand-name">Le collectif</div>
+                <div class="col-name">
+                  <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                  Commune de <span class="var">[VOTRE COMMUNE]</span>
+                </div>
+              </div>
+              <div class="stamp">Pas de pesticides<em>pour nos enfants</em>
+</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODEL: DEPUTE -->
+        <article class="model" data-model="depute">
+          <div class="bar">
+            <span class="badge">📄 Modèle · Député·e de la circonscription</span>
+            <div class="actions">
+              <button type="button" class="btn-mini" onclick="copyModel(this)">📋 Copier le texte</button>            </div>
+          </div>
+          <div class="body">
+            <div class="meta">
+              <div>
+                <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                Commune de <span class="var">[VOTRE COMMUNE]</span>
+<br />
+                <span class="var">[adresse de contact]</span>
+<br />
+                <span class="var">[email du collectif]</span>
+              </div>
+              <div class="to">
+                <strong>
+<span class="var">[Madame / Monsieur] la Députée / le Député</span>
+</strong>
+                Assemblée nationale<br />
+                126 rue de l'Université, 75355 Paris<br />
+                <em>Fait à <span class="var">[VOTRE COMMUNE]</span>, le <span class="var">[date]</span>
+</em>
+              </div>
+            </div>
+
+            <div class="subj">Objet&nbsp;: Pétition citoyenne « Pas de pesticides pour nos enfants » — demande de rencontre dans votre circonscription</div>
+
+            <p>
+<span class="var">[Madame / Monsieur] la Députée / le Député</span>,</p>
+
+            <p>Nous, parents, habitant·es et citoyen·nes de votre circonscription, réuni·es au sein du collectif local <strong>Pas de pesticides pour nos enfants</strong> dans la commune de <span class="var">[VOTRE COMMUNE]</span>, sollicitons une rencontre avec vous parce que c'est à l'Assemblée nationale que se vote la loi qui protège — ou pas — la santé alimentaire de nos enfants, et que la loi EGalim, telle qu'elle existe aujourd'hui, ne suffit pas.</p>
+
+            <p>Nous portons la pétition lancée par l'association <strong>Bio Consom'acteurs</strong>, signée à ce jour par plus de <strong class="sig-count">12 487</strong> personnes. Elle s'appuie sur des constats désormais établis&nbsp;: l'expertise collective de l'<strong>INSERM (2021)</strong> confirme une présomption forte de lien entre exposition aux pesticides chez l'enfant et cancers pédiatriques ; l'étude <strong>PestiRiv</strong> (Santé publique France / ANSES, septembre 2025) documente une exposition chronique. Et sept ans après l'entrée en vigueur d'EGalim, <strong>seules 18 %</strong> des collectivités respectent les seuils légaux — sans qu'aucune sanction ne soit prévue (AMF, 2024).</p>
+
+            <p>La pétition formule huit demandes concrètes adressées à toutes les échelles d'élu·es&nbsp;:</p>
+            <ol class="demandes-list">
+              <li>Respecter EGalim&nbsp;: 50 % durable dont 20 % bio dans toutes les cantines, trajectoire vers 100 % bio.</li>
+              <li>Revenir à une cuisine faite sur place, par des cuisinier·es formé·es et dignement rémunéré·es.</li>
+              <li>Privilégier l'achat direct, local et de saison auprès des paysan·nes bio du territoire.</li>
+              <li>Proposer une alternative végétarienne quotidienne, et réduire la part des produits carnés.</li>
+              <li>Réduire les déchets, bannir les contenants plastiques de cuisson, de réchauffe et de service.</li>
+              <li>Garantir progressivement la gratuité de la cantine, en commençant par les familles les plus modestes.</li>
+              <li>Interdire les pesticides de synthèse dans tous les espaces publics, en particulier autour des écoles.</li>
+              <li>Renforcer EGalim avec des sanctions effectives et les moyens humains et financiers nécessaires.</li>
+            </ol>
+
+            <p>En tant que député·e, vous avez le pouvoir d'<strong>amender et de voter la loi</strong> — et donc de transformer EGalim en un cadre réellement contraignant. Plusieurs demandes de notre pétition supposent une intervention législative&nbsp;: instauration de sanctions, gratuité, interdictions de pesticides, financement des collectivités. Nous sollicitons votre engagement public sur ces points.</p>
+
+            <p>Une délégation de notre collectif souhaiterait vous rencontrer à votre permanence dans la circonscription, à votre convenance, dans les prochaines semaines. Nous vous présenterons en détail nos demandes, les chiffres qui les fondent, et les propositions législatives concrètes déjà portées par d'autres parlementaires.</p>
+
+            <p>Dans l'attente de votre réponse, nous vous prions d'agréer, <span class="var">[Madame / Monsieur] la Députée / le Député</span>, l'expression de notre considération distinguée.</p>
+
+            <div class="sig">
+              <div>
+                <div class="hand-name">Le collectif</div>
+                <div class="col-name">
+                  <strong>Collectif local Pas de pesticides pour nos enfants</strong>
+                  Commune de <span class="var">[VOTRE COMMUNE]</span>
+                </div>
+              </div>
+              <div class="stamp">Pas de pesticides<em>pour nos enfants</em>
+</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+<!-- /.models-wrap -->
+
+      <p style="font-family:'Inter';color:var(--muted);font-size:13.5px;margin-top:18px;text-align:center;max-width:720px;margin-left:auto;margin-right:auto">💡 Conseil&nbsp;: envoyez le courrier par <strong>email + courrier postal recommandé</strong>. Sans réponse sous 10 jours, relancez. BCA peut accompagner votre collectif pour préparer le rendez-vous.</p>
+    </div>
+  </section>
+
+  <!-- Argumentaire -->
+  <section class="cream">
+    <div class="wrap">
+      <span class="eyebrow">Argumentaire prêt à l'emploi</span>
+      <h2>Les 4 chiffres qui font mouche en réunion.</h2>
+
+      <div class="args">
+        <article class="arg">
+          <div class="big">18<span class="u">%</span>
+</div>
+          <div class="ttl">des communes respectent les seuils EGalim.</div>
+          <div class="src">AMF · 2024</div>
+        </article>
+        <article class="arg">
+          <div class="big">8<span class="u">/10</span>
+</div>
+          <div class="ttl">Français·es estiment qu'il faudrait limiter au maximum les pesticides.</div>
+          <div class="src">Ipsos · RAC · oct. 2025</div>
+        </article>
+        <article class="arg">
+          <div class="big">20<span class="u">%</span>
+</div>
+          <div class="ttl">de bio obligatoire en cantine — c'est la loi, depuis 2022.</div>
+          <div class="src">Loi EGalim · 2018</div>
+        </article>
+        <article class="arg">
+          <div class="big">0<span class="u">€</span>
+</div>
+          <div class="ttl">de sanction prévue par la loi pour les communes hors-clous.</div>
+          <div class="src">EGalim · art. 24</div>
+        </article>
+      </div>
+
+      <div style="margin-top:32px;padding:24px 28px;background:var(--yellow);border-radius:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+        <div style="flex:1;min-width:240px">
+          <div style="font-family:'Bagel Fat One';font-size:20px;color:var(--green-900);font-weight:400;letter-spacing:-.01em">📄 Kit complet à télécharger</div>
+          <div style="font-size:14.5px;color:var(--green-900);margin-top:4px">Fiches sources INSERM · PestiRiv · EGalim · plan-type de rencontre · questions à poser.</div>
+        </div>
+        <a href="mailto:contact@bioconsomacteurs.org?subject=Demande%20de%20kit%20presse%20Pas%20de%20pesticides" class="btn btn-dark">Demander le kit presse</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" style="padding:80px 0">
+    <div class="wrap-narrow" style="text-align:center">
+      <h2 style="color:var(--yellow);font-family:'Bagel Fat One';font-weight:400">Combinez les actions.</h2>
+      <p style="font-family:'Fraunces';font-style:italic;font-size:21px;color:rgba(250,247,240,.92);line-height:1.45;max-width:640px;margin:0 auto 32px">Un rendez-vous obtenu avec une distribution de signatures à la clé pèse beaucoup plus lourd. Pensez à combiner.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="/commander" class="btn btn-primary">📦 Commander du matériel</a>
+        <a href="/distribution" class="btn btn-orange">📍 Organiser une distribution</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    import "../scripts/site-actions.js";
+  </script>
+</Base>

@@ -1,0 +1,191 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base titre="Commander du matériel — Pas de pesticides pour nos enfants" navActive="">
+  <section class="page-head">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Action 1 · Mobilisation</span>
+        <h1>Commander<br>
+<span class="y">du matériel</span>
+</h1>
+        <p class="lede">Recevez chez vous des flyers et affiches pour passer le mot — devant une école, sur un marché, dans votre commerce, votre médiathèque, votre cabinet médical. C'est gratuit, vous ne payez que les frais de port au coût réel.</p>
+      </div>
+      <div class="stats">
+        <div class="stat-mini">
+<div class="num">12 487</div>
+<div class="lbl">flyers déjà commandés en France</div>
+</div>
+        <div class="stat-mini">
+<div class="num">487</div>
+<div class="lbl">communes ayant reçu du matériel</div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cream">
+    <div class="wrap">
+      <form class="grid-2" data-intake="commande">
+        <input type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+
+        <div>
+          <span class="eyebrow">1. Choisir vos formats</span>
+          <h2>Deux formats, un même objectif&nbsp;: passer le mot.</h2>
+
+          <div class="formats">
+            <label class="format a5 selected" data-format="a5">
+              <input type="radio" name="format-a5" hidden="" checked="">
+              <div class="visual">
+                <div class="sheet">
+                  <div class="t">PAS DE<br>PESTICIDES<span class="y">POUR NOS<br>ENFANTS&nbsp;!</span>
+</div>
+                  <div class="bca">BCA</div>
+                </div>
+              </div>
+              <h4>Flyer A5</h4>
+              <div class="size">148 × 210 mm — recto·verso couleur</div>
+              <div class="desc">Idéal pour la diffusion main à main devant une école, sur un marché, ou en boîtes aux lettres.</div>
+              <div class="qty-row">
+                <span class="label">Quantité</span>
+                <div class="qty">
+                  <button type="button" onclick="updateQty('a5',-25)">−</button>
+                  <input type="number" id="qty-a5" value="100" min="0" step="25" max="500" oninput="updateRecap()">
+                  <button type="button" onclick="updateQty('a5',25)">+</button>
+                </div>
+              </div>
+            </label>
+
+            <label class="format a3" data-format="a3">
+              <input type="radio" name="format-a3" hidden="">
+              <div class="visual">
+                <div class="sheet">
+                  <div class="t">PAS DE<br>PESTICIDES<span class="y">POUR NOS<br>ENFANTS&nbsp;!</span>
+</div>
+                  <div class="bca">BCA</div>
+                </div>
+              </div>
+              <h4>Affiche A3</h4>
+              <div class="size">297 × 420 mm — recto couleur</div>
+              <div class="desc">Pour afficher en vitrine, en mairie, dans une école, un centre social, ou lors d'événements.</div>
+              <div class="qty-row">
+                <span class="label">Quantité</span>
+                <div class="qty">
+                  <button type="button" onclick="updateQty('a3',-5)">−</button>
+                  <input type="number" id="qty-a3" value="10" min="0" step="5" max="100" oninput="updateRecap()">
+                  <button type="button" onclick="updateQty('a3',5)">+</button>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <span class="eyebrow" style="margin-top:32px">2. Adresse de livraison</span>
+          <h2 style="font-size:24px;margin-bottom:18px">On vous envoie ça où&nbsp;?</h2>
+
+          <div class="card">
+            <div class="row2">
+              <div>
+<label class="label">Prénom</label>
+<input class="field" type="text" placeholder="Camille" required="">
+</div>
+              <div>
+<label class="label">Nom</label>
+<input class="field" type="text" placeholder="Dupont" required="">
+</div>
+            </div>
+            <div class="row1">
+<label class="label">Email</label>
+<input class="field" type="email" placeholder="camille@exemple.fr" required="">
+</div>
+            <div class="row2">
+              <div>
+<label class="label">Téléphone (facultatif)</label>
+<input class="field" type="tel" placeholder="06 12 34 56 78">
+</div>
+              <div>
+<label class="label">Organisation (facultatif)</label>
+<input class="field" type="text" placeholder="Association des parents d'élèves">
+</div>
+            </div>
+            <div class="row1">
+<label class="label">Adresse postale</label>
+<input class="field" type="text" placeholder="10 rue Beaumarchais" required="">
+</div>
+            <div class="row1">
+<label class="label">Complément d'adresse</label>
+<input class="field" type="text" placeholder="Bât. A, escalier 2">
+</div>
+            <div class="row2">
+              <div>
+<label class="label">Code postal</label>
+<input class="field" type="text" inputmode="numeric" maxlength="5" placeholder="93100" required="">
+</div>
+              <div>
+<label class="label">Ville</label>
+<input class="field" type="text" placeholder="Montreuil" required="">
+</div>
+            </div>
+            <label class="check">
+              <input type="checkbox" checked="">
+              <span>Je m'engage à diffuser le matériel reçu (école, marché, événement). <em style="font-style:normal;color:var(--muted)">Aucun envoi commercial ne sera fait sans votre consentement.</em>
+</span>
+            </label>
+            <label class="check">
+              <input type="checkbox">
+              <span>Je souhaite recevoir la <strong>lettre d'information</strong> de Bio Consom'acteurs.</span>
+            </label>
+          </div>
+        </div>
+
+        <aside class="recap">
+          <h3>Récapitulatif</h3>
+          <div class="line">
+<span>
+<span id="r-a5">100</span> × Flyer A5</span>
+<span class="val" id="r-a5-w">0,8 kg</span>
+</div>
+          <div class="line">
+<span>
+<span id="r-a3">10</span> × Affiche A3</span>
+<span class="val" id="r-a3-w">0,4 kg</span>
+</div>
+          <div class="line">
+<span>Poids total estimé</span>
+<span class="val" id="r-weight">1,2 kg</span>
+</div>
+          <div class="line">
+<span>Matériel</span>
+<span class="val">Gratuit</span>
+</div>
+          <div class="line" style="border-bottom:0">
+<span>Frais de port (Colissimo)</span>
+<span class="val" id="r-shipping">8,30 €</span>
+</div>
+          <div class="total">
+<span>Frais de port estimés</span>
+<span class="val" id="r-total">8,30 €</span>
+</div>
+          <div class="small">Matériel gratuit. Nous vous recontactons pour confirmer l'envoi et les frais de port. Données hébergées en Europe.</div>
+          <div class="small" style="color:var(--yellow);font-weight:600">📍 Après votre commande, on vous demandera&nbsp;: où le distribuez-vous&nbsp;?</div>
+          <div class="submit">
+<button type="submit" class="btn btn-primary">Commander mon matériel →</button>
+</div>
+        </aside>
+      </form>
+    </div>
+  </section>
+
+  <section class="dark" style="padding:80px 0">
+    <div class="wrap-narrow" style="text-align:center">
+      <h2 style="color:var(--yellow);font-family:'Bagel Fat One';font-weight:400">Une commande, c'est un début.</h2>
+      <p style="font-family:'Fraunces';font-style:italic;font-size:21px;color:rgba(250,247,240,.92);line-height:1.45;max-width:640px;margin:0 auto 32px">Sans relais de terrain, les flyers restent dans une boîte. Organisez une distribution — ou une rencontre avec votre élu·e — pour donner vie à ce que vous avez commandé.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="/distribution" class="btn btn-orange">📍 Organiser une distribution</a>
+        <a href="/rencontre" class="btn btn-primary">🤝 Solliciter un·e élu·e</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    import "../scripts/site-actions.js";
+  </script>
+</Base>

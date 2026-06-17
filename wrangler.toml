@@ -1,0 +1,11 @@
+# Configuration Cloudflare Workers (l'adaptateur Astro injecte automatiquement
+# l'entrée du worker et le binding d'assets statiques).
+name = "pas-de-pesticides-pour-nos-enfants"
+compatibility_date = "2026-06-17"
+compatibility_flags = ["nodejs_compat"]
+
+# Les secrets (SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY) ne sont PAS écrits ici.
+# On les pose dans le tableau de bord Cloudflare (Workers → Settings → Variables → Secrets)
+# ou en ligne de commande :
+#   npx wrangler secret put SUPABASE_URL
+#   npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY

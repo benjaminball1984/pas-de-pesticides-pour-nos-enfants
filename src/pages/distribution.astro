@@ -1,0 +1,260 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base titre="Organiser une distribution — Pas de pesticides pour nos enfants" navActive="">
+  <section class="page-head">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Action 2 · Mobilisation</span>
+        <h1>Organiser<br />
+<span class="y">une distribution</span>
+</h1>
+        <p class="lede">Tenez une table de signatures devant une école, sur un marché, à la sortie d'un cinéma. Apparaissez sur la carte publique pour rejoindre d'autres mobilisé·es près de chez vous. Bio Consom'acteurs vous envoie le matériel et la fiche pratique.</p>
+      </div>
+      <div class="stats">
+        <div class="stat-mini">
+<div class="num">38</div>
+<div class="lbl">distributions à venir cette saison</div>
+</div>
+        <div class="stat-mini">
+<div class="num">487</div>
+<div class="lbl">communes mobilisées en France</div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="cream" id="carte">
+    <div class="wrap">
+      <span class="eyebrow">Carte publique</span>
+      <h2>Trouvez une distribution près de chez vous,<br />ou rejoignez-en une.</h2>
+
+      <div class="map-wrap" style="margin-top:24px">
+        <div class="map-head">
+          <h3>Carte des distributions en France</h3>
+          <div class="filters">
+            <span class="chip active">Toutes (<strong>38</strong>)</span>
+            <span class="chip">
+<span class="dot">
+</span>À venir</span>
+            <span class="chip orange">
+<span class="dot">
+</span>Cette semaine</span>
+            <span class="chip yellow">
+<span class="dot">
+</span>Aujourd'hui</span>
+          </div>
+        </div>
+        <!-- uMap embed (remplacer src par l'URL uMap officielle de BCA dès qu'elle est créée) -->
+        <iframe src="https://umap.openstreetmap.fr/fr/map/anonymous/embed/?scaleControl=false&amp;miniMap=false&amp;scrollWheelZoom=false&amp;zoomControl=true&amp;editinosmControl=false&amp;moreControl=true&amp;searchControl=null&amp;tilelayersControl=null&amp;embedControl=null&amp;datalayersControl=true&amp;onLoadPanel=undefined&amp;captionBar=false&amp;captionMenus=true#6/46.5/2.5" title="Carte uMap des distributions">
+        </iframe>
+        <div class="legend">
+          <span class="key">
+<span class="pin" style="background:var(--green-300)">
+</span>Distribution à venir</span>
+          <span class="key">
+<span class="pin" style="background:var(--orange)">
+</span>Cette semaine</span>
+          <span class="key">
+<span class="pin" style="background:var(--yellow)">
+</span>Aujourd'hui · demain</span>
+          <span style="margin-left:auto;font-size:12px">Tuiles © OpenStreetMap · Carte propulsée par <strong>uMap</strong>
+</span>
+        </div>
+      </div>
+
+      <!-- Agenda -->
+      <h3 style="font-family:'Bagel Fat One';font-weight:400;font-size:20px;color:var(--green-900);margin:48px 0 0;letter-spacing:-.01em">📅 Les prochaines distributions près de chez vous</h3>
+      <div class="agenda">
+        <article class="event">
+          <div class="when">
+<div class="d">17</div>
+<div class="m">Mai</div>
+</div>
+          <div class="what">
+<h4>École Jules Ferry — sortie 16h30</h4>
+<div class="where">📍 Argenteuil (95) · 30 rue de la République</div>
+</div>
+          <div class="who">
+<span class="name">Camille D.</span>
+<span class="time">16h30 — 18h00</span>
+</div>
+        </article>
+        <article class="event">
+          <div class="when">
+<div class="d">18</div>
+<div class="m">Mai</div>
+</div>
+          <div class="what">
+<h4>Marché bio de la Croix-Rousse</h4>
+<div class="where">📍 Lyon 4ᵉ (69) · Bd de la Croix-Rousse</div>
+</div>
+          <div class="who">
+<span class="name">Yann + Léa</span>
+<span class="time">9h00 — 13h00</span>
+</div>
+        </article>
+        <article class="event">
+          <div class="when">
+<div class="d">19</div>
+<div class="m">Mai</div>
+</div>
+          <div class="what">
+<h4>Parvis de la mairie</h4>
+<div class="where">📍 Montreuil (93) · Place Jean-Jaurès</div>
+</div>
+          <div class="who">
+<span class="name">BCA Île-de-France</span>
+<span class="time">17h00 — 19h00</span>
+</div>
+        </article>
+        <article class="event">
+          <div class="when">
+<div class="d">22</div>
+<div class="m">Mai</div>
+</div>
+          <div class="what">
+<h4>École maternelle Pasteur</h4>
+<div class="where">📍 Bordeaux (33) · 12 rue Pasteur</div>
+</div>
+          <div class="who">
+<span class="name">Sophie L.</span>
+<span class="time">8h30 — 9h30</span>
+</div>
+        </article>
+        <article class="event">
+          <div class="when">
+<div class="d">24</div>
+<div class="m">Mai</div>
+</div>
+          <div class="what">
+<h4>Festival « Ressourçons-nous »</h4>
+<div class="where">📍 Saint-Étienne (42) · Parc de l'Europe</div>
+</div>
+          <div class="who">
+<span class="name">Antenne BCA Loire</span>
+<span class="time">14h00 — 19h00</span>
+</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="paper" id="declarer">
+    <div class="wrap">
+      <span class="eyebrow">Déclarer une distribution</span>
+      <h2>Vous organisez une distribution&nbsp;? Ajoutez-la à la carte.</h2>
+
+      <form class="grid-2" style="margin-top:32px" data-intake="distribution">
+        <input type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <div class="card">
+          <h3>1. Où et quand&nbsp;?</h3>
+          <div class="row1">
+<label class="label">Lieu de la distribution</label>
+<input class="field" type="text" placeholder="ex. École Jules Ferry, marché bio, parvis mairie…" required="" />
+</div>
+          <div class="row2">
+            <div>
+<label class="label">Ville</label>
+<input class="field" type="text" placeholder="Montreuil" required="" />
+</div>
+            <div>
+<label class="label">Code postal</label>
+<input class="field" type="text" inputmode="numeric" maxlength="5" placeholder="93100" required="" />
+</div>
+          </div>
+          <div class="row1">
+<label class="label">Adresse précise</label>
+<input class="field" type="text" placeholder="Place Jean-Jaurès, devant la mairie" />
+</div>
+          <div class="row2">
+            <div>
+<label class="label">Date</label>
+<input class="field" type="date" required="" />
+</div>
+            <div>
+<label class="label">Horaires</label>
+<input class="field" type="text" placeholder="ex. 16h30 – 18h00" required="" />
+</div>
+          </div>
+          <div class="row1">
+            <label class="label">Type de lieu</label>
+            <select class="field" required="">
+              <option value="">— Sélectionnez —</option>
+              <option>École · maternelle / élémentaire</option>
+              <option>Collège / lycée</option>
+              <option>Marché</option>
+              <option>Mairie · place publique</option>
+              <option>Centre social / médiathèque</option>
+              <option>Événement (festival, manifestation)</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="row1">
+            <label class="label">Commentaire (facultatif)</label>
+            <textarea class="field" placeholder="Ex. À deux pas de l'entrée principale. Présence d'un parent d'élève bilingue espagnol. Tente prévue si pluie.">
+</textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>2. Vous êtes&nbsp;?</h3>
+          <div class="row2">
+            <div>
+<label class="label">Prénom</label>
+<input class="field" type="text" placeholder="Camille" required="" />
+</div>
+            <div>
+<label class="label">Nom</label>
+<input class="field" type="text" placeholder="Dupont" required="" />
+</div>
+          </div>
+          <div class="row1">
+<label class="label">Email</label>
+<input class="field" type="email" placeholder="camille@exemple.fr" required="" />
+</div>
+          <div class="row1">
+<label class="label">Téléphone</label>
+<input class="field" type="tel" placeholder="06 12 34 56 78" />
+</div>
+          <div class="row1">
+<label class="label">Organisation (facultatif)</label>
+<input class="field" type="text" placeholder="Association des parents d'élèves Jules Ferry" />
+</div>
+
+          <label class="check" style="margin-top:14px">
+            <input type="checkbox" checked="" />
+            <span>Afficher ma distribution sur la <strong>carte publique</strong> (avec mon prénom et l'initiale du nom).</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" />
+            <span>Autoriser d'autres mobilisé·es à me contacter pour me rejoindre.</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" checked="" />
+            <span>Recevoir la <strong>fiche pratique</strong> + rappels J-1 et J-0.</span>
+          </label>
+
+          <div style="margin-top:20px">
+            <button type="submit" class="btn btn-orange" style="width:100%;justify-content:center;font-size:16px;padding:15px">📍 J'ajoute ma distribution à la carte</button>
+          </div>
+          <div style="margin-top:10px;font-size:12px;color:var(--muted);line-height:1.5">Vous recevrez par email un récapitulatif, la fiche « Comment réussir sa distribution », et des rappels la veille et le jour J.</div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="dark" style="padding:80px 0">
+    <div class="wrap-narrow" style="text-align:center">
+      <h2 style="color:var(--yellow);font-family:'Bagel Fat One';font-weight:400">Pas encore de matériel à diffuser&nbsp;?</h2>
+      <p style="font-family:'Fraunces';font-style:italic;font-size:21px;color:rgba(250,247,240,.92);line-height:1.45;max-width:640px;margin:0 auto 32px">Commandez vos flyers et affiches en quelques clics — c'est gratuit, on vous les envoie chez vous.</p>
+      <a href="/commander" class="btn btn-primary">📦 Je commande mon matériel</a>
+    </div>
+  </section>
+  <script>
+    import "../scripts/site-actions.js";
+  </script>
+</Base>

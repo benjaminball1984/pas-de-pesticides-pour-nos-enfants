@@ -1,0 +1,101 @@
+---
+// Polices auto-hébergées (RGPD : pas d'appel au CDN Google) via @fontsource
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/fraunces/400.css";
+import "@fontsource/fraunces/500.css";
+import "@fontsource/fraunces/400-italic.css";
+import "@fontsource/fraunces/500-italic.css";
+import "@fontsource/caveat-brush/400.css";
+import "@fontsource/bagel-fat-one/400.css";
+import "../styles/global.css";
+
+import { site, nav, footer } from "../data/contenu.ts";
+
+interface Props {
+  titre?: string;
+  description?: string;
+  navActive?: string; // href de l'onglet actif, ex. "/appel"
+}
+const { titre = site.titreOnglet, description = site.description, navActive = "" } = Astro.props;
+const ogImage = new URL("/images/affiche-pesticides.jpg", Astro.site);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titre}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/jpeg" href="/images/logo-bca.jpg" />
+    <!-- Partage social (presse, réseaux) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={titre} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body>
+    <!-- Header (logo + nav) -->
+    <header class="site">
+      <div class="wrap row">
+        <a class="logo" href="/">
+          <img src="/images/logo-bca.jpg" alt="Bio Consom'acteurs" />
+          <div>
+            <div class="ttl">Pas de pesticides<em>pour nos enfants !</em></div>
+          </div>
+        </a>
+        <nav class="main">
+          {nav.map((item) => (
+            <a href={item.href} class={item.href === navActive ? "active" : undefined}>{item.label}</a>
+          ))}
+        </nav>
+        <a href="/#signer" class="btn btn-primary">Signer la pétition →</a>
+      </div>
+    </header>
+
+    <slot />
+
+    <!-- FOOTER -->
+    <footer class="site">
+      <div class="wrap">
+        <div class="cols">
+          <div class="col brand-block">
+            <div class="display">Pas de pesticides<br /><span class="y">pour nos enfants !</span></div>
+            <p>Pétition citoyenne portée par <strong>{site.org}</strong>. {site.adresse}.</p>
+          </div>
+          {footer.colonnes.map((col) => (
+            <div class="col">
+              <h4>{col.titre}</h4>
+              {col.liens.map((l) =>
+                "externe" in l && l.externe ? (
+                  <a href={l.href} target="_blank" rel="noopener">{l.label}</a>
+                ) : (
+                  <a href={l.href}>{l.label}</a>
+                )
+              )}
+            </div>
+          ))}
+        </div>
+        <div class="bottom">
+          <div>© {site.annee} {site.org} · {site.domaine}</div>
+          <div>
+            {footer.legal.map((l) => <a href={l.href}>{l.label}</a>)}
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky mobile CTA -->
+    <div class="sticky-cta">
+      <a href="/#signer" class="btn btn-primary">✍️ Signer la pétition</a>
+    </div>
+  </body>
+</html>
