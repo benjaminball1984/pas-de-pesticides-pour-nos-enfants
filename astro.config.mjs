@@ -11,6 +11,10 @@ export default defineConfig({
   // Seules les routes /api/* sont dynamiques (`export const prerender = false`).
   output: 'static',
 
+  // On n'utilise pas les sessions Astro : un driver mémoire inerte évite que
+  // l'adaptateur Cloudflare réclame un namespace KV « SESSION » au déploiement.
+  session: { driver: 'memory' },
+
   // Déploiement sur Cloudflare (Workers). En dev comme en prod, les variables/secrets
   // sont lus via `cloudflare:workers` (et .dev.vars / .env.local en local).
   adapter: cloudflare(),
