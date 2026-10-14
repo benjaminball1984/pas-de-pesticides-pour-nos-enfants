@@ -306,3 +306,16 @@ img{max-width:100%}
 [hidden]{display:none!important}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 
+
+/* Visuels */
+.visuels-fam + .visuels-fam{padding-top:0}
+.vis-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.vis{margin:0;display:grid;gap:10px;align-content:start}
+.vis-img{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.vis-img img{display:block;width:100%;height:auto;aspect-ratio:4/5}
+.vis figcaption{display:grid;gap:8px}
+.vis figcaption b{font-size:.98rem;line-height:1.3}
+.vis-dl{display:flex;flex-wrap:wrap;gap:6px}
+.vis-dl .btn{padding:7px 12px;font-size:.86rem}
+@media (max-width: 960px){.vis-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width: 620px){.vis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

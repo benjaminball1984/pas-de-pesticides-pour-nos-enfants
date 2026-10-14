@@ -1,0 +1,42 @@
+---
+import Site from '../layouts/Site.astro';
+import visuels from '../data/visuels.json';
+
+// La liste et les liens Canva viennent de src/data/visuels.json (écrit par scripts/visuels/visuels.mjs).
+const familles = [...new Set(visuels.map((v) => v.famille))];
+---
+
+<Site titre="Visuels · Pas de pesticides pour nos enfants" description="Les visuels de la campagne à partager : PNG, PDF et modèles Canva modifiables." page="visuels">
+  <section class="page-hero on-deep">
+    <div class="wrap">
+      <p class="eyebrow">Visuels</p>
+      <h1>Partagez <em>la campagne</em></h1>
+      <p class="lead">Des visuels prêts à publier sur vos réseaux, à imprimer ou à adapter. Téléchargez le PNG ou le PDF, ou ouvrez le modèle dans Canva pour le modifier.</p>
+    </div>
+  </section>
+
+  {familles.map((fam) => (
+    <section class="sec visuels-fam">
+      <div class="wrap">
+        <div class="sec-head"><h2 class="h2">{fam}</h2></div>
+        <div class="vis-grid">
+          {visuels.filter((v) => v.famille === fam).map((v) => (
+            <figure class="vis">
+              <a href={`/visuels/${v.nom}.png`} target="_blank" rel="noopener" class="vis-img">
+                <img src={`/visuels/${v.nom}-mini.png`} width="540" height="675" alt={v.titre} loading="lazy" />
+              </a>
+              <figcaption>
+                <b>{v.titre}</b>
+                <span class="vis-dl">
+                  <a class="btn btn-dark" href={`/visuels/${v.nom}.png`} download>PNG</a>
+                  <a class="btn btn-ghost" href={`/visuels/${v.nom}.pdf`} download>PDF</a>
+                  {v.canva && <a class="btn btn-yellow" href={v.canva} target="_blank" rel="noopener">Modifier sur Canva ↗</a>}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+</Site>

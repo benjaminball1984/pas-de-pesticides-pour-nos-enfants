@@ -17,3 +17,5 @@ npm-debug.log*
 
 # cache local Wrangler/Miniflare
 .wrangler/
+
+.visuels-tmp/
