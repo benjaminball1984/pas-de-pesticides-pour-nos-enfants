@@ -23,7 +23,8 @@ export function lireConfigSupabase() {
  */
 export function lireConfigBrevo() {
   const cfEnv = env as unknown as Record<string, string | undefined>;
-  const apiKey = cfEnv?.BREVO_API_KEY ?? '';
+  // Un secret posé depuis PowerShell peut arriver avec un BOM invisible en tête : Brevo répond alors « Key not found ».
+  const apiKey = (cfEnv?.BREVO_API_KEY ?? '').replace(/^﻿/, '').trim();
   return {
     apiKey,
     senderEmail: cfEnv?.BREVO_SENDER_EMAIL || 'contact@bioconsomacteurs.org',
