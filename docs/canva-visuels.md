@@ -1,8 +1,7 @@
 # Visuels Canva de la campagne
 
 Dossier Canva : https://www.canva.com/folder/FAHX98oaATQ (« Pas de pesticides pour nos enfants · visuels »).
-Sous-dossier « Anciennes versions (numéro mal dimensionné) » : les 9 premiers imports des demandes,
-remplacés le 14/10/2026, et les anciennes versions de « Cela suffit », « Les preuves sont là » et de la demande 09 (textes revus le même jour). Tout est à jeter.
+Les anciennes versions (12 designs) sont dans la corbeille Canva depuis le 14/10/2026. Le sous-dossier « Anciennes versions » est vide : Canva supprime un dossier définitivement, il est laissé à Ben.
 
 Fabrication : `node scripts/visuels/visuels.mjs` écrit les PNG, PDF et sources d'import dans `public/`,
 puis déploiement, puis `import-design-from-url` sur `https://pasdepesticidespournosenfants.net/modeles/<nom>`
@@ -10,9 +9,9 @@ puis déploiement, puis `import-design-from-url` sur `https://pasdepesticidespou
 
 ## Lien « Modifier sur Canva » de la page /visuels
 
-Le bouton n'apparaît que si le champ `canva` de `src/data/visuels.json` est rempli. Ce lien de modèle se
-crée à la main dans Canva : ouvrir le visuel → Partager → « Lien de modèle » (ou « Modèle ») → copier.
-Le coller dans `canva` pour le visuel correspondant, puis rebuild et déployer.
+Les 18 liens de modèle (canva.link) sont posés dans le champ `canva` de `src/data/visuels.json` (14/10/2026).
+Ils ont été créés dans l'éditeur Canva : Partager → Lien de modèle → Créer un lien de modèle. Pour un nouveau visuel,
+refaire ce geste puis coller le lien dans `canva` ; `visuels.mjs` garde les liens existants quand il régénère la liste.
 
 | Visuel | Design Canva |
 |---|---|
