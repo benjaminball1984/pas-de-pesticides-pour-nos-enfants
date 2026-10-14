@@ -5,6 +5,8 @@ import {
   envoyerEmailsCommande, envoyerEmailsDistribution, envoyerEmailsEngagement,
   type Commande, type Distribution, type Engagement,
 } from '../../lib/brevo';
+import { geocoder } from '../../lib/demandes';
+import { lienModeration } from '../../lib/liens';
 
 // Demandes du site : commande de matériel, déclaration de distribution, engagement d'élu·e (type 'autre').
 export const prerender = false;
@@ -34,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (JSON.stringify(payload).length > 20000) return json({ ok: false, erreur: 'Demande trop volumineuse.' }, 400);
 
   // Chaque formulaire connu est vérifié ici ; son contenu part ensuite par email à l'équipe et à la personne.
-  let envoyer: (() => Promise<{ equipe: boolean; personne: boolean }>) | null = null;
+  let envoyer: ((id: string) => Promise<{ equipe: boolean; personne: boolean }>) | null = null;
   if (type === 'commande') {
     const c = lireCommande(payload);
     if (typeof c === 'string') return json({ ok: false, erreur: c }, 400);
@@ -42,29 +44,37 @@ export const POST: APIRoute = async ({ request }) => {
   } else if (type === 'distribution') {
     const d = lireDistribution(payload);
     if (typeof d === 'string') return json({ ok: false, erreur: d }, 400);
-    envoyer = () => envoyerEmailsDistribution(d);
+    // Position sur la carte publique, calculée une fois à l'enregistrement.
+    const pos = await geocoder(d.adresse, d.code_postal, d.ville);
+    if (pos) { payload.lat = pos.lat; payload.lng = pos.lng; }
+    envoyer = async (id) => envoyerEmailsDistribution(d, { retirer: await lienModeration('retirer', id) });
   } else if (payload.formulaire === 'engagement_elu') {
     const e = lireEngagement(payload);
     if (typeof e === 'string') return json({ ok: false, erreur: e }, 400);
-    envoyer = () => envoyerEmailsEngagement(e);
+    payload.publie = false;
+    envoyer = async (id) => envoyerEmailsEngagement(e, {
+      publier: await lienModeration('publier', id), retirer: await lienModeration('retirer', id),
+    });
   }
 
+  let id = '';
   const { url: su, key, configure } = lireConfigSupabase();
   if (!configure) {
     console.log(`[demande MOCK] type=${type}`);
   } else {
     const sb = createClient(su, key, { auth: { persistSession: false } });
-    const { error } = await sb.from('demande').insert({ type, email: email || null, payload });
+    const { data, error } = await sb.from('demande').insert({ type, email: email || null, payload }).select('id').single();
     if (error) {
       console.error('[demande] erreur insertion:', error.message);
       return json({ ok: false, erreur: 'Une erreur est survenue. Merci de réessayer dans un instant.' }, 500);
     }
+    id = (data as { id: string }).id;
   }
 
   // La demande est enregistrée : un email qui échoue ne la fait pas échouer (elle reste dans la base).
   if (envoyer) {
     try {
-      const r = await envoyer();
+      const r = await envoyer(id);
       if (!r.equipe || !r.personne) console.error(`[demande] email non parti (${type})`, r);
     } catch (e) {
       console.error(`[demande] email en erreur (${type})`, (e as Error).message);

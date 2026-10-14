@@ -119,8 +119,14 @@ function recapDistribution(d: Distribution) {
   ]);
 }
 
-export async function envoyerEmailsDistribution(d: Distribution) {
+const bouton = (href: string, txt: string, fond = '#004D40') =>
+  `<a href="${href}" style="display:inline-block;background:${fond};color:#FFFFFF;text-decoration:none;font-weight:bold;padding:10px 18px;border-radius:999px;margin:4px 6px 4px 0">${txt}</a>`;
+
+export async function envoyerEmailsDistribution(d: Distribution, liens: { retirer?: string } = {}) {
   const { commandesEmail } = lireConfigBrevo();
+  const moderation = d.carte && liens.retirer
+    ? `<p>Elle apparaît dès maintenant sur la carte publique. En cas de problème&nbsp;: ${bouton(liens.retirer, 'Retirer de la carte', '#B8461F')}</p>`
+    : '<p>La personne n’a pas souhaité apparaître sur la carte publique.</p>';
   const equipe = await envoyerEmail({
     to: [{ email: commandesEmail }],
     replyTo: { email: d.email, name: `${d.prenom} ${d.nom}` },
@@ -132,6 +138,7 @@ ${tableau([
   ['Accepte d’être contacté·e', ouiNon(d.contact)],
   ['Fiche pratique et rappels', ouiNon(d.rappels)],
 ])}
+${moderation}
 <p>Répondre à cet email écrit directement à la personne qui organise.</p>`),
   });
   const personne = await envoyerEmail({
@@ -148,6 +155,28 @@ ${recapDistribution(d)}
 <p>L'équipe de Bio Consom'acteurs</p>`),
   });
   return { equipe, personne };
+}
+
+/** Rappel à la personne qui organise : la veille, puis le matin même. */
+export async function envoyerRappelDistribution(d: Distribution, quand: 'veille' | 'jour') {
+  const titre = quand === 'veille'
+    ? `C'est demain, ${echapper(d.prenom)}&nbsp;!`
+    : `C'est aujourd'hui, ${echapper(d.prenom)}&nbsp;!`;
+  return envoyerEmail({
+    to: [{ email: d.email, name: `${d.prenom} ${d.nom}` }],
+    subject: quand === 'veille' ? `Rappel : votre distribution demain à ${d.ville}` : `C'est aujourd'hui : votre distribution à ${d.ville}`,
+    html: gabarit(titre, `<p>${quand === 'veille' ? 'Petit rappel pour votre distribution de demain' : 'Votre distribution a lieu aujourd’hui'}&nbsp;:</p>
+${recapDistribution(d)}
+<h2 style="font-size:17px;margin:20px 0 8px;color:#004D40">${quand === 'veille' ? 'À préparer ce soir' : 'Dans le sac'}</h2>
+<ul style="margin:0 0 12px;padding-left:20px">
+<li>les flyers et les affiches, du scotch ou des pinces&nbsp;;</li>
+<li>des stylos et les feuilles de signatures, ou le QR code de la pétition&nbsp;;</li>
+<li>de l'eau, et le numéro de la personne qui vous accompagne.</li>
+</ul>
+<p>Sur place&nbsp;: allez vers les gens avec le sourire, sans insister, et respectez les refus.</p>
+<p>Après&nbsp;: répondez à cet email avec une photo, le nombre de flyers distribués et de signatures recueillies. Ça nous aide à raconter la campagne.</p>
+<p>Merci pour votre engagement&nbsp;!<br>L'équipe de Bio Consom'acteurs</p>`),
+  });
 }
 
 export const DEMANDES_COURTES = [
@@ -180,8 +209,12 @@ function recapEngagement(e: Engagement) {
   ]) + `<p style="margin:12px 0 4px"><b>Engagements (${e.engagements.length} sur 9)&nbsp;:</b></p><ul style="margin:0 0 12px;padding-left:20px">${liste}</ul>`;
 }
 
-export async function envoyerEmailsEngagement(e: Engagement) {
+export async function envoyerEmailsEngagement(e: Engagement, liens: { publier?: string; retirer?: string } = {}) {
   const { commandesEmail } = lireConfigBrevo();
+  const moderation = liens.publier
+    ? `<p>Une fois l'identité vérifiée&nbsp;: ${bouton(liens.publier, 'Publier sur la page Élu·es')}</p>
+<p style="font-size:13px;color:#5F6F65">Pour le retirer plus tard&nbsp;: <a href="${liens.retirer}" style="color:#B8461F">retirer de la liste publique</a>.</p>`
+    : '';
   const equipe = await envoyerEmail({
     to: [{ email: commandesEmail }],
     replyTo: { email: e.email, name: `${e.prenom} ${e.nom}` },
@@ -189,7 +222,8 @@ export async function envoyerEmailsEngagement(e: Engagement) {
     html: gabarit('Nouvel engagement d’élu·e ou de candidat·e', `<p>Un engagement vient d'arriver par la page Élu·es du site.</p>
 ${recapEngagement(e)}
 <p>Accord pour la publication&nbsp;: <b>${ouiNon(e.publication)}</b>.</p>
-<p>À faire&nbsp;: vérifier que la personne est bien celle qu'elle dit être (mandat, candidature, adresse email) avant toute publication. Répondre à cet email lui écrit directement.</p>`),
+<p>À faire&nbsp;: vérifier que la personne est bien celle qu'elle dit être (mandat, candidature, adresse email) avant toute publication. Répondre à cet email lui écrit directement.</p>
+${moderation}`),
   });
   const personne = await envoyerEmail({
     to: [{ email: e.email, name: `${e.prenom} ${e.nom}` }],

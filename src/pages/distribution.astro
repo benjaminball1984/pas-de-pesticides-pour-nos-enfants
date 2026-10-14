@@ -10,6 +10,21 @@ import Site from '../layouts/Site.astro';
       <p class="lead">Tenez une table de signatures devant une école, sur un marché, à la sortie d'un cinéma. Déclarez votre distribution pour apparaître sur la carte publique et être rejoint·e par d'autres près de chez vous. Bio Consom'acteurs vous envoie le matériel et la fiche pratique.</p>
     </div>
   </section>
+  <section class="sec" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Carte publique</p>
+        <h2 class="h2">Les prochaines distributions</h2>
+        <p>Trouvez une distribution près de chez vous pour la rejoindre, ou déclarez la vôtre ci-dessous.</p>
+      </div>
+      <div class="carte-wrap">
+        <div id="carte" class="carte" role="region" aria-label="Carte des distributions à venir"></div>
+        <div class="dist-liste" id="dist-liste" aria-live="polite">
+          <div class="empty"><b>Aucune distribution annoncée pour l'instant.</b><span>Soyez la première ou le premier&nbsp;: <a class="link" href="#form-distribution">déclarez une distribution</a>.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="sec">
     <div class="wrap two-col">
       <form class="form" id="form-distribution" novalidate>
@@ -73,4 +88,5 @@ import Site from '../layouts/Site.astro';
       </div>
     </div>
   </section>
+<script src="../scripts/carte.js"></script>
 </Site>

@@ -1,6 +1,7 @@
 # Configuration Cloudflare Workers (l'adaptateur Astro injecte automatiquement
 # l'entrée du worker et le binding d'assets statiques).
 name = "pas-de-pesticides-pour-nos-enfants"
+main = "./src/worker.ts"
 compatibility_date = "2026-06-17"
 compatibility_flags = ["nodejs_compat"]
 
@@ -15,3 +16,7 @@ routes = [
   { pattern = "pasdepesticidespournosenfants.net", custom_domain = true },
   { pattern = "www.pasdepesticidespournosenfants.net", custom_domain = true },
 ]
+
+# Tâche planifiée : rappels des distributions (veille et jour J), chaque matin à 6 h UTC (7 h ou 8 h à Paris).
+[triggers]
+crons = ["0 6 * * *"]

@@ -191,6 +191,31 @@ if (document.getElementById('letter')) {
   });
 }
 
+// Élu·es : liste publique des engagements, filtrable par département
+const listeEng = document.getElementById('engage-list');
+if (listeEng) {
+  const vide = listeEng.innerHTML;
+  const filtre = document.getElementById('e-filtre');
+  const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const COURT = ['EGalim', 'Cuisine sur place', 'Local et de saison', 'Végétarien chaque jour', 'Sans plastique', 'Gratuité', 'Zéro pesticide', 'Sanctions et moyens', 'Contre l’Omnibus'];
+  let tous = [];
+  const afficher = () => {
+    const dep = (filtre?.value || '').trim().toUpperCase();
+    const vus = dep ? tous.filter((e) => String(e.departement).toUpperCase() === dep) : tous;
+    if (!vus.length) {
+      listeEng.innerHTML = dep && tous.length
+        ? `<div class="empty"><b>Aucun engagement publié dans ce département pour l'instant.</b><span>Sollicitez vos élu·es avec notre <a class="link" href="/rencontre">modèle de courrier</a>.</span></div>`
+        : vide;
+      return;
+    }
+    listeEng.innerHTML = vus.map((e) => `<article class="eng"><b>${esc(e.nom)}</b><span class="q">${esc(e.qualite)} · ${esc(e.territoire)} (${esc(e.departement)})${e.parti ? ' · ' + esc(e.parti) : ''}</span>
+<span class="tags">${(e.engagements || []).length === 9 ? '<span>Les 9 demandes</span>' : (e.engagements || []).map((n) => `<span>${esc(COURT[n - 1])}</span>`).join('')}</span>
+${e.mot ? `<blockquote>« ${esc(e.mot)} »</blockquote>` : ''}</article>`).join('');
+  };
+  filtre?.addEventListener('input', afficher);
+  fetch('/api/engagements').then((r) => r.json()).then((j) => { tous = j.engagements || []; afficher(); }).catch(() => {});
+}
+
 // Visuels : copie du lien Canva
 document.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => {
   const t = b.getAttribute('data-copy');
