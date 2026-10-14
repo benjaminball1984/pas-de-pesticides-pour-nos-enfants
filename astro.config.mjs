@@ -4,8 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   // Domaine cible (utilisé pour les liens canoniques et les images de partage social).
-  // À confirmer : domaine définitif. En attendant, on vise le domaine prévu.
-  site: 'https://pasdepesticidespournosenfants.fr',
+  site: 'https://pasdepesticidespournosenfants.net',
 
   // Pages générées en statique (rapides, mises en cache au bord du réseau).
   // Seules les routes /api/* sont dynamiques (`export const prerender = false`).

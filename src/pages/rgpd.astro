@@ -1,26 +1,26 @@
 ---
-import Base from "../layouts/Base.astro";
+import Site from '../layouts/Site.astro';
 ---
 
-<Base titre="Vos données (RGPD) — Pas de pesticides pour nos enfants" navActive="">
-  <section class="legal">
-    <div class="wrap-narrow">
-      <h1>Vos données personnelles (RGPD)</h1>
-      <p class="maj">Dernière mise à jour : 17 juin 2026</p>
-
-      <p>Bio Consom'acteurs s'engage à protéger vos données et à respecter le Règlement général sur la protection des données (RGPD).</p>
-
-      <h2>En bref</h2>
-      <ul>
-        <li>Données limitées au strict nécessaire : prénom, nom, email, code postal, téléphone (facultatif).</li>
-        <li>Hébergement dans l'Union européenne (Supabase, Francfort).</li>
-        <li>Aucun cookie de suivi, aucune revente de données.</li>
-      </ul>
-
-      <h2>Exercer vos droits</h2>
-      <p>Accès, rectification, effacement, opposition, limitation, portabilité : écrivez à <a href="mailto:contact@bioconsomacteurs.org">contact@bioconsomacteurs.org</a>. Vous pouvez aussi saisir la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</p>
-
-      <p>Le détail complet figure dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
-    </div>
-  </section>
-</Base>
+<Site titre="Vos données (RGPD) · Pas de pesticides pour nos enfants" description="Comment sont traitées vos données personnelles." page="confidentialite">
+<section class="page-hero on-deep"><div class="wrap"><h1>Politique de confidentialité</h1></div></section>
+  <section class="sec"><div class="wrap texte">
+    <p>Cette page explique comment sont traitées vos données personnelles lorsque vous signez la pétition, commandez du matériel, déclarez une distribution ou vous engagez en tant qu'élu·e ou candidat·e.</p>
+    <h2>Responsable de traitement</h2>
+    <p>Bio Consom'acteurs, association loi 1901, 10 rue Beaumarchais, 93100 Montreuil, France. Contact&nbsp;: <span class="sel">contact@bioconsomacteurs.org</span>.</p>
+    <h2>Données collectées</h2>
+    <p>À la signature&nbsp;: prénom, nom, adresse email, code postal et, si vous le souhaitez, numéro de téléphone, ainsi que la date de votre signature. Pour une commande ou une distribution&nbsp;: les coordonnées nécessaires à l'envoi et à l'organisation. Aucune adresse IP conservée, aucun cookie de suivi, aucun traceur publicitaire.</p>
+    <h2>Pourquoi, et sur quelle base légale</h2>
+    <ol>
+      <li>Porter la pétition&nbsp;: recueillir et présenter votre soutien à ses destinataires. Base légale&nbsp;: intérêt légitime à mener une action citoyenne.</li>
+      <li>Vous informer sur l'avancée de la campagne&nbsp;: intérêt légitime&nbsp;; vous pouvez vous y opposer à tout moment.</li>
+      <li>Les Bio Consom'infos, si vous les avez demandées&nbsp;: votre consentement explicite&nbsp;; désinscription possible dans chaque envoi.</li>
+    </ol>
+    <h2>Durée de conservation</h2>
+    <p>Les signatures sont conservées jusqu'à la clôture de la campagne et la remise de la pétition à ses destinataires, puis supprimées ou anonymisées. Les coordonnées liées à la lettre d'information sont conservées jusqu'à votre désinscription.</p>
+    <h2>Qui y a accès</h2>
+    <p>Vos données sont destinées à la seule équipe de Bio Consom'acteurs et ne sont jamais vendues ni cédées. Elles sont traitées par nos prestataires techniques&nbsp;: Supabase (hébergement de la base de données dans l'Union européenne) et Cloudflare (hébergement et diffusion du site).</p>
+    <h2>Vos droits</h2>
+    <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité. Pour les exercer&nbsp;: <span class="sel">contact@bioconsomacteurs.org</span>. Vous pouvez aussi saisir la CNIL.</p>
+  </div></section>
+</Site>

@@ -9,8 +9,8 @@
 export const site = {
   org: "Bio Consom'acteurs",
   adresse: "10 rue Beaumarchais, 93100 Montreuil — France",
-  domaine: "pasdepesticidespournosenfants.fr", // À VALIDER : domaine définitif
-  annee: "2025",
+  domaine: "pasdepesticidespournosenfants.net",
+  annee: "2026",
   titreOnglet: "Pas de pesticides pour nos enfants — Pétition",
   description:
     "Pétition citoyenne pour des cantines sans pesticides, bio, locales et faites maison. Portée par Bio Consom'acteurs.",

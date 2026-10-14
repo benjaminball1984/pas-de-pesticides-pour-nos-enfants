@@ -9,3 +9,9 @@ compatibility_flags = ["nodejs_compat"]
 # ou en ligne de commande :
 #   npx wrangler secret put SUPABASE_URL
 #   npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+
+# Domaines personnalisés (Cloudflare gère automatiquement les certificats SSL).
+routes = [
+  { pattern = "pasdepesticidespournosenfants.net", custom_domain = true },
+  { pattern = "www.pasdepesticidespournosenfants.net", custom_domain = true },
+]

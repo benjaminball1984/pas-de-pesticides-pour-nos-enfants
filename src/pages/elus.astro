@@ -1,0 +1,76 @@
+---
+import Site from '../layouts/Site.astro';
+---
+
+<Site titre="Élu·es et candidat·es : engagez-vous · Pas de pesticides pour nos enfants" description="Prenez position publiquement sur les neuf demandes de la pétition." page="elus">
+<section class="page-hero on-deep">
+    <div class="wrap">
+      <p class="eyebrow">Présidentielle et législatives 2027</p>
+      <h1>Élu·es et candidat·es&nbsp;: <em>engagez-vous</em></h1>
+      <p class="lead">Maires, conseiller·es, député·es, sénateur·rices, eurodéputé·es, candidat·es à l'élection présidentielle et aux élections législatives&nbsp;: prenez position publiquement sur les neuf demandes de la pétition. Chaque engagement est publié, territoire par territoire.</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap two-col">
+      <form class="form" id="form-elus" novalidate>
+        <input type="text" name="site_web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <h2 class="step-title">Je m'engage</h2>
+        <div class="grid2">
+          <div class="fld"><label for="e-prenom">Prénom</label><input id="e-prenom" autocomplete="given-name" required></div>
+          <div class="fld"><label for="e-nom">Nom</label><input id="e-nom" autocomplete="family-name" required></div>
+        </div>
+        <div class="fld"><label for="e-qual">Mandat ou candidature</label>
+          <select id="e-qual" required>
+            <option value="">Choisir</option>
+            <optgroup label="Élu·e">
+              <option>Maire</option><option>Adjoint·e au maire</option><option>Conseiller·e municipal·e</option>
+              <option>Conseiller·e départemental·e</option><option>Conseiller·e régional·e</option>
+              <option>Député·e</option><option>Sénateur·rice</option><option>Eurodéputé·e</option>
+            </optgroup>
+            <optgroup label="Candidat·e 2027">
+              <option>Candidat·e à l'élection présidentielle</option><option>Candidat·e aux élections législatives</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="grid2">
+          <div class="fld"><label for="e-terr">Commune, département, région ou circonscription</label><input id="e-terr" required></div>
+          <div class="fld"><label for="e-dep">Département</label><input id="e-dep" placeholder="ex. 93" maxlength="3" required></div>
+        </div>
+        <div class="grid2">
+          <div class="fld"><label for="e-email">Email</label><input id="e-email" type="email" autocomplete="email" required></div>
+          <div class="fld"><label for="e-parti">Parti ou liste <small>(facultatif)</small></label><input id="e-parti"></div>
+        </div>
+        <span class="legend">Je m'engage sur</span>
+        <div class="checks9" id="e-dem">
+          <label class="check"><input type="checkbox" checked><span>1. Respecter EGalim tout de suite, et une trajectoire vers 100&nbsp;% bio</span></label>
+          <label class="check"><input type="checkbox" checked><span>2. Cuisiner sur place</span></label>
+          <label class="check"><input type="checkbox" checked><span>3. Acheter local et de saison</span></label>
+          <label class="check"><input type="checkbox" checked><span>4. Une alternative végétarienne chaque jour</span></label>
+          <label class="check"><input type="checkbox" checked><span>5. Bannir le plastique</span></label>
+          <label class="check"><input type="checkbox" checked><span>6. Vers la gratuité de la cantine</span></label>
+          <label class="check"><input type="checkbox" checked><span>7. Zéro pesticide autour des écoles</span></label>
+          <label class="check"><input type="checkbox" checked><span>8. Des sanctions et des moyens pour EGalim</span></label>
+          <label class="check"><input type="checkbox" checked><span>9. Rejeter la loi Omnibus</span></label>
+        </div>
+        <div class="fld"><label for="e-mot">Un mot pour les parents de votre territoire <small>(facultatif)</small></label><textarea id="e-mot"></textarea></div>
+        <label class="check"><input type="checkbox" id="e-pub" checked required><span>J'accepte que mon nom, mon mandat ou ma candidature, mon territoire et mes engagements soient publiés sur ce site.</span></label>
+        <p class="form-err" role="alert" style="color:var(--orange-ink);font-weight:700" hidden></p>
+        <button class="btn btn-orange" type="submit" style="justify-self:start">Je m'engage publiquement</button>
+      </form>
+      <div style="display:grid;gap:16px">
+        <div class="done" id="merci-elus" hidden>
+          <p class="eyebrow">Engagement reçu</p>
+          <h3>Merci pour votre engagement.</h3>
+          <p style="color:var(--fg-2)">L'équipe de Bio Consom'acteurs vérifie chaque engagement avant publication. Vous recevrez un email dès qu'il apparaît sur la liste.</p>
+        </div>
+        <aside class="card-form" style="background:var(--paper);display:grid;gap:14px">
+          <p class="eyebrow">Ils et elles se sont engagé·es</p>
+          <div class="fld"><label for="e-filtre">Votre département</label><input id="e-filtre" placeholder="ex. 93" maxlength="3"></div>
+          <div class="engage-list" id="engage-list">
+            <div class="empty"><b>Les engagements publiés s'affichent ici.</b><span>Retrouvez les élu·es et candidat·es de votre territoire. Vous connaissez un·e élu·e&nbsp;? Envoyez-lui cette page, ou sollicitez un rendez-vous avec notre <a class="link" href="/rencontre">modèle de courrier</a>.</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Site>

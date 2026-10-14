@@ -1,289 +1,225 @@
 ---
-import Base from "../layouts/Base.astro";
-import {
-  compteur, pourcentObjectif, objectifDynamique, fmt,
-  urgence, manifeste, demandes, actions, signature, apropos,
-} from "../data/contenu.ts";
-// Note : la section « Premier·ères signataires » (personnalités + organisations)
-// est retirée pour l'instant — à réafficher plus tard (données conservées dans contenu.ts).
-
-// Illustrations décoratives des 3 cartes « Agir » (SVG inline)
-const illustrations = [
-  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><path d="M40 38 100 22l60 16-60 18-60-18Z" fill="#EB734D"/><path d="M40 38v42l60 18V56L40 38Z" fill="#CC5733"/><path d="M160 38v42l-60 18V56l60-18Z" fill="#FFCC45"/><path d="M70 30l60 16M70 30v42M130 30l-30 8" stroke="#004D40" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
-  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><rect x="20" y="30" width="160" height="76" rx="8" fill="#CEDCAE"/><path d="M20 78c20-8 38 4 60-4s44-12 70-2v34H20V78Z" fill="#B0C27D"/><circle cx="70" cy="62" r="10" fill="#fff" stroke="#004D40" stroke-width="2"/><path d="M70 52v-8M70 52a10 10 0 0 0 0 20" stroke="#EB734D" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="62" r="3" fill="#004D40"/><circle cx="130" cy="50" r="6" fill="#FFCC45" stroke="#004D40" stroke-width="2"/><circle cx="155" cy="80" r="5" fill="#fff" stroke="#004D40" stroke-width="2"/></svg>`,
-  `<svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><rect x="30" y="68" width="140" height="6" rx="2" fill="#004D40"/><rect x="40" y="74" width="6" height="22" rx="1" fill="#004D40"/><rect x="154" y="74" width="6" height="22" rx="1" fill="#004D40"/><circle cx="70" cy="50" r="10" fill="#EB734D"/><path d="M55 70c0-8 7-12 15-12s15 4 15 12" fill="#EB734D"/><circle cx="130" cy="50" r="10" fill="#FFCC45" stroke="#004D40" stroke-width="2"/><path d="M115 70c0-8 7-12 15-12s15 4 15 12" fill="#FFCC45" stroke="#004D40" stroke-width="2"/><path d="M85 32h30c3 0 6 2 6 6v8c0 3-3 6-6 6h-22l-8 6 1-6h-1c-3 0-6-3-6-6v-8c0-4 3-6 6-6Z" fill="#fff" stroke="#004D40" stroke-width="2"/><circle cx="95" cy="42" r="2" fill="#004D40"/><circle cx="103" cy="42" r="2" fill="#004D40"/><circle cx="111" cy="42" r="2" fill="#004D40"/></svg>`,
-];
+import Site from '../layouts/Site.astro';
 ---
 
-<Base>
-  <!-- Bandeau de chiffres -->
-  <div class="ticker">
+<Site titre="Pas de pesticides pour nos enfants · Pétition" description="Pétition pour des cantines bio, locales, de saison et faites maison, sans pesticides. Portée par Bio Consom'acteurs." page="accueil">
+<section class="hero on-deep">
     <div class="wrap">
-      <div class="row">
-        <span class="item"><span class="num" data-cpt="signataires">{fmt(compteur.signataires)}</span><span class="lbl">signataires</span></span>
-        <span class="item"><span class="num">{compteur.distributions}</span><span class="lbl">distributions enregistrées</span></span>
-        <span class="item"><span class="num" data-cpt="communes">{compteur.communes}</span><span class="lbl">communes mobilisées</span></span>
-        <span class="item goal"><span class="lbl">Objectif</span><span class="num" data-cpt="objectif">{fmt(objectifDynamique(compteur.signataires))}</span><span class="lbl">signatures</span></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO (épuré : boutons + compteur posés sur l'affiche) -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="stage">
-        <div class="poster">
-          <img src="/images/affiche-pesticides.jpg" alt="Pas de pesticides pour nos enfants — une petite signature pour vous, un grand pas pour leur santé. Affiche officielle de la campagne." />
+      <div>
+        <p class="eyebrow">Pétition nationale · Bio Consom'acteurs</p>
+        <h1>Pas de pesticides <em>pour nos enfants&nbsp;!</em></h1>
+        <p class="slogan">Une petite signature pour vous, un grand pas pour leur santé.</p>
+        <p class="lead">Des cantines bio, locales, de saison et faites maison, de la crèche au lycée. Nous demandons aux élu·es, à toutes les échelles, un engagement public, immédiat et chiffré.</p>
+        <div class="ctas">
+          <a class="btn btn-yellow" href="/#signer">Je signe la pétition</a>
+          <a class="btn btn-ghost" href="/appel">Lire l'appel</a>
         </div>
-        <div class="overlay">
-          <div class="ctas">
-            <a href="#signer" class="btn btn-primary">✍️ Je signe la pétition</a>
-            <a href="/appel" class="btn btn-appel">Lire l'appel</a>
+      </div>
+      <figure class="poster">
+        <img src="/images/affiche-pesticides.jpg" width="1280" height="720" alt="Affiche de la campagne : « Pas de pesticides pour nos enfants ! », une enfant tient un panier de carottes et de légumes.">
+      </figure>
+    </div>
+  </section>
+
+  <section class="signer" id="signer">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Signer maintenant</p>
+        <h2 class="h2" style="margin-top:10px">Ajoutez votre <span class="y">signature</span> à l'appel.</h2>
+        <p class="hand">Une petite signature pour vous,<br>un grand pas pour leur santé.</p>
+        <ul class="guar">
+          <li>Pétition adressée au gouvernement, aux député·es, aux eurodéputé·es, aux maires, aux conseils départementaux et aux conseils régionaux.</li>
+          <li>Données hébergées en Europe. Aucun cookie traceur, aucun partage avec des tiers.</li>
+          <li>Fondée sur l'INSERM, l'Anses, l'étude PestiRiv et la loi EGalim.</li>
+        </ul>
+      </div>
+      <div class="card-form">
+        <form class="form" id="form-signer" novalidate>
+          <input type="text" name="site_web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="grid2">
+            <div class="fld"><label for="s-prenom">Prénom</label><input id="s-prenom" name="prenom" autocomplete="given-name" required></div>
+            <div class="fld"><label for="s-nom">Nom</label><input id="s-nom" name="nom" autocomplete="family-name" required></div>
           </div>
-          <div class="meter">
-            <p class="count">
-              <span class="num" id="counter">{fmt(compteur.signataires)}</span>
-              <span class="cl"><strong>signataires</strong> à ce jour</span>
-            </p>
-            <div class="prog">
-              <span class="bar"><i id="counter-bar" style={`width:${pourcentObjectif(compteur.signataires)}%`}></i></span>
-              <span class="goal" id="counter-goal">{pourcentObjectif(compteur.signataires)} % de l'objectif des {fmt(objectifDynamique(compteur.signataires))}</span>
-            </div>
+          <div class="fld"><label for="s-email">Email</label><input id="s-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="grid2">
+            <div class="fld"><label for="s-cp">Code postal</label><input id="s-cp" name="code_postal" inputmode="numeric" maxlength="5" autocomplete="postal-code" required></div>
+            <div class="fld"><label for="s-tel">Téléphone <small>(facultatif)</small></label><input id="s-tel" name="telephone" type="tel" autocomplete="tel"></div>
+          </div>
+          <label class="check"><input type="checkbox" id="s-info" checked><span>Je soutiens la campagne « Pas de pesticides pour nos enfants » et accepte de recevoir des informations sur son avancée. <small>Désinscription à tout moment.</small></span></label>
+          <label class="check"><input type="checkbox" id="s-nl"><span>Je souhaite recevoir les Bio Consom'infos, la lettre d'information de Bio Consom'acteurs. <small>Consentement explicite.</small></span></label>
+          <p class="form-err" role="alert" style="color:var(--orange-ink);font-weight:700" hidden></p>
+          <button class="btn btn-orange" type="submit" style="justify-self:start">Je signe la pétition</button>
+          <p class="src" style="text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:.84rem">Vos données sont traitées par Bio Consom'acteurs. <a href="/confidentialite">Politique de confidentialité</a>.</p>
+        </form>
+        <div class="done" id="merci" hidden>
+          <p class="eyebrow">Merci&nbsp;!</p>
+          <h3>Merci <span id="merci-prenom"></span>, votre signature compte. Passons maintenant à l'action.</h3>
+          <p style="color:var(--fg-2)">Une pétition se gagne sur le terrain&nbsp;: devant les écoles, sur les marchés, dans le bureau des élu·es.</p>
+          <div class="ctas" style="margin-top:4px">
+            <a class="btn btn-dark" href="/commander">Commander du matériel</a>
+            <a class="btn btn-ghost" href="/distribution">Organiser une distribution</a>
+            <a class="btn btn-ghost" href="/rencontre">Rencontrer mon élu·e</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIGNER (remonté juste sous le hero) -->
-  <section class="sign" id="signer">
+  <section class="sec">
     <div class="wrap">
-      <div class="grid">
-        <div class="left">
-          <span class="eyebrow" style="color:var(--yellow)"><span style="background:var(--yellow)"></span>{signature.eyebrow}</span>
-          <h2 set:html={signature.titreHtml}></h2>
-          <div class="hand" set:html={signature.slogan}></div>
-          <div class="meta">
-            <div class="row">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-6 8-13a8 8 0 0 0-16 0c0 7 8 13 8 13Z"/><circle cx="12" cy="9" r="3"/></svg>
-              <span>{signature.garanties[0]}</span>
-            </div>
-            <div class="row">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>{signature.garanties[1]}</span>
-            </div>
-            <div class="row">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <span>{signature.garanties[2]}</span>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <form class="form-card" id="form-signature" method="POST" action="/api/signer">
-            <!-- Anti-robot : champ piège (honeypot), invisible pour les humains -->
-            <input type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-            <div class="row">
-              <div>
-                <label class="label" for="fn">Prénom</label>
-                <input class="field" id="fn" name="prenom" type="text" placeholder="Camille" required autocomplete="given-name" />
-              </div>
-              <div>
-                <label class="label" for="ln">Nom</label>
-                <input class="field" id="ln" name="nom" type="text" placeholder="Dupont" required autocomplete="family-name" />
-              </div>
-            </div>
-            <div class="row single">
-              <div>
-                <label class="label" for="em">Email</label>
-                <input class="field" id="em" name="email" type="email" placeholder="camille@exemple.fr" required autocomplete="email" />
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <label class="label" for="cp">Code postal</label>
-                <input class="field" id="cp" name="code_postal" type="text" inputmode="numeric" maxlength="5" placeholder="75011" required autocomplete="postal-code" />
-              </div>
-              <div>
-                <label class="label" for="ph">Téléphone <span style="color:var(--muted);text-transform:none;letter-spacing:0">— facultatif</span></label>
-                <input class="field" id="ph" name="telephone" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" />
-              </div>
-            </div>
-            <label class="check">
-              <input type="checkbox" name="info_campagne" checked />
-              <span>Je soutiens la campagne « Pas de pesticides pour nos enfants&nbsp;» et accepte de recevoir des informations sur son avancée. <em style="font-style:normal;color:var(--muted)">(Intérêt légitime, désinscription à tout moment.)</em></span>
-            </label>
-            <label class="check">
-              <input type="checkbox" name="newsletter" />
-              <span>Je souhaite recevoir la <strong>lettre d'information</strong> de Bio Consom'acteurs (actualités, mobilisations, agenda). <em style="font-style:normal;color:var(--muted)">(Consentement explicite.)</em></span>
-            </label>
-            <button type="submit" class="btn btn-primary submit">✍️ Je signe la pétition</button>
-            <p class="rgpd" id="form-message" aria-live="polite">Vos données sont collectées par Bio Consom'acteurs (responsable de traitement). Elles sont hébergées en Europe par Supabase (Frankfurt) et ne sont jamais cédées à des tiers. Vous disposez de droits d'accès, de rectification, d'opposition et d'effacement, détaillés dans notre <a href="/confidentialite" style="color:var(--muted);text-decoration:underline">politique de confidentialité</a> (contact : <a href="mailto:contact@bioconsomacteurs.org" style="color:var(--muted);text-decoration:underline">contact@bioconsomacteurs.org</a>).</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POURQUOI MAINTENANT -->
-  <section class="urgency" id="manifeste">
-    <div class="wrap">
-      <div class="lead-row">
-        <div>
-          <span class="eyebrow">{urgence.eyebrow}</span>
-          <h2 set:html={urgence.titreHtml}></h2>
-        </div>
-        <div class="body">
-          {urgence.corpsHtml.map((p) => <p set:html={p}></p>)}
-          <div class="pull">{urgence.pull}</div>
-        </div>
+      <div class="sec-head">
+        <p class="eyebrow">Pourquoi maintenant</p>
+        <h2 class="h2">Chaque jour, des millions d'enfants mangent à la cantine. La science nous met en garde depuis des années.</h2>
+        <p>L'expertise collective de l'INSERM (2021) établit une présomption forte de lien entre l'exposition aux pesticides chez l'enfant et la survenue de cancers pédiatriques. La loi impose 20&nbsp;% de bio dans les cantines depuis 2022. Huit ans après le vote de la loi EGalim, c'est encore largement lettre morte.</p>
       </div>
       <div class="stats">
-        {urgence.stats.map((s) => (
-          <div class={s.alt ? "stat alt" : "stat"}>
-            <span class="corner">{s.n}</span>
-            <div class="big">{s.big}<span class="u">{s.u}</span></div>
-            {s.only && <div class="only">{s.only}</div>}
-            <div class="ttl">{s.ttl}</div>
-            <div class="src">{s.src}</div>
-          </div>
-        ))}
+        <div class="stat"><span class="n">&lt;&nbsp;7<small>%</small></span><p>de bio dans les achats de la restauration collective, quand la loi en exige 20&nbsp;%.</p><span class="src">Agence Bio</span></div>
+        <div class="stat"><span class="n">18<small>%</small></span><p>des communes seulement respectent les deux seuils de la loi EGalim.</p><span class="src">AMF · 2024</span></div>
+        <div class="stat"><span class="n">1,7<small>million</small></span><p>d'écoliers vont en classe sous forte pression pesticides.</p><span class="src">Le Monde · déc. 2025</span></div>
+        <div class="stat"><span class="n">78<small>%</small></span><p>des Françaises et des Français sont favorables à la limitation des pesticides.</p><span class="src">Ipsos bva · RAC · oct. 2025</span></div>
       </div>
     </div>
   </section>
 
-  <!-- NOS DEMANDES -->
-  <section class="demands" id="demandes">
+  <section class="manif sec on-deep" id="manifeste">
     <div class="wrap">
-      <div class="head">
+      <p class="eyebrow">L'appel</p>
+      <p>Chaque jour, dans les écoles, les collèges et les lycées de notre pays, des millions d'enfants prennent un repas dont on sait qu'il les expose à des substances que la science accuse depuis des années. Et chaque jour, l'État et trop de collectivités regardent ailleurs.</p>
+      <p class="cri">Cela suffit. Nos enfants ne sont pas une variable d'ajustement.</p>
+      <p>Une cantine digne de ce nom, c'est une cantine bio, faite maison, avec des produits locaux et de saison, saine, équilibrée, et bonne. Parce qu'un repas se mange aussi avec plaisir.</p>
+      <div><a class="btn btn-yellow" href="/appel">Lire l'appel en entier</a></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="band">
         <div>
-          <span class="eyebrow">{demandes.eyebrow}</span>
-          <h2 set:html={demandes.titreHtml}></h2>
+          <p class="eyebrow">Loi EGalim · demande préalable du 17 septembre 2026</p>
+          <blockquote style="margin-top:12px">«&nbsp;Nous demandons simplement que l'État respecte celle qu'il a adoptée.&nbsp;»</blockquote>
+          <p class="who">Bio Consom'acteurs, Notre Affaire à Tous, Générations Futures, Agir pour l'Environnement et le Collectif Les Pieds dans le Plat demandent au Gouvernement d'appliquer la loi EGalim dans les restaurants collectifs dont il a la responsabilité. À défaut, notre coalition saisira la justice.</p>
         </div>
-        <p class="intro">{demandes.intro}</p>
-      </div>
-      <div class="demand-grid">
-        {demandes.liste.map((d) => (
-          <article class={d.variante ? `demand ${d.variante}` : "demand"}>
-            <div class="n">{d.n}</div>
-            <div class="verb">{d.verbe}</div>
-            <p>{d.texte}</p>
-          </article>
-        ))}
+        <div class="side">
+          <div class="kpi state"><span class="src">Restaurants collectifs de l'État · 2025</span><span class="n">12,8&nbsp;%</span><p>de bio seulement. La loi en exige 20&nbsp;%.</p></div>
+          <a class="btn btn-dark" href="/egalim" style="justify-self:start">Tout savoir sur la demande préalable</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- COMMENT AGIR -->
-  <section class="act" id="agir">
+  <section class="sec" id="demandes">
     <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">{actions.eyebrow}</span>
-        <h2 set:html={actions.titreHtml}></h2>
-        <p class="sub">{actions.sous}</p>
+      <div class="sec-head">
+        <p class="eyebrow">Nos demandes</p>
+        <h2 class="h2">Aux élu·es, à toutes les échelles&nbsp;: neuf engagements publics, immédiats et chiffrés.</h2>
+        <p>Union européenne, État, Parlement, régions, départements, communes&nbsp;: chacun·e, dans le périmètre de ses compétences, a la responsabilité directe ou indirecte des cantines de nos enfants.</p>
+      </div>
+      <ol class="demandes">
+        <li class="hi"><strong>Respecter EGalim, tout de suite</strong><span>50&nbsp;% de produits durables et de qualité dont 20&nbsp;% de bio dans toutes les cantines, de la petite enfance au lycée, et une trajectoire publiée vers 100&nbsp;% bio.</span></li>
+        <li><strong>Cuisiner sur place</strong><span>Des cuisines faites maison, avec des cuisinier·es formé·es et dignement rémunéré·es, plutôt que des grands groupes industriels.</span></li>
+        <li><strong>Acheter local et de saison</strong><span>L'achat direct aux paysannes et paysans bio du territoire, à des prix qui couvrent les coûts de production.</span></li>
+        <li><strong>Une alternative végétarienne chaque jour</strong><span>Et moins de produits carnés et d'origine animale, pour la santé des enfants et pour l'environnement.</span></li>
+        <li><strong>Bannir le plastique</strong><span>Réduire les déchets et le gaspillage, et bannir les contenants plastiques de cuisson, de réchauffe et de service.</span></li>
+        <li class="hi"><strong>Vers la gratuité</strong><span>Une cantine gratuite pour toutes les familles, en commençant par les plus modestes, dans la perspective d'une sécurité sociale de l'alimentation.</span></li>
+        <li class="hi"><strong>Zéro pesticide autour des écoles</strong><span>Interdire l'usage des pesticides dans tous les espaces publics, en particulier autour des crèches, des écoles et des lieux fréquentés par les enfants.</span></li>
+        <li><strong>Des sanctions et des moyens</strong><span>Renforcer EGalim avec des sanctions effectives, et donner aux collectivités les moyens financiers et humains de l'appliquer.</span></li>
+        <li><span class="to">Aux eurodéputé·es</span><strong>Rejeter la loi Omnibus</strong><span>Elle supprimerait les réévaluations des pesticides&nbsp;: un énième laisser-passer aux entreprises agrochimiques.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="nov sec" id="quatorze">
+    <div class="wrap">
+      <div class="date-tile" aria-hidden="true"><b>14</b><span>novembre</span></div>
+      <div>
+        <p class="eyebrow">Appel des enfants</p>
+        <h2 style="margin-top:8px">Le 14 novembre, donnons la parole aux enfants</h2>
+        <p>Le 14 novembre, partout en France, on manifeste pour le présent et l'avenir des enfants. Bio Consom'acteurs relaie l'appel des enfants&nbsp;: leurs mots, leurs demandes, et la signature de toutes celles et ceux qui les soutiennent. <q>Le climat se fera avec les plus jeunes ou ne se fera pas.</q></p>
+        <div class="ctas" style="margin-top:18px">
+          <a class="btn btn-dark" href="https://26septembre.org/appel-enfants/" target="_blank" rel="noopener">Lire et signer l'appel des enfants ↗</a>
+          <a class="btn btn-ghost" href="https://bioconsomacteurs.org/articles/les-bio-consomactions/le-14-novembre-donnons-la-parole-aux-enfants/" target="_blank" rel="noopener">L'article de Bio Consom'acteurs ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="agir">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">3 actions pour aller plus loin</p>
+        <h2 class="h2">Vous avez signé&nbsp;? Passons à l'action concrète.</h2>
+        <p>Ce qui fait gagner une cantine, c'est le matériel diffusé, les distributions tenues devant les écoles et les rendez-vous obtenus avec les élu·es.</p>
       </div>
       <div class="actions">
-        {actions.cartes.map((c, i) => (
-          <article class={c.featured ? "action featured" : "action"}>
-            <div class="top">
-              <div class="step">{c.step}</div>
-              <h3>{c.titre}</h3>
-              <p set:html={c.texteHtml}></p>
-              <ul>
-                {c.points.map((pt) => <li set:html={pt}></li>)}
-              </ul>
-            </div>
-            <div class="ill" style={c.illStyle || undefined} set:html={illustrations[i]}></div>
-            <div class="foot">
-              <span class="small">{c.footSmall}</span>
-              <a href={c.cta.href} class={`btn ${c.cta.classe}`}>{c.cta.label}</a>
-            </div>
-          </article>
-        ))}
+        <div class="action feat">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFCC45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span>
+          <span class="tag">À recevoir chez vous</span>
+          <h3>Commander du matériel</h3>
+          <ul><li>Flyers A5 et affiches A3</li><li>Gratuit, frais de port au coût réel</li><li>Expédié depuis Montreuil (93)</li></ul>
+          <a class="btn btn-yellow" href="/commander">Je commande</a>
+        </div>
+        <div class="action">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="tag">Sur le terrain</span>
+          <h3>Organiser une distribution</h3>
+          <ul><li>Une table de signatures devant une école, un marché, une mairie</li><li>Sur la carte publique des distributions</li><li>Fiche pratique et rappels par email</li></ul>
+          <a class="btn btn-orange" href="/distribution">Je m'organise</a>
+        </div>
+        <div class="action">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></span>
+          <span class="tag">Au cœur du débat</span>
+          <h3>Rencontrer vos élu·es</h3>
+          <ul><li>Modèles de courrier pour chaque élu·e</li><li>Argumentaire chiffré et sourcé</li><li>L'appui de Bio Consom'acteurs</li></ul>
+          <a class="btn btn-dark" href="/rencontre">Je sollicite</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- QUI SOMMES-NOUS -->
-  <section class="about" id="bca">
+  <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="grid">
+      <div class="band" style="background:var(--tilleul-soft)">
         <div>
-          <span class="eyebrow">{apropos.eyebrow}</span>
-          <h2>{apropos.titre}</h2>
-          {apropos.parasHtml.map((p) => <p set:html={p}></p>)}
-          <a href="https://bioconsomacteurs.org" target="_blank" rel="noopener" class="btn btn-dark" style="margin-top:24px">Découvrir Bio Consom'acteurs ↗</a>
+          <p class="eyebrow">Présidentielle et législatives 2027</p>
+          <h2 class="h2" style="margin-top:10px">Élu·es et candidat·es, engagez-vous pour la cantine de nos enfants.</h2>
+          <p class="who">Maires, conseiller·es, député·es, eurodéputé·es, candidat·es&nbsp;: prenez position publiquement sur nos neuf demandes. Chaque engagement est publié, territoire par territoire.</p>
         </div>
-        <div class="stats-mini">
-          {apropos.mini.map((m) => (
-            <div class="mini">
-              {"bigHtml" in m ? <div class="big" set:html={m.bigHtml}></div> : <div class="big">{m.big}</div>}
-              <div class="lbl">{m.lbl}</div>
-            </div>
-          ))}
-        </div>
+        <div class="side"><a class="btn btn-dark" href="/elus" style="justify-self:start">Je m'engage</a></div>
       </div>
     </div>
   </section>
 
-  <script>
-    // Compteur en direct + envoi du formulaire de signature (amélioration progressive).
-    const fmtFr = (n) => Number(n).toLocaleString('fr-FR');
+  <section class="sec" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="wrap">
+      <div class="sec-head" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;max-width:none">
+        <div style="display:grid;gap:10px"><p class="eyebrow">Actualités</p><h2 class="h2">Ailleurs dans la lutte contre les pesticides</h2></div>
+        <a class="link" href="/actualites">Toutes les actualités</a>
+      </div>
+      <div class="news" id="news-home">
+        <a class="news-card" href="https://www.generations-futures.fr/actualites/omnibus-pesticides-les-9-10-et-11-octobre-generations-futures-mobilisee-dans-toute-la-france/" target="_blank" rel="noopener"><div class="img"><img src="/images/actus/actu-1.jpg" alt="Militantes et militants de Générations Futures devant une banderole « Pesticides à vie ? Non merci »." loading="lazy"></div><div class="body"><div class="meta"><span class="pill">Générations Futures</span><span class="src">13 octobre 2026</span></div><h3>Omnibus Pesticides : les 9, 10 et 11 octobre, Générations Futures mobilisée dans toute la France</h3><span class="more">Lire sur Générations Futures ↗</span></div></a>
+        <a class="news-card" href="https://basta.media/Reportage-stop-pesticides-images-manifestation-contre-syngenta-ravages-agrochimie-Cancer-Colere" target="_blank" rel="noopener"><div class="img"><img src="/images/actus/actu-3.jpg" alt="Une femme parle au micro, entourée de manifestant·es en t-shirts « Cancer Colère »." loading="lazy"></div><div class="body"><div class="meta"><span class="pill">Basta!</span><span class="src">5 octobre 2026</span></div><h3>« Stop aux pesticides » : les images de la manifestation contre Syngenta et les « ravages de l’agrochimie »</h3><span class="more">Lire sur Basta! ↗</span></div></a>
+        <a class="news-card" href="https://basta.media/Fleur-Breteau-collectif-Cancer-Colere-On-arrivera-pas-a-guerir-dans-un-monde-qui-nous-empoisonne-pesticides-maladies" target="_blank" rel="noopener"><div class="img"><img src="/images/actus/actu-2.jpg" alt="Portrait de Fleur Breteau, du collectif Cancer Colère." loading="lazy"></div><div class="body"><div class="meta"><span class="pill">Basta!</span><span class="src">29 septembre 2026</span></div><h3>Fleur Breteau : « On n’arrivera pas à guérir dans un monde qui nous empoisonne »</h3><span class="more">Lire sur Basta! ↗</span></div></a>
+      </div>
+    </div>
+  </section>
 
-    async function rafraichirCompteur() {
-      try {
-        const r = await fetch('/api/compteur', { headers: { accept: 'application/json' } });
-        if (!r.ok) return;
-        const d = await r.json();
-        if (typeof d.signataires === 'number') {
-          document.querySelectorAll('[data-cpt="signataires"]').forEach((el) => (el.textContent = fmtFr(d.signataires)));
-          const big = document.getElementById('counter');
-          if (big) big.textContent = fmtFr(d.signataires);
-          const obj = d.objectif || 20000;
-          document.querySelectorAll('[data-cpt="objectif"]').forEach((el) => (el.textContent = fmtFr(obj)));
-          const pct = obj > 0 ? Math.min(100, Math.round((d.signataires / obj) * 100)) : 0;
-          const bar = document.getElementById('counter-bar');
-          if (bar) bar.style.width = pct + '%';
-          const goal = document.getElementById('counter-goal');
-          if (goal) goal.textContent = pct + " % de l'objectif des " + fmtFr(obj);
-        }
-        if (typeof d.communes === 'number') {
-          document.querySelectorAll('[data-cpt="communes"]').forEach((el) => (el.textContent = fmtFr(d.communes)));
-        }
-      } catch (_) {}
-    }
-    rafraichirCompteur();
-
-    const form = document.getElementById('form-signature');
-    if (form) {
-      const btn = form.querySelector('button[type="submit"]');
-      const msg = document.getElementById('form-message');
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (btn.disabled) return;
-        const texteOrigine = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Envoi…';
-        try {
-          const res = await fetch('/api/signer', { method: 'POST', body: new FormData(form) });
-          const data = await res.json().catch(() => ({}));
-          if (res.ok && data.ok) {
-            btn.textContent = data.deja ? '✓ Vous aviez déjà signé — merci !' : '✓ Merci, votre signature est enregistrée';
-            btn.style.background = 'var(--green-700)';
-            btn.style.boxShadow = '0 4px 0 var(--green-900)';
-            btn.style.color = 'var(--cream)';
-            form.querySelectorAll('input').forEach((i) => (i.disabled = true));
-            rafraichirCompteur();
-          } else {
-            btn.disabled = false;
-            btn.textContent = texteOrigine;
-            if (msg) msg.textContent = data.erreur || 'Une erreur est survenue. Merci de réessayer.';
-          }
-        } catch (_) {
-          btn.disabled = false;
-          btn.textContent = texteOrigine;
-          if (msg) msg.textContent = 'Connexion impossible. Merci de réessayer.';
-        }
-      });
-    }
-  </script>
-</Base>
+  <section class="sec" id="bca" style="background:var(--paper);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="bca">
+        <div>
+          <p class="eyebrow">Qui porte cette pétition</p>
+          <h2 class="h2" style="margin:10px 0 16px">Bio Consom'acteurs, l'association des mangeuses et mangeurs bio engagé·es, depuis 2004.</h2>
+          <p>Bio Consom'acteurs agit pour une alimentation biologique, locale, équitable et accessible à toutes et tous. L'association informe et sensibilise les citoyen·nes, en particulier les plus jeunes, et porte des actions de plaidoyer pour accélérer la transition vers des systèmes alimentaires sains et durables.</p>
+          <p>Cette pétition prolonge l'Appel de Lorient, co-écrit par Bio Consom'acteurs et signé par 48 organisations nationales, plus de 170 organisations locales et plus de 2&nbsp;800 personnes, pour une politique publique cohérente en faveur de la bio.</p>
+          <div class="ctas"><a class="btn btn-dark" href="https://bioconsomacteurs.org" target="_blank" rel="noopener">Découvrir l'association ↗</a></div>
+        </div>
+        <div class="mini">
+          <div><b>30</b><span>ambassadeurs et ambassadrices de la Bio ou antennes locales</span></div>
+          <div><b>2&nbsp;000</b><span>adhérent·es donateur·rices</span></div>
+          <div><b>40&nbsp;000</b><span>abonné·es aux Bio Consom'infos</span></div>
+          <div><b>10&nbsp;000+</b><span>enfants sensibilisés dans plus de 300 classes depuis 2018</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Site>
