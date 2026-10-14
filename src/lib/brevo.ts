@@ -255,7 +255,7 @@ ${recap(c)}
     html: gabarit(`Merci ${echapper(c.prenom)}, votre commande est bien reçue&nbsp;!`, `<p>Voici le récapitulatif de votre commande&nbsp;:</p>
 ${recap(c)}
 <p>Le matériel est gratuit. L'équipe de Bio Consom'acteurs vous recontacte par email pour confirmer l'envoi et le montant des frais de port, au coût réel. Expédition depuis Montreuil.</p>
-<p>Pour faire vivre ce matériel&nbsp;: <a href="https://pasdepesticidespournosenfants.net/distribution" style="color:#B8461F;font-weight:bold">organisez une distribution</a> devant une école ou sur un marché, ou <a href="https://pasdepesticidespournosenfants.net/rencontre" style="color:#B8461F;font-weight:bold">sollicitez un rendez-vous avec votre élu·e</a>.</p>
+<p>Pour diffuser ce matériel, vous pouvez <a href="https://pasdepesticidespournosenfants.net/distribution" style="color:#B8461F;font-weight:bold">organisez une distribution</a> devant une école ou sur un marché, ou <a href="https://pasdepesticidespournosenfants.net/rencontre" style="color:#B8461F;font-weight:bold">sollicitez un rendez-vous avec votre élu·e</a>.</p>
 <p>Une question&nbsp;? Répondez simplement à cet email.</p>
 <p>L'équipe de Bio Consom'acteurs</p>`),
   });

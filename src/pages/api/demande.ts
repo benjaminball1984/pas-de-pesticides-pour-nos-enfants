@@ -71,7 +71,7 @@ export const POST: APIRoute = async ({ request }) => {
     id = (data as { id: string }).id;
   }
 
-  // La demande est enregistrée : un email qui échoue ne la fait pas échouer (elle reste dans la base).
+  // Si un email échoue, la demande reste enregistrée et la réponse reste positive.
   if (envoyer) {
     try {
       const r = await envoyer(id);

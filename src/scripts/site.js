@@ -150,12 +150,12 @@ if (document.getElementById('letter')) {
       role: 'La Région a la responsabilité directe des cantines des lycées et joue un rôle majeur dans le développement de la filière bio régionale et l’accompagnement des paysan·nes du territoire. Nous vous demandons un engagement public, immédiat et chiffré sur ces mesures.' },
     depute: { label: 'Député·e de la circonscription', dest: v('Madame la Députée / Monsieur le Député') + '<br>Assemblée nationale<br>126 rue de l’Université, 75355 Paris 07 SP',
       objet: 'Pétition « Pas de pesticides pour nos enfants » : demande de rencontre dans votre circonscription', appel: v('Madame la Députée / Monsieur le Député'),
-      qui: 'Nous, parents, habitant·es et citoyen·nes de votre circonscription, sollicitons une rencontre avec vous, parce que c’est à l’Assemblée nationale que se vote la loi qui protège la santé alimentaire de nos enfants.',
+      qui: 'Nous, parents, habitant·es et citoyen·nes de votre circonscription, sollicitons une rencontre avec vous, parce que l’Assemblée nationale vote la loi qui protège la santé alimentaire de nos enfants.',
       role: 'Plusieurs de nos demandes supposent une intervention de la loi : des sanctions effectives pour EGalim, la gratuité de la cantine, l’interdiction des pesticides autour des écoles, les moyens des collectivités. Nous vous demandons de vous engager publiquement sur ces points.' },
     euro: { label: 'Eurodéputé·e', dest: v('Madame la Députée européenne / Monsieur le Député européen') + '<br>Parlement européen<br>60 rue Wiertz, 1047 Bruxelles, Belgique',
       objet: 'Pétition « Pas de pesticides pour nos enfants » : la loi Omnibus', appel: v('Madame la Députée européenne / Monsieur le Député européen'),
       qui: 'Nous, parents et citoyen·nes de ' + v('[votre commune]') + ', vous écrivons parce que le Parlement européen doit se prononcer sur la loi Omnibus pesticides.',
-      role: 'La loi Omnibus supprimerait les réévaluations des pesticides : un énième laisser-passer aux entreprises agrochimiques. Nous vous demandons de la rejeter, et de nous recevoir pour en parler.' },
+      role: 'La loi Omnibus supprimerait les réévaluations des pesticides et ouvrirait un énième laisser-passer aux entreprises agrochimiques. Nous vous demandons de la rejeter, et de nous recevoir pour en parler.' },
   };
   const render = (k) => {
     const d = L[k];

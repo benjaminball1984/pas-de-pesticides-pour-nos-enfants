@@ -84,7 +84,7 @@ export const urgence = {
 export const manifeste = {
   paragraphesHtml: [
     "Chaque jour, dans les écoles, les collèges et les lycées de notre pays, des millions d'enfants prennent un repas dont on sait qu'il les expose à des substances que la science accuse depuis des années. Et chaque jour, l'État et trop de collectivités regardent ailleurs.",
-    `<span class="y">Cela suffit. Nos enfants ne sont pas une variable d'ajustement.</span>`,
+    `<span class="y">Ça suffit. Nos enfants ne sont pas une variable d'ajustement.</span>`,
     "Nos enfants ne méritent pas seulement «&nbsp;moins pire&nbsp;». Ils méritent le meilleur. Une cantine digne de ce nom, c'est une cantine bio, faite maison, avec des produits locaux et de saison — saine, équilibrée, et bonne. Parce qu'un repas se mange aussi avec plaisir.",
   ],
 };

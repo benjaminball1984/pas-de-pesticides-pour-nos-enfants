@@ -1,7 +1,7 @@
 /**
  * Rappels des distributions, lancés chaque matin par la tâche planifiée du Worker (src/worker.ts).
  * Veille et jour J, pour qui a coché « Recevoir la fiche pratique et des rappels ».
- * Chaque envoi est noté dans le payload (rappel_veille / rappel_jour) : jamais deux fois le même.
+ * Chaque envoi est noté dans le payload (rappel_veille / rappel_jour) pour ne partir qu'une fois.
  */
 import { base, jourParis, completerPayload } from './demandes';
 import { envoyerRappelDistribution, type Distribution } from './brevo';

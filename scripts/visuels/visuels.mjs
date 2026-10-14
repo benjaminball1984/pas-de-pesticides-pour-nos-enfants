@@ -66,11 +66,11 @@ const VISUELS = [
   { nom: "appel-titre", famille: "L'appel", titre: "Pas de pesticides pour nos enfants !", theme: "vert", sur: "Pétition",
     corps: `<h1 class="brush" style="font-size:150px">Pas de pesticides <span class="acc">pour nos enfants&nbsp;!</span></h1>
             <p class="sous" style="font-size:46px">Une petite signature pour vous, un grand pas pour leur santé.</p>` },
-  { nom: "appel-cela-suffit", famille: "L'appel", titre: "Cela suffit.", theme: "vert", sur: "L'appel",
-    corps: `<h1 class="brush" style="font-size:190px"><span class="acc">Cela suffit.</span></h1>
+  { nom: "appel-cela-suffit", famille: "L'appel", titre: "Ça suffit.", theme: "vert", sur: "L'appel",
+    corps: `<h1 class="brush" style="font-size:190px"><span class="acc">Ça suffit.</span></h1>
             <p class="brush" style="font-size:104px">Nos enfants ne sont pas une variable d'ajustement.</p>` },
   { nom: "appel-preuves", famille: "L'appel", titre: "Les preuves sont là.", theme: "vert", sur: "Ce que dit la science",
-    corps: `<h1 class="brush" style="font-size:112px">Les preuves sont là. Le doute n'est plus permis. <span class="acc">Ce qu'il manque, c'est le courage politique.</span></h1>` },
+    corps: `<h1 class="brush" style="font-size:160px">Les preuves sont là. <span class="acc">Aux élu·es d'agir.</span></h1>` },
   { nom: "appel-egalim", famille: "L'appel", titre: "Que l'État respecte la loi", theme: "creme", sur: "Loi EGalim",
     corps: `<h1 class="brush" style="font-size:118px">Nous demandons simplement que l'État respecte <span class="acc">la loi qu'il a adoptée.</span></h1>
             <p class="sous" style="font-size:36px">Demande préalable du 17 septembre 2026&nbsp;: Bio&nbsp;Consom'acteurs, Notre Affaire à Tous, Générations Futures, Agir pour l'Environnement et le Collectif Les Pieds dans le Plat.</p>` },
@@ -86,7 +86,7 @@ const DEMANDES = [
   ["Vers la gratuité", "Une cantine gratuite pour toutes les familles, en commençant par les plus modestes."],
   ["Zéro pesticide autour des écoles", "Interdire l'usage des pesticides dans tous les espaces publics, en particulier autour des crèches et des écoles."],
   ["Des sanctions et des moyens", "Renforcer EGalim avec des sanctions effectives, et donner aux collectivités les moyens de l'appliquer."],
-  ["Rejeter la loi Omnibus", "Elle supprimerait les réévaluations des pesticides : un énième laisser-passer aux entreprises agrochimiques."],
+  ["Rejeter la loi Omnibus", "Elle supprimerait les réévaluations des pesticides et ouvrirait un énième laisser-passer aux entreprises agrochimiques."],
 ];
 DEMANDES.forEach(([verbe, texte], i) => {
   const n = String(i + 1).padStart(2, "0");
