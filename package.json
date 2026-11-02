@@ -21,5 +21,8 @@
     "@supabase/supabase-js": "^2.108.2",
     "astro": "^6.4.7",
     "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
   }
 }

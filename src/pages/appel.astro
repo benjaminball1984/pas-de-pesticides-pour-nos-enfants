@@ -1,69 +1,94 @@
 ---
 import Site from '../layouts/Site.astro';
+// Texte de la V2 de la tribune (Julie et Émilie, 20/10/2026). Il fait foi : on n'y retouche que les coquilles
+// et les faits faux (acétamipride). Voir docs/decisions-refonte-2026-11.md.
 ---
 
-<Site titre="L'appel · Pas de pesticides pour nos enfants" description="Le texte complet de la pétition et nos neuf demandes aux élu·es." page="appel">
-<section class="page-hero on-deep">
+<Site titre="L'appel · Pas de pesticides pour nos enfants" description="Le texte de la pétition de Bio Consom'acteurs et nos six demandes aux élu·es." page="appel">
+<section class="page-hero on-rouge">
     <div class="wrap">
       <p class="eyebrow">Le texte de la pétition</p>
       <h1>Pas de pesticides <em>pour nos enfants</em></h1>
-      <p class="lead">Adressée au gouvernement, aux député·es, aux eurodéputé·es, aux maires, aux conseils départementaux et aux conseils régionaux.</p>
-      <div class="ctas" style="margin-top:6px"><a class="btn btn-yellow" href="/#signer">Je signe</a></div>
+      <div class="ctas" style="margin-top:6px"><a class="btn btn-noir" href="/#signer">Je signe</a></div>
     </div>
   </section>
   <section class="sec">
     <div class="wrap layout-side">
       <nav class="side-nav" aria-label="Plan de l'appel">
         <span class="eyebrow">Sommaire</span>
-        <a href="#a-science">Ce que dit la science</a>
-        <a href="#a-loi">La loi EGalim n'est pas respectée</a>
-        <a href="#a-cantine">La cantine qu'on veut</a>
-        <a href="#a-paysans">Enfants, planète, paysan·nes</a>
+        <a href="#a-danger">Pesticides : un danger depuis longtemps documenté</a>
+        <a href="#a-loi">20 % de bio dans les cantines : on est loin du compte</a>
+        <a href="#a-quotidien">Nos enfants méritent un quotidien sans pesticides</a>
+        <a href="#a-cout">Les pesticides nous coûtent à toutes et tous</a>
         <a href="#a-demandes">Nos demandes</a>
-        <a href="#a-fin">Nous sommes déterminé·es</a>
+        <a href="#a-agir">Les politiques doivent agir</a>
       </nav>
       <article class="texte">
-        <p>Chaque jour, dans les écoles, les collèges et les lycées de notre pays, des millions d'enfants prennent un repas dont on sait qu'il les expose à des substances que la science accuse depuis des années. L'État et trop de collectivités laissent faire.</p>
-        <p class="cri">Ça suffit. Nos enfants ne sont pas une variable d'ajustement.</p>
+        <p>Des enfants malades sur une planète brûlée&nbsp;: pas formidable, comme vision du futur, non&nbsp;? Chez Bio Consom'acteurs, nous considérons que la lutte pour une agriculture biologique, locale et accessible, loin de répondre à une seule nécessité, englobe de nombreux enjeux sociétaux. C'est pourquoi nous œuvrons depuis plus de 20 ans pour offrir aux générations futures une planète dépolluée, vivable, et une alimentation compatible avec le vivant.</p>
+        <p>Aujourd'hui, nous, membres de la société civile, parents, grands-parents, enfants, oncles, tantes, riverains, familles et ami·es de victimes des pesticides, agriculteur·ices, professeur·es des écoles, chef·fes en restauration collective, associations et personnes engagées pour la préservation du vivant et l'alimentation durable, souhaitons adresser une pétition au gouvernement, aux député·es, aux eurodéputé·es, aux maires, aux conseils départementaux et aux conseils régionaux.</p>
+        <div><a class="btn btn-rouge" href="/#signer">Je signe</a></div>
+        <p>Qu'on en ait conscience ou non, nos enfants sont exposés quotidiennement aux pesticides. Pas besoin de vivre en bordure d'un champ pour être confronté·es à la nocivité de ces substances qui se retrouvent dans nos assiettes presque systématiquement. C'est d'autant plus le cas tant que la restauration collective, et notamment les cantines des écoles, n'adopteront pas l'alimentation biologique comme alimentation de base.</p>
+        <p>En effet, chaque jour, dans les écoles, les collèges et les lycées de notre pays, des millions d'enfants prennent un repas dont on sait qu'il les expose à des substances que la science accuse depuis des années. L'État laisse faire et les incitations restent trop peu efficaces pour voir advenir un modèle alimentaire véritablement bénéfique à la santé de chacun·e.</p>
+        <p>Recrudescence des maladies pédiatriques. Sols détériorés, appauvris. Meurtre de la biodiversité. Réchauffement climatique. Le modèle agricole industriel, tiré par les grands groupes phytosanitaires, engendre catastrophes sur catastrophes et les jeunes générations sont celles qui en payent déjà le prix.</p>
+        <p class="cri">Ça suffit. Nos enfants ne doivent pas payer leurs profits de leur vie.</p>
+        <p>Pour Bio Consom'acteurs, protéger les enfants, c'est garantir à toutes et tous une alimentation saine, issue de l'agriculture biologique. Il est temps de faire passer la santé des enfants avant les intérêts économiques de la grande distribution et de l'agroalimentaire. La transition agricole et alimentaire n'est plus une option&nbsp;: elle est indispensable. Nous appelons les élu·es et les candidat·es aux prochaines élections à prendre leurs responsabilités. Nos enfants ont droit à une alimentation sans pesticides. Il n'est plus acceptable de sacrifier leur santé&nbsp;: signez la tribune «&nbsp;Pas de pesticides pour nos enfants&nbsp;»&nbsp;!</p>
+        <div><a class="btn btn-rouge" href="/#signer">Je signe</a></div>
 
-        <h2 id="a-science">Ce que dit la science</h2>
-        <p>L'expertise collective de l'INSERM publiée en 2021 établit une présomption forte de lien entre l'exposition aux pesticides chez l'enfant et la survenue de cancers pédiatriques, en particulier les leucémies et les tumeurs du système nerveux central. Pour certains insecticides, la présomption forte porte aussi sur des troubles du développement neuropsychologique et moteur. En 2025, l'Anses a alerté à son tour sur les effets de certains insecticides, les pyréthrinoïdes, sur le neurodéveloppement des jeunes enfants.</p>
-        <p>Or les enfants vont à la cantine très tôt, dès la maternelle, souvent dès trois ans. Chez ces tout-petits, dont les barrières physiologiques sont immatures et dont les cellules se multiplient intensément, les pesticides agissent davantage. L'exposition pèse donc le plus lourd pendant ces années-là, et ce qu'on met dans leur assiette compte le plus.</p>
-        <p>L'étude PestiRiv, publiée en septembre 2025 par Santé publique France et l'Anses, confirme que vivre près des cultures expose davantage. L'étude Esteban établit l'imprégnation de la population générale, enfants compris. Selon la carte publiée par <cite>Le Monde</cite> en décembre 2025 avec le Centre commun de recherche de la Commission européenne, plus de 1,7 million d'écoliers vont en classe sous forte pression pesticides.</p>
+        <h2 id="a-danger">Pesticides&nbsp;: un danger depuis longtemps documenté</h2>
+        <p>Leucémies, cancers du système nerveux central, troubles du développement neuropsychologique et moteur&nbsp;: les pesticides ont un lien avéré avec ces maladies, de plus en plus fréquentes chez les enfants exposés. Chez les tout-petits, dont les barrières physiologiques sont immatures et dont les cellules se multiplient intensément, les pesticides agissent davantage. Il est donc crucial de limiter leur exposition à ces substances toxiques, que ce soit dans l'air, dans l'eau, ou dans l'alimentation.</p>
+        <details>
+          <summary>Sources</summary>
+          <p>L'expertise collective de l'INSERM publiée en 2021 établit une présomption forte de lien entre l'exposition aux pesticides chez l'enfant et la survenue de cancers pédiatriques, en particulier les leucémies et les tumeurs du système nerveux central. Pour certains insecticides, la présomption forte porte aussi sur des troubles du développement neuropsychologique et moteur. En 2025, l'Anses a alerté à son tour sur les effets de certains insecticides, les pyréthrinoïdes, sur le neurodéveloppement des jeunes enfants.</p>
+        </details>
+        <p>Selon la carte publiée par <cite>Le Monde</cite> en décembre 2025 avec le Centre commun de recherche de la Commission européenne, plus de 1,7 million d'écoliers vont en classe sous forte pression pesticides.</p>
         <p class="pull">Les preuves sont là. Il revient maintenant aux élu·es d'agir.</p>
 
-        <h2 id="a-loi">La loi EGalim n'est pas respectée</h2>
-        <p>La loi EGalim (30 octobre 2018), complétée par la loi Climat et Résilience (22 août 2021), oblige depuis le 1<sup>er</sup> janvier 2022 toutes les cantines scolaires, universitaires, hospitalières et médico-sociales à proposer au moins 50&nbsp;% de produits durables et de qualité, dont 20&nbsp;% issus de l'agriculture biologique. Huit ans après le vote de la loi, c'est encore largement lettre morte.</p>
-        <p>Selon l'Agence Bio, le bio représente moins de 7&nbsp;% des achats de la restauration collective. Selon l'enquête de l'Association des maires de France (2024), seules 18&nbsp;% des communes respectent les deux seuils. Même parmi les cantines qui déclarent leurs achats sur la plateforme gouvernementale Ma cantine, à peine quatre sur dix, les taux plafonnaient en 2024 à 29,5&nbsp;% de produits durables et 11,8&nbsp;% de bio. La loi ne prévoit aucune sanction.</p>
-        <p>Nous demandons simplement que l'État respecte la loi qu'il a adoptée. Le 17 septembre 2026, Bio Consom'acteurs, Notre Affaire à Tous, Générations Futures, Agir pour l'Environnement et le Collectif Les Pieds dans le Plat ont adressé au Gouvernement une demande préalable pour qu'il applique la loi EGalim dans les restaurants collectifs dont il a la responsabilité. À défaut, notre coalition saisira la justice. Le 3 septembre 2025, la cour administrative d'appel de Paris a déjà condamné l'État pour ses carences dans l'évaluation des pesticides.</p>
+        <h2 id="a-loi">20&nbsp;% de bio dans les cantines&nbsp;: on est loin du compte</h2>
+        <p>La loi EGalim (30 octobre 2018), complétée par la loi Climat et Résilience (22 août 2021), oblige depuis le 1<sup>er</sup> janvier 2022 toutes les cantines scolaires, universitaires, hospitalières et médico-sociales à proposer au moins 50&nbsp;% de produits durables et de qualité, dont 20&nbsp;% issus de l'agriculture biologique. Huit ans après le vote de la loi, c'est encore largement lettre morte&nbsp;: la loi est peu appliquée et les sanctions inexistantes.</p>
+        <p>Or, aujourd'hui, selon l'Agence Bio, le bio représente moins de 7&nbsp;% des achats de la restauration collective. Selon l'enquête de l'Association des maires de France (2024), seules 18&nbsp;% des communes respectent les deux seuils. Même parmi les cantines qui déclarent leurs achats sur la plateforme gouvernementale Ma cantine, à peine quatre sur dix, les taux plafonnaient en 2024 à 29,5&nbsp;% de produits durables et 11,8&nbsp;% de bio. La loi ne prévoit aucune sanction, et même l'État n'applique pas ses propres barèmes dans les cantines dont il a la responsabilité. Un fait qui nous a poussé·es, aux côtés de Notre Affaire à Tous, Générations Futures, Agir pour l'Environnement et le Collectif Les Pieds dans le Plat à déposer une demande préalable auprès du gouvernement.</p>
 
-        <h2 id="a-cantine">La cantine qu'on veut pour nos enfants</h2>
-        <p>Nos enfants méritent le meilleur. Une cantine digne de ce nom est bio, gratuite, équitable, conviviale, faite maison, avec des produits locaux et de saison. Elle est saine, équilibrée, à moindre impact environnemental, et bonne, parce qu'un repas se mange aussi avec plaisir.</p>
-        <p>Depuis des décennies, les grands groupes de la restauration collective fabriquent les repas scolaires à la chaîne et livrent des plats fades, surgelés, ultra-transformés, expédiés de très loin. Ce modèle est un échec sanitaire, écologique, social et culturel. Il faut le quitter.</p>
-        <p>Une vraie cantine cuisine sur place, avec des cuisinier·es payé·es dignement et des aliments produits par les paysannes et paysans bio du territoire. Elle apprend aux enfants le vrai goût des aliments et les aide à apprendre, à grandir et à rester en bonne santé. La santé, l'apprentissage et l'éveil au goût se construisent dans l'enfance.</p>
+        <h2 id="a-quotidien">Nos enfants méritent un quotidien sans pesticides</h2>
+        <p>Alors que la loi Duplomb a tenté de réintroduire des pesticides dangereux sur le marché, que la loi «&nbsp;d'urgence agricole&nbsp;» le permet désormais et que la loi Omnibus au niveau européen supprimerait les réévaluations des pesticides, nous devons nous lever pour défendre le droit des plus fragiles à la santé. Mortels pour la biodiversité, les pesticides comme les néonicotinoïdes tels que l'acétamipride (interdit en France depuis 2020 en raison de sa toxicité, que la loi d'urgence agricole d'août 2026 permet de réautoriser), se retrouvent dans nos cultures, dans notre eau et dans l'air. Ces substances toxiques, largement utilisées par l'agriculture conventionnelle, se retrouvent notamment dans l'alimentation de nos enfants.</p>
+        <p>Or, nos enfants méritent le meilleur. Cela passe notamment par une cantine digne de ce nom&nbsp;: bio, gratuite, équitable, conviviale, faite maison, avec des produits locaux et de saison. Une cantine où la nourriture proposée est à la fois saine, équilibrée, à moindre impact environnemental, et bonne, parce qu'un repas se mange aussi avec plaisir.</p>
+        <p>Faire de l'alimentation un levier de transition écologique, c'est aussi permettre à celles et ceux qui font notre nourriture d'être justement rémunéré·es pour un travail trop souvent étranglé par un système agro-industriel qui les paie sous le coût de production. Choisir le bio local et équitable dans les cantines publiques garantit un revenu paysan digne, fait vivre les fermes du territoire et cesse de financer avec l'argent public un modèle qui abîme les sols, l'eau, l'air et la santé.</p>
 
-        <h2 id="a-paysans">Bon pour les enfants, la planète, les paysannes et paysans</h2>
-        <p>Une cantine bio, locale, équitable et de saison soutient celles et ceux qui font notre nourriture. Elle leur permet d'être justement rémunéré·es pour un travail trop souvent étranglé par un système agro-industriel qui les paie sous le coût de production. Choisir le bio local et équitable dans les cantines publiques garantit un revenu paysan digne, fait vivre les fermes du territoire et cesse de financer avec l'argent public un modèle qui abîme les sols, l'eau, l'air et la santé.</p>
+        <h2 id="a-cout">Les pesticides nous coûtent à toutes et tous</h2>
         <p>Comme l'a affirmé l'Appel de Lorient en octobre 2024, co-écrit par Bio Consom'acteurs et signé par 48 organisations nationales, plus de 170 organisations locales et plus de 2&nbsp;800 personnes, la bio coûte moins cher à la collectivité que l'agriculture industrielle, dont les coûts cachés (dépollution de l'eau, soins de santé, biodiversité détruite) sont massifs et payés par les contribuables.</p>
+        <p>Face aux pesticides, les enfants sont les plus vulnérables. Accepter les pesticides au présent, c'est choisir de prolonger le sursis d'un modèle agricole obsolète et mortifère, et faire le choix d'un futur marqué par toujours plus de pénuries et de maladies.</p>
 
         <h2 id="a-demandes">Nos demandes</h2>
-        <p>Aux élu·es et responsables politiques, à toutes les échelles (Union européenne, État, Parlement, régions, départements, communes) qui ont, chacun·e dans le périmètre de ses compétences, la responsabilité directe ou indirecte des cantines de nos enfants, nous demandons un engagement public, immédiat et chiffré sur les mesures suivantes&nbsp;:</p>
-        <ol>
-          <li>respecter immédiatement, dans toutes les cantines scolaires (de la maternelle au lycée) et de la petite enfance, l'obligation légale de la loi EGalim (50&nbsp;% de produits durables et de qualité dont 20&nbsp;% issus de l'agriculture biologique) et publier une trajectoire vers 100&nbsp;% bio à horizon précisé&nbsp;;</li>
-          <li>revenir à une cuisine faite sur place dans les cantines, avec des cuisinier·es formé·es et dignement rémunéré·es, plutôt que de déléguer à des grands groupes industriels&nbsp;;</li>
-          <li>privilégier l'achat direct, local et de saison auprès des paysannes et paysans bio du territoire, garantir des prix qui couvrent les coûts de production et assurent un revenu paysan digne&nbsp;;</li>
-          <li>proposer chaque jour une alternative végétarienne et réduire la part des produits carnés et d'origine animale, pour la santé des enfants et pour l'environnement&nbsp;;</li>
-          <li>réduire drastiquement les déchets, le plastique et le gaspillage alimentaire, et bannir les contenants plastiques de cuisson, de réchauffe et de service&nbsp;;</li>
-          <li>garantir progressivement la gratuité de la cantine pour toutes les familles, en commençant par les familles aux revenus les plus modestes, dans la perspective d'une véritable sécurité sociale de l'alimentation&nbsp;;</li>
-          <li>interdire l'usage des pesticides dans tous les espaces publics, en particulier autour des crèches, des écoles et des lieux fréquentés par les enfants&nbsp;;</li>
-          <li>renforcer la loi EGalim en prévoyant des sanctions effectives en cas de non-respect, et donner aux collectivités les moyens financiers et humains nécessaires à son application&nbsp;;</li>
-          <li>aux eurodéputé·es&nbsp;: rejeter la loi Omnibus, qui supprimerait les réévaluations des pesticides et ouvrirait un énième laisser-passer aux entreprises agrochimiques.</li>
-        </ol>
+        <p>Aux élu·es et responsables politiques, à toutes les échelles (Union européenne, État, Parlement, régions, départements, communes) qui ont, chacun·e dans le périmètre de ses compétences, la responsabilité directe ou indirecte de l'exposition de nos enfants aux pesticides dans l'espace public, nous demandons un engagement clair, immédiat et chiffré sur les mesures suivantes&nbsp;:</p>
+        <p>Nous appelons les élu·es à faire de la protection de la santé des enfants et de la transition agricole et alimentaire une priorité de leur mandat.</p>
+        <div class="demande">
+          <h3>1. Une commande publique visant le 100&nbsp;% bio et local dans nos écoles</h3>
+          <p>Nous demandons à ce que soit respectée la loi EGalim dans les cantines des écoles et des crèches et que soient publiés chaque année les résultats. Nous souhaitons voir adopter une trajectoire chiffrée vers 100&nbsp;% de produits biologiques, locaux et de saison, cuisinés sur place autant que possible. Pour nous, il s'agit aussi de donner aux paysan·nes des débouchés rémunérateurs en développant les achats publics auprès des fermes bio du territoire et en favorisant des contrats durables garantissant une rémunération juste aux producteur·rices.</p>
+        </div>
+        <div class="demande">
+          <h3>2. Des fermes bio plus nombreuses sur nos territoires</h3>
+          <p>Soutenir l'installation et la conversion des fermes en agriculture biologique, préserver les terres agricoles et mobiliser les outils fonciers, les aides et les partenariats locaux pour développer une agriculture sans pesticides de synthèse. Pour ce faire&nbsp;: augmenter et pérenniser différents leviers économiques comme le crédit d'impôt et valoriser les produits de l'alimentation biologique.</p>
+        </div>
+        <div class="demande">
+          <h3>3. Zéro enfant exposé aux pesticides dans les lieux de vie</h3>
+          <p>Renforcer la protection des enfants autour des écoles, des crèches, des aires de jeux et des autres lieux qu'ils fréquentent, agir sur les espaces relevant de la collectivité et soutenir les mesures de prévention de l'exposition aux pesticides.</p>
+        </div>
+        <div class="demande">
+          <h3>4. Une alimentation bio et de qualité accessible à toutes et tous</h3>
+          <p>Soutenir immédiatement l'accessibilité des populations plus sensibles et plus précaires à l'alimentation bio de produits frais peu transformés&nbsp;: la généralisation de paniers gratuits de légumes bio pour les femmes enceintes et dans les 1000 premiers jours de l'enfant, des chèques alimentaires vers les produits bio et équitable pour les étudiant·es, les ménages les plus précaires, et les personnes les plus sensibles.</p>
+        </div>
+        <div class="demande">
+          <h3>5. Des moyens pour cuisiner autrement et former les équipes</h3>
+          <p>Financer la rénovation des cuisines, le développement du fait-maison et la formation des cuisinier·es, des gestionnaires et des acheteur·ses publics à l'alimentation durable et biologique, à la saisonnalité et aux menus végétariens.</p>
+        </div>
+        <div class="demande">
+          <h3>6. Des politiques publiques à la hauteur de l'urgence</h3>
+          <p>Adopter un plan territorial pour la transition agricole et alimentaire, avec des objectifs chiffrés, un calendrier, un budget et un suivi public annuel. Porter auprès de l'État et de l'Union européenne des exigences renforcées de protection contre les pesticides et s'opposer aux reculs réglementaires, notamment ceux prévus par la loi Omnibus. Pour concrétiser ces réformes, nous demandons la création d'une nouvelle Politique Agricole Commune, notamment à partir des travaux du Collectif Nourrir, et favorisant la transition alimentaire et agricole.</p>
+        </div>
+        <p>Les demandes édictées ci-dessus (et de nombreuses autres) ont été pour la première fois formulées en détail au sein de l'appel de Lorient, signé par des centaines d'organisations.</p>
 
-        <h2 id="a-fin">Nous sommes déterminé·es</h2>
-        <p>Nos enfants ne doivent pas payer de leur santé le prix d'un système agricole et alimentaire que la science met en cause, que la loi tente de corriger et que la société civile dénonce depuis des décennies. Les paysannes et paysans qui font le choix de la bio méritent un soutien à la hauteur de ce qu'ils apportent à la santé publique, à l'environnement et aux territoires. Il appartient aux élu·es, à chaque échelon, de transformer la cantine de nos enfants sans attendre.</p>
-        <p>Nous suivrons vos décisions, leur calendrier et leurs effets dans nos écoles, nos collèges, nos lycées et nos territoires.</p>
-        <div class="ctas"><a class="btn btn-orange" href="/#signer">Je signe la pétition</a></div>
+        <h2 id="a-agir">Les politiques doivent agir</h2>
+        <p>Nos enfants ne doivent pas payer de leur santé le prix d'un système agricole et alimentaire que la science met en cause, que la loi tente de corriger et que la société civile dénonce depuis des décennies. Les paysannes et paysans qui font le choix de la bio méritent un soutien à la hauteur de ce qu'ils apportent à la santé publique, à l'environnement et aux territoires. Il appartient aux élu·es, à chaque échelon, de faire en sorte que nos enfants ne soient pas exposés à des produits dont la toxicité est depuis longtemps prouvée et décriée.</p>
+        <p>Hommes et femmes politiques, que vous travailliez au niveau local, territorial ou national&nbsp;: nous suivrons vos décisions, leur calendrier et leurs effets dans nos écoles, nos collèges, nos lycées et nos territoires. Nous ne lâcherons rien.</p>
+        <div class="ctas"><a class="btn btn-rouge" href="/#signer">Je signe la pétition</a></div>
 
         <div class="refs">
           <strong>Références</strong>

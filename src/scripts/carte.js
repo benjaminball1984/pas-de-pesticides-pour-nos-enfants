@@ -1,4 +1,4 @@
-// Carte publique des distributions à venir (page /distribution). Fond OpenStreetMap, Leaflet embarqué.
+// Carte publique des tables à venir (page /distribution). Fond OpenStreetMap, Leaflet embarqué.
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -23,7 +23,7 @@ if (el) {
       const texte = `<time>${esc(jour(d.date))}</time><b>${esc(d.lieu)}</b><span>${esc(d.ville)} (${esc(d.cp)}) · ${esc(d.horaires)}</span><span>${esc(d.type)} · avec ${esc(d.par)}</span>`;
       let marque = null;
       if (d.lat != null && d.lng != null) {
-        marque = L.circleMarker([d.lat, d.lng], { radius: 9, color: '#004D40', weight: 2, fillColor: '#EB734D', fillOpacity: 0.95 })
+        marque = L.circleMarker([d.lat, d.lng], { radius: 9, color: '#141414', weight: 2, fillColor: '#E4362B', fillOpacity: 0.95 })
           .addTo(carte).bindPopup(`<div style="display:grid;gap:2px">${texte}</div>`);
         points.push([d.lat, d.lng]);
       }

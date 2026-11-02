@@ -1,10 +1,10 @@
 /**
- * Liens de modération envoyés à l'équipe (publier ou retirer un engagement, retirer une distribution).
+ * Liens de modération envoyés à l'équipe (retirer une table de la carte, ou la remettre).
  * Signés par HMAC avec le secret LIENS_SECRET : sans le secret, impossible de fabriquer un lien valide.
  */
 import { env } from 'cloudflare:workers';
 
-export type Action = 'publier' | 'retirer' | 'remettre';
+export type Action = 'retirer' | 'remettre';
 const SITE = 'https://pasdepesticidespournosenfants.net';
 
 function secret(): string {

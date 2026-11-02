@@ -1,23 +1,20 @@
 ---
 import Site from '../layouts/Site.astro';
+import { actus } from '../data/actualites';
+const une = actus.filter((a) => a.une);
 ---
 
-<Site titre="Pas de pesticides pour nos enfants · Pétition" description="Pétition pour des cantines bio, locales, de saison et faites maison, sans pesticides. Portée par Bio Consom'acteurs." page="accueil">
-<section class="hero on-deep">
+<Site titre="Pas de pesticides pour nos enfants · Pétition" description="Nos enfants sont exposés chaque jour aux pesticides. Signez la pétition de Bio Consom'acteurs." page="accueil">
+<section class="hero on-rouge">
     <div class="wrap">
-      <div>
-        <p class="eyebrow">Pétition nationale · Bio Consom'acteurs</p>
-        <h1>Pas de pesticides <em>pour nos enfants&nbsp;!</em></h1>
-        <p class="slogan">Une petite signature pour vous, un grand pas pour leur santé.</p>
-        <p class="lead">Des cantines bio, locales, de saison et faites maison, de la crèche au lycée. Nous demandons aux élu·es, à toutes les échelles, un engagement public, immédiat et chiffré.</p>
-        <div class="ctas">
-          <a class="btn btn-yellow" href="/#signer">Je signe la pétition</a>
-          <a class="btn btn-ghost" href="/appel">Lire l'appel</a>
-        </div>
+      <p class="eyebrow">Pétition · Bio Consom'acteurs</p>
+      <h1><span>Pas de pesticides</span> <em>pour nos enfants&nbsp;!</em></h1>
+      <p class="slogan">Une petite signature pour vous,<br>un grand pas pour leur santé.</p>
+      <p class="lead">Nos enfants sont exposés chaque jour aux pesticides&nbsp;: dans leur assiette, à la cantine, aux abords des écoles et de leurs lieux de jeux. Nous demandons aux élu·es, à toutes les échelles, un engagement clair, immédiat et chiffré.</p>
+      <div class="ctas" style="margin-top:6px">
+        <a class="btn btn-noir" href="/#signer">Je signe la pétition</a>
+        <a class="btn btn-ghost" href="/appel">Lire l'appel</a>
       </div>
-      <figure class="poster">
-        <img src="/images/affiche-pesticides.jpg" width="1280" height="720" alt="Affiche de la campagne : « Pas de pesticides pour nos enfants ! », une enfant tient un panier de carottes et de légumes.">
-      </figure>
     </div>
   </section>
 
@@ -25,11 +22,8 @@ import Site from '../layouts/Site.astro';
     <div class="wrap">
       <div>
         <p class="eyebrow">Signer maintenant</p>
-        <h2 class="h2" style="margin-top:10px">Ajoutez votre <span class="y">signature</span> à l'appel.</h2>
-        <p class="hand">Une petite signature pour vous,<br>un grand pas pour leur santé.</p>
-        <ul class="guar">
-          <li>Pétition adressée au gouvernement, aux député·es, aux eurodéputé·es, aux maires, aux conseils départementaux et aux conseils régionaux.</li>
-        </ul>
+        <h2 class="h2" style="margin-top:10px">Ajoutez votre <em>signature</em> à l'appel.</h2>
+        <p class="dest">Pétition adressée au gouvernement, aux député·es, aux eurodéputé·es, aux maires, aux conseils départementaux et aux conseils régionaux.</p>
       </div>
       <div class="card-form">
         <form class="form" id="form-signer" novalidate>
@@ -45,19 +39,16 @@ import Site from '../layouts/Site.astro';
           </div>
           <label class="check"><input type="checkbox" id="s-info" checked><span>Je soutiens la campagne « Pas de pesticides pour nos enfants » et accepte de recevoir des informations sur son avancée. <small>Désinscription à tout moment.</small></span></label>
           <label class="check"><input type="checkbox" id="s-nl"><span>Je souhaite recevoir les Bio Consom'infos, la lettre d'information de Bio Consom'acteurs. <small>Consentement explicite.</small></span></label>
-          <p class="form-err" role="alert" style="color:var(--orange-ink);font-weight:700" hidden></p>
-          <button class="btn btn-orange" type="submit" style="justify-self:start">Je signe la pétition</button>
-          <p class="src" style="text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:.84rem">Vos données sont traitées par Bio Consom'acteurs. <a href="/confidentialite">Politique de confidentialité</a>.</p>
+          <p class="form-err" role="alert" hidden></p>
+          <button class="btn btn-rouge" type="submit" style="justify-self:start">Je signe la pétition</button>
+          <p style="font-size:.84rem;color:var(--muted)">Vos données sont traitées par Bio Consom'acteurs. <a href="/confidentialite">Politique de confidentialité</a>.</p>
         </form>
         <div class="done" id="merci" hidden>
           <p class="eyebrow">Merci&nbsp;!</p>
           <h3>Merci <span id="merci-prenom"></span>, votre signature est enregistrée.</h3>
-          <p style="color:var(--fg-2)">Vous pouvez aussi commander du matériel, organiser une distribution ou solliciter vos élu·es.</p>
-          <div class="ctas" style="margin-top:4px">
-            <a class="btn btn-dark" href="/commander">Commander du matériel</a>
-            <a class="btn btn-ghost" href="/distribution">Organiser une distribution</a>
-            <a class="btn btn-ghost" href="/rencontre">Rencontrer mon élu·e</a>
-          </div>
+          <p>Maintenant, faites signer votre entourage&nbsp;: envoyez le lien aux parents que vous connaissez, à vos proches, sur vos réseaux.</p>
+          <div class="partage" data-partage></div>
+          <p><a class="link" href="/relayer">Des messages tout prêts à envoyer</a></p>
         </div>
       </div>
     </div>
@@ -66,9 +57,9 @@ import Site from '../layouts/Site.astro';
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Pourquoi maintenant</p>
-        <h2 class="h2">Des millions d'enfants mangent chaque jour à la cantine, et la loi sur le bio n'y est pas appliquée.</h2>
-        <p>L'expertise collective de l'INSERM (2021) établit une présomption forte de lien entre l'exposition aux pesticides chez l'enfant et la survenue de cancers pédiatriques. La loi impose 20&nbsp;% de bio dans les cantines depuis 2022. Huit ans après le vote de la loi EGalim, c'est encore largement lettre morte.</p>
+        <p class="eyebrow">Pourquoi signer</p>
+        <h2 class="h2">Qu'on en ait conscience ou non, nos enfants sont exposés <em>quotidiennement</em> aux pesticides.</h2>
+        <p>Leucémies, cancers du système nerveux central, troubles du développement neuropsychologique et moteur&nbsp;: les pesticides ont un lien avéré avec ces maladies, de plus en plus fréquentes chez les enfants exposés. Et la loi qui impose 20&nbsp;% de bio dans les cantines depuis 2022 reste largement lettre morte.</p>
       </div>
       <div class="stats">
         <div class="stat"><span class="n">&lt;&nbsp;7<small>%</small></span><p>de bio dans les achats de la restauration collective, quand la loi en exige 20&nbsp;%.</p><span class="src">Agence Bio</span></div>
@@ -79,29 +70,12 @@ import Site from '../layouts/Site.astro';
     </div>
   </section>
 
-  <section class="manif sec on-deep" id="manifeste">
+  <section class="manif sec on-noir" id="manifeste">
     <div class="wrap">
       <p class="eyebrow">L'appel</p>
-      <p>Chaque jour, dans les écoles, les collèges et les lycées de notre pays, des millions d'enfants prennent un repas dont on sait qu'il les expose à des substances que la science accuse depuis des années. L'État et trop de collectivités laissent faire.</p>
-      <p class="cri">Ça suffit. Nos enfants ne sont pas une variable d'ajustement.</p>
-      <p>Une cantine digne de ce nom est bio, faite maison, avec des produits locaux et de saison. Elle est saine, équilibrée et bonne, parce qu'un repas se mange aussi avec plaisir.</p>
-      <div><a class="btn btn-yellow" href="/appel">Lire l'appel en entier</a></div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-bottom:0">
-    <div class="wrap">
-      <div class="band">
-        <div>
-          <p class="eyebrow">Loi EGalim · demande préalable du 17 septembre 2026</p>
-          <blockquote style="margin-top:12px">«&nbsp;Nous demandons simplement que l'État respecte celle qu'il a adoptée.&nbsp;»</blockquote>
-          <p class="who">Bio Consom'acteurs, Notre Affaire à Tous, Générations Futures, Agir pour l'Environnement et le Collectif Les Pieds dans le Plat demandent au Gouvernement d'appliquer la loi EGalim dans les restaurants collectifs dont il a la responsabilité. À défaut, notre coalition saisira la justice.</p>
-        </div>
-        <div class="side">
-          <div class="kpi state"><span class="src">Restaurants collectifs de l'État · 2025</span><span class="n">12,8&nbsp;%</span><p>de bio seulement. La loi en exige 20&nbsp;%.</p></div>
-          <a class="btn btn-dark" href="/egalim" style="justify-self:start">Tout savoir sur la demande préalable</a>
-        </div>
-      </div>
+      <p>Recrudescence des maladies pédiatriques. Sols détériorés, appauvris. Meurtre de la biodiversité. Réchauffement climatique. Le modèle agricole industriel, tiré par les grands groupes phytosanitaires, engendre catastrophes sur catastrophes et les jeunes générations sont celles qui en payent déjà le prix.</p>
+      <p class="cri">Ça suffit. Nos enfants ne doivent pas payer leurs profits de leur vie.</p>
+      <div><a class="btn btn-rouge" href="/appel">Lire l'appel en entier</a></div>
     </div>
   </section>
 
@@ -109,66 +83,46 @@ import Site from '../layouts/Site.astro';
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Nos demandes</p>
-        <h2 class="h2">Neuf demandes aux élu·es, de la commune à l'Union européenne</h2>
-        <p>Union européenne, État, Parlement, régions, départements, communes&nbsp;: chacun·e, dans le périmètre de ses compétences, a la responsabilité directe ou indirecte des cantines de nos enfants.</p>
+        <h2 class="h2">Six demandes aux élu·es, <em>à toutes les échelles</em></h2>
+        <p>Nous appelons les élu·es à faire de la protection de la santé des enfants et de la transition agricole et alimentaire une priorité de leur mandat.</p>
       </div>
       <ol class="demandes">
-        <li class="hi"><strong>Respecter EGalim, tout de suite</strong><span>50&nbsp;% de produits durables et de qualité dont 20&nbsp;% de bio dans toutes les cantines, de la petite enfance au lycée, et une trajectoire publiée vers 100&nbsp;% bio.</span></li>
-        <li><strong>Cuisiner sur place</strong><span>Des cuisines faites maison, avec des cuisinier·es formé·es et dignement rémunéré·es, plutôt que des grands groupes industriels.</span></li>
-        <li><strong>Acheter local et de saison</strong><span>L'achat direct aux paysannes et paysans bio du territoire, à des prix qui couvrent les coûts de production.</span></li>
-        <li><strong>Une alternative végétarienne chaque jour</strong><span>Et moins de produits carnés et d'origine animale, pour la santé des enfants et pour l'environnement.</span></li>
-        <li><strong>Bannir le plastique</strong><span>Réduire les déchets et le gaspillage, et bannir les contenants plastiques de cuisson, de réchauffe et de service.</span></li>
-        <li class="hi"><strong>Vers la gratuité</strong><span>Une cantine gratuite pour toutes les familles, en commençant par les plus modestes, dans la perspective d'une sécurité sociale de l'alimentation.</span></li>
-        <li class="hi"><strong>Zéro pesticide autour des écoles</strong><span>Interdire l'usage des pesticides dans tous les espaces publics, en particulier autour des crèches, des écoles et des lieux fréquentés par les enfants.</span></li>
-        <li><strong>Des sanctions et des moyens</strong><span>Renforcer EGalim avec des sanctions effectives, et donner aux collectivités les moyens financiers et humains de l'appliquer.</span></li>
-        <li><span class="to">Aux eurodéputé·es</span><strong>Rejeter la loi Omnibus</strong><span>Elle supprimerait les réévaluations des pesticides et ouvrirait un énième laisser-passer aux entreprises agrochimiques.</span></li>
+        <li><strong>Une commande publique visant le 100&nbsp;% bio et local dans nos écoles</strong><span>Respecter la loi EGalim dans les cantines des écoles et des crèches, publier chaque année les résultats, et une trajectoire chiffrée vers 100&nbsp;% de produits biologiques, locaux et de saison.</span></li>
+        <li><strong>Des fermes bio plus nombreuses sur nos territoires</strong><span>Soutenir l'installation et la conversion des fermes en agriculture biologique, et préserver les terres agricoles.</span></li>
+        <li><strong>Zéro enfant exposé aux pesticides dans les lieux de vie</strong><span>Renforcer la protection des enfants autour des écoles, des crèches, des aires de jeux et des autres lieux qu'ils fréquentent.</span></li>
+        <li><strong>Une alimentation bio et de qualité accessible à toutes et tous</strong><span>Des paniers gratuits de légumes bio pour les femmes enceintes et dans les 1000 premiers jours de l'enfant, des chèques alimentaires vers les produits bio et équitables.</span></li>
+        <li><strong>Des moyens pour cuisiner autrement et former les équipes</strong><span>Financer la rénovation des cuisines, le développement du fait-maison et la formation des équipes.</span></li>
+        <li><strong>Des politiques publiques à la hauteur de l'urgence</strong><span>Un plan territorial pour la transition agricole et alimentaire, et s'opposer aux reculs réglementaires, notamment ceux prévus par la loi Omnibus.</span></li>
       </ol>
+      <p class="demandes-pied"><a class="link" href="/appel#a-demandes">Nos six demandes en détail</a></p>
     </div>
   </section>
 
-  <section class="nov sec" id="quatorze">
-    <div class="wrap">
-      <div class="date-tile" aria-hidden="true"><b>14</b><span>novembre</span></div>
-      <div>
-        <p class="eyebrow">Appel des enfants</p>
-        <h2 style="margin-top:8px">Le 14 novembre, donnons la parole aux enfants</h2>
-        <p>Le 14 novembre, des manifestations ont lieu partout en France pour le présent et l'avenir des enfants. Bio Consom'acteurs relaie l'appel des enfants, que chacun·e peut lire et signer.</p>
-        <div class="ctas" style="margin-top:18px">
-          <a class="btn btn-dark" href="https://26septembre.org/appel-enfants/" target="_blank" rel="noopener">Lire et signer l'appel des enfants ↗</a>
-          <a class="btn btn-ghost" href="https://bioconsomacteurs.org/articles/les-bio-consomactions/le-14-novembre-donnons-la-parole-aux-enfants/" target="_blank" rel="noopener">L'article de Bio Consom'acteurs ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="agir">
+  <section class="sec" id="agir" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">3 actions pour aller plus loin</p>
+        <p class="eyebrow">Agir</p>
         <h2 class="h2">Trois façons d'agir après avoir signé</h2>
-        <p>Diffuser du matériel, tenir une table de signatures devant une école, obtenir un rendez-vous avec un·e élu·e.</p>
+        <p>D'abord faire signer autour de vous. Ensuite, si vous le pouvez, parler de la campagne là où vous vivez.</p>
       </div>
       <div class="actions">
-        <div class="action feat">
-          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFCC45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span>
-          <span class="tag">À recevoir chez vous</span>
-          <h3>Commander du matériel</h3>
-          <ul><li>Flyers A5 et affiches A3</li><li>Gratuit, frais de port au coût réel</li><li>Expédié depuis Montreuil (93)</li></ul>
-          <a class="btn btn-yellow" href="/commander">Je commande</a>
+        <div class="action on-rouge">
+          <span class="tag">1 · Partout</span>
+          <h3>Relayer la pétition</h3>
+          <ul><li>Envoyer le lien à vos proches et aux parents que vous connaissez</li><li>Le republier sur vos réseaux</li><li>Des messages tout prêts à copier</li></ul>
+          <a class="btn btn-noir" href="/relayer">Je relaie</a>
         </div>
-        <div class="action">
-          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <span class="tag">Sur le terrain</span>
-          <h3>Organiser une distribution</h3>
-          <ul><li>Une table de signatures devant une école, un marché, une mairie</li><li>Sur la carte publique des distributions</li><li>Fiche pratique et rappels par email</li></ul>
-          <a class="btn btn-orange" href="/distribution">Je m'organise</a>
+        <div class="action on-vert">
+          <span class="tag">2 · Près de chez vous</span>
+          <h3>Organiser une table</h3>
+          <ul><li>Parler de la campagne, faire signer, distribuer des flyers</li><li>Sur un marché, devant une mairie, à une fête de quartier</li><li>Sur la carte publique, avec une fiche pratique</li></ul>
+          <a class="btn btn-creme" href="/distribution">Je m'organise</a>
         </div>
-        <div class="action">
-          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></span>
-          <span class="tag">Auprès des élu·es</span>
-          <h3>Rencontrer vos élu·es</h3>
-          <ul><li>Modèles de courrier pour chaque élu·e</li><li>Argumentaire chiffré et sourcé</li><li>L'appui de Bio Consom'acteurs</li></ul>
-          <a class="btn btn-dark" href="/rencontre">Je sollicite</a>
+        <div class="action on-noir">
+          <span class="tag">3 · Chez vous</span>
+          <h3>Imprimer le kit</h3>
+          <ul><li>Flyers et affiche à imprimer vous-même</li><li>En couleur ou en noir et blanc</li><li>Avec le QR code de la pétition</li></ul>
+          <a class="btn btn-rouge" href="/kit">J'imprime</a>
         </div>
       </div>
     </div>
@@ -176,46 +130,38 @@ import Site from '../layouts/Site.astro';
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="band" style="background:var(--tilleul-soft)">
-        <div>
-          <p class="eyebrow">Présidentielle et législatives 2027</p>
-          <h2 class="h2" style="margin-top:10px">Élu·es et candidat·es, engagez-vous pour la cantine de nos enfants.</h2>
-          <p class="who">Maires, conseiller·es, député·es, eurodéputé·es, candidat·es&nbsp;: prenez position publiquement sur nos neuf demandes. Les engagements vérifiés sont publiés sur le site.</p>
-        </div>
-        <div class="side"><a class="btn btn-dark" href="/elus" style="justify-self:start">Je m'engage</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:clamp(40px,6vw,72px)">
-    <div class="wrap">
       <div class="sec-head" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;max-width:none">
-        <div style="display:grid;gap:10px"><p class="eyebrow">Actualités</p><h2 class="h2">Ailleurs dans la lutte contre les pesticides</h2></div>
+        <div style="display:grid;gap:10px"><p class="eyebrow">Actualités</p><h2 class="h2">L'actualité de Bio Consom'acteurs et de ses alliés</h2></div>
         <a class="link" href="/actualites">Toutes les actualités</a>
       </div>
-      <div class="news" id="news-home">
-        <a class="news-card" href="https://www.generations-futures.fr/actualites/omnibus-pesticides-les-9-10-et-11-octobre-generations-futures-mobilisee-dans-toute-la-france/" target="_blank" rel="noopener"><div class="img"><img src="/images/actus/actu-1.jpg" alt="Militantes et militants de Générations Futures devant une banderole « Pesticides à vie ? Non merci »." loading="lazy"></div><div class="body"><div class="meta"><span class="pill">Générations Futures</span><span class="src">13 octobre 2026</span></div><h3>Omnibus Pesticides : les 9, 10 et 11 octobre, Générations Futures mobilisée dans toute la France</h3><span class="more">Lire sur Générations Futures ↗</span></div></a>
-        <a class="news-card" href="https://basta.media/Reportage-stop-pesticides-images-manifestation-contre-syngenta-ravages-agrochimie-Cancer-Colere" target="_blank" rel="noopener"><div class="img"><img src="/images/actus/actu-3.jpg" alt="Une femme parle au micro, entourée de manifestant·es en t-shirts « Cancer Colère »." loading="lazy"></div><div class="body"><div class="meta"><span class="pill">Basta!</span><span class="src">5 octobre 2026</span></div><h3>« Stop aux pesticides » : les images de la manifestation contre Syngenta et les « ravages de l’agrochimie »</h3><span class="more">Lire sur Basta! ↗</span></div></a>
-        <a class="news-card" href="https://basta.media/Fleur-Breteau-collectif-Cancer-Colere-On-arrivera-pas-a-guerir-dans-un-monde-qui-nous-empoisonne-pesticides-maladies" target="_blank" rel="noopener"><div class="img"><img src="/images/actus/actu-2.jpg" alt="Portrait de Fleur Breteau, du collectif Cancer Colère." loading="lazy"></div><div class="body"><div class="meta"><span class="pill">Basta!</span><span class="src">29 septembre 2026</span></div><h3>Fleur Breteau : « On n’arrivera pas à guérir dans un monde qui nous empoisonne »</h3><span class="more">Lire sur Basta! ↗</span></div></a>
+      <div class="news">
+        {une.map((a) => (
+          <a class={a.bca ? 'news-card de-bca' : 'news-card'} href={a.url} target="_blank" rel="noopener">
+            <span class="bandeau">{a.source}</span>
+            <div class="body"><span class="src">{a.date}</span><h3>{a.titre}</h3><span class="more">Lire l'article ↗</span></div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="sec" id="bca" style="background:var(--paper);border-top:1px solid var(--line)">
+  <section class="sec" id="bca" style="background:var(--paper);border-top:3px solid var(--fg)">
     <div class="wrap">
       <div class="bca">
         <div>
           <p class="eyebrow">Qui porte cette pétition</p>
-          <h2 class="h2" style="margin:10px 0 16px">Bio Consom'acteurs, l'association des mangeuses et mangeurs bio engagé·es, depuis 2004.</h2>
-          <p>Bio Consom'acteurs agit pour une alimentation biologique, locale, équitable et accessible à toutes et tous. L'association informe et sensibilise les citoyen·nes, en particulier les plus jeunes, et porte des actions de plaidoyer pour accélérer la transition vers des systèmes alimentaires sains et durables.</p>
-          <p>Cette pétition prolonge l'Appel de Lorient, co-écrit par Bio Consom'acteurs et signé par 48 organisations nationales, plus de 170 organisations locales et plus de 2&nbsp;800 personnes, pour une politique publique cohérente en faveur de la bio.</p>
-          <div class="ctas"><a class="btn btn-dark" href="https://bioconsomacteurs.org" target="_blank" rel="noopener">Découvrir l'association ↗</a></div>
+          <h2 class="h2" style="margin:10px 0 16px">Bio Consom'acteurs</h2>
+          <p>Depuis 22 ans, Bio Consom'acteurs agit pour que les enfants et les jeunes mangent bio, local et de saison&nbsp;: dans les écoles, dans les cantines, sur les territoires. Avec son projet «&nbsp;Plus de Bio sur mon plateau&nbsp;», l'association accompagne la restauration collective dans sa transition.</p>
+          <div class="ctas">
+            <a class="btn btn-vert" href="https://bioconsomacteurs.org/projets/plusdebiosurmonplateau/" target="_blank" rel="noopener">Plus de Bio sur mon plateau ↗</a>
+            <a class="btn btn-ghost" href="https://bioconsomacteurs.org" target="_blank" rel="noopener">L'association ↗</a>
+          </div>
         </div>
         <div class="mini">
-          <div><b>30</b><span>ambassadeurs et ambassadrices de la Bio ou antennes locales</span></div>
-          <div><b>2&nbsp;000</b><span>adhérent·es donateur·rices</span></div>
-          <div><b>40&nbsp;000</b><span>abonné·es aux Bio Consom'infos</span></div>
+          <div><b>22</b><span>ans d'action pour une alimentation bio, locale et de saison</span></div>
           <div><b>10&nbsp;000+</b><span>enfants sensibilisés dans plus de 300 classes depuis 2018</span></div>
+          <div><b>30</b><span>ambassadeurs et ambassadrices de la Bio ou antennes locales</span></div>
+          <div><b>40&nbsp;000</b><span>abonné·es aux Bio Consom'infos</span></div>
         </div>
       </div>
     </div>

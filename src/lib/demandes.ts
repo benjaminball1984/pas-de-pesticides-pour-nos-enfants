@@ -1,5 +1,5 @@
 /**
- * Accès serveur à la table `demande` (commandes, distributions, engagements d'élu·es).
+ * Accès serveur à la table `demande` (distributions, c'est-à-dire les tables ; et les anciennes commandes et engagements d'élu·es).
  * Les champs ajoutés après coup (publication, retrait, rappels, coordonnées) vivent dans `payload`.
  */
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';

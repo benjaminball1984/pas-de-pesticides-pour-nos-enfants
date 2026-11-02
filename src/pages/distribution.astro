@@ -1,26 +1,27 @@
 ---
 import Site from '../layouts/Site.astro';
+// L'adresse reste /distribution (liens des emails déjà envoyés) ; la page s'appelle « Organiser une table ».
 ---
 
-<Site titre="Organiser une distribution · Pas de pesticides pour nos enfants" description="Tenez une table de signatures devant une école ou sur un marché." page="distribution">
-<section class="page-hero on-deep">
+<Site titre="Organiser une table · Pas de pesticides pour nos enfants" description="Tenez une table pour parler de la campagne, faire signer la pétition et distribuer des flyers." page="distribution">
+<section class="page-hero on-vert">
     <div class="wrap">
-      <p class="eyebrow">Action 2 · Terrain</p>
-      <h1>Organiser <em>une distribution</em></h1>
-      <p class="lead">Tenez une table de signatures devant une école, sur un marché, à la sortie d'un cinéma. Déclarez votre distribution pour apparaître sur la carte publique et être rejoint·e par d'autres près de chez vous. Bio Consom'acteurs vous envoie le matériel et la fiche pratique.</p>
+      <p class="eyebrow">Action 2 · Près de chez vous</p>
+      <h1>Organiser <em>une table</em></h1>
+      <p class="lead">Tenez une table pour parler de la campagne, faire signer la pétition et distribuer des flyers&nbsp;: sur un marché, devant une mairie, à une fête de quartier ou dans une AMAP. Déclarez-la pour apparaître sur la carte publique et être rejoint·e par d'autres près de chez vous.</p>
     </div>
   </section>
   <section class="sec" style="padding-bottom:0">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Carte publique</p>
-        <h2 class="h2">Les prochaines distributions</h2>
-        <p>Trouvez une distribution près de chez vous pour la rejoindre, ou déclarez la vôtre ci-dessous.</p>
+        <h2 class="h2">Les prochaines tables</h2>
+        <p>Trouvez une table près de chez vous pour la rejoindre, ou déclarez la vôtre ci-dessous.</p>
       </div>
       <div class="carte-wrap">
-        <div id="carte" class="carte" role="region" aria-label="Carte des distributions à venir"></div>
+        <div id="carte" class="carte" role="region" aria-label="Carte des tables à venir"></div>
         <div class="dist-liste" id="dist-liste" aria-live="polite">
-          <div class="empty"><b>Aucune distribution annoncée pour l'instant.</b><span><a class="link" href="#form-distribution">Déclarez une distribution</a> près de chez vous.</span></div>
+          <div class="empty"><b>Aucune table annoncée pour l'instant.</b><span><a class="link" href="#form-distribution">Déclarez une table</a> près de chez vous.</span></div>
         </div>
       </div>
     </div>
@@ -30,7 +31,7 @@ import Site from '../layouts/Site.astro';
       <form class="form" id="form-distribution" novalidate>
         <input type="text" name="site_web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <h2 class="step-title">1. Où et quand&nbsp;?</h2>
-        <div class="fld"><label for="d-lieu">Lieu de la distribution</label><input id="d-lieu" placeholder="ex. École Jules-Ferry, sortie de 16 h 30" required></div>
+        <div class="fld"><label for="d-lieu">Lieu de la table</label><input id="d-lieu" placeholder="ex. Marché de la place Carnot, côté fontaine" required></div>
         <div class="grid3">
           <div class="fld"><label for="d-adr">Adresse</label><input id="d-adr" required></div>
           <div class="fld"><label for="d-cp">Code postal</label><input id="d-cp" inputmode="numeric" maxlength="5" required></div>
@@ -40,17 +41,16 @@ import Site from '../layouts/Site.astro';
           <div class="fld"><label for="d-type">Type de lieu</label>
             <select id="d-type" required>
               <option value="">Choisir</option>
-              <option>École maternelle ou élémentaire</option>
-              <option>Collège ou lycée</option>
               <option>Marché</option>
               <option>Mairie, place publique</option>
+              <option>Fête de quartier, événement</option>
+              <option>AMAP, magasin bio</option>
               <option>Centre social, médiathèque</option>
-              <option>Événement (festival, manifestation)</option>
               <option>Autre</option>
             </select>
           </div>
           <div class="fld"><label for="d-date">Date</label><input id="d-date" type="date" required></div>
-          <div class="fld"><label for="d-h">Horaires</label><input id="d-h" placeholder="ex. 16 h 30 – 18 h" required></div>
+          <div class="fld"><label for="d-h">Horaires</label><input id="d-h" placeholder="ex. 9 h – 12 h" required></div>
         </div>
         <div class="fld"><label for="d-com">Commentaire <small>(facultatif)</small></label><textarea id="d-com"></textarea></div>
         <h2 class="step-title" style="margin-top:10px">2. Vous êtes&nbsp;?</h2>
@@ -63,26 +63,26 @@ import Site from '../layouts/Site.astro';
           <div class="fld"><label for="d-tel">Téléphone</label><input id="d-tel" type="tel" autocomplete="tel"></div>
         </div>
         <div class="fld"><label for="d-org">Organisation <small>(facultatif)</small></label><input id="d-org" autocomplete="organization"></div>
-        <label class="check"><input type="checkbox" id="d-carte" checked><span>Afficher ma distribution sur la carte publique, avec mon prénom et l'initiale de mon nom.</span></label>
+        <label class="check"><input type="checkbox" id="d-carte" checked><span>Afficher ma table sur la carte publique, avec mon prénom et l'initiale de mon nom.</span></label>
         <label class="check"><input type="checkbox" id="d-contact" checked><span>Autoriser d'autres personnes mobilisées à me contacter pour me rejoindre.</span></label>
         <label class="check"><input type="checkbox" id="d-rappel" checked><span>Recevoir la fiche pratique et des rappels la veille et le jour J.</span></label>
-        <p class="form-err" role="alert" style="color:var(--orange-ink);font-weight:700" hidden></p>
-        <button class="btn btn-orange" type="submit" style="justify-self:start">J'ajoute ma distribution à la carte</button>
+        <p class="form-err" role="alert" hidden></p>
+        <button class="btn btn-rouge" type="submit" style="justify-self:start">J'ajoute ma table à la carte</button>
       </form>
       <div style="display:grid;gap:16px">
         <div class="done" id="merci-distrib" hidden>
-          <p class="eyebrow">Distribution déclarée</p>
-          <h3>Merci&nbsp;! Votre distribution rejoint la carte.</h3>
-          <p style="color:var(--fg-2)">Vous recevrez par email un récapitulatif, la fiche pratique et des rappels la veille et le jour J.</p>
-          <div class="ctas"><a class="btn btn-dark" href="/commander">Commander mon matériel</a></div>
+          <p class="eyebrow">Table déclarée</p>
+          <h3>Merci&nbsp;! Votre table rejoint la carte.</h3>
+          <p>Vous recevrez par email un récapitulatif, la fiche pratique et des rappels la veille et le jour J.</p>
+          <div class="ctas" style="margin-top:0"><a class="btn btn-noir" href="/kit">Imprimer mes flyers</a></div>
         </div>
-        <aside class="card-form" style="background:var(--paper)">
+        <aside class="fiche">
           <p class="eyebrow">Fiche pratique</p>
-          <h3 class="step-title" style="margin-top:8px">Réussir sa distribution</h3>
+          <h3 class="step-title" style="margin-top:8px">Réussir sa table</h3>
           <div style="display:grid;gap:14px;font-size:.96rem">
-            <div><b>Avant</b><ul style="padding-left:18px;color:var(--fg-2)"><li>Commander ou imprimer les flyers, prévoir affiches, scotch, stylos, feuilles de signatures ou QR code.</li><li>Trouver une ou deux personnes, créer une boucle de discussion, fixer l'heure, le lieu précis et la durée.</li></ul></div>
-            <div><b>Pendant</b><ul style="padding-left:18px;color:var(--fg-2)"><li>Être souriant·e et accueillant·e, aller vers les gens sans insister.</li><li>Poser des questions simples, mettre en avant des messages concrets et positifs.</li><li>Respecter l'espace public, ne pas bloquer le passage, respecter les refus.</li></ul></div>
-            <div><b>Après</b><ul style="padding-left:18px;color:var(--fg-2)"><li>Compter les flyers distribués, les signatures et les contacts.</li><li>Partager des photos et faire un retour rapide à l'équipe.</li></ul></div>
+            <div><b>Avant</b><ul><li>Imprimer les flyers et l'affiche du <a class="link" href="/kit">kit</a>, prévoir du scotch et un téléphone ou une tablette pour signer en ligne avec le QR code.</li><li>Trouver une ou deux personnes, fixer l'heure, le lieu précis et la durée.</li></ul></div>
+            <div><b>Pendant</b><ul><li>Être souriant·e et accueillant·e, aller vers les gens sans insister.</li><li>Poser des questions simples, mettre en avant des messages concrets et positifs.</li><li>Respecter l'espace public, ne pas bloquer le passage, respecter les refus.</li></ul></div>
+            <div><b>Après</b><ul><li>Compter les flyers distribués et les signatures.</li><li>Partager des photos et faire un retour rapide à l'équipe.</li></ul></div>
           </div>
         </aside>
       </div>

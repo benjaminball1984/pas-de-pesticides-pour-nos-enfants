@@ -1,0 +1,52 @@
+---
+import Site from '../layouts/Site.astro';
+// Fichiers produits par `node scripts/kit/kit.mjs` dans public/kit/.
+const docs = [
+  {
+    nom: 'flyers',
+    titre: 'Flyers A5',
+    texte: 'Deux flyers par feuille A4 : imprimez, puis coupez au milieu.',
+  },
+  {
+    nom: 'affiche',
+    titre: 'Affiche A4',
+    texte: 'Pour une vitrine, un panneau, une table. Elle s’agrandit en A3 à l’impression.',
+  },
+];
+---
+
+<Site titre="Le kit à imprimer · Pas de pesticides pour nos enfants" description="Flyers et affiche de la pétition à imprimer chez soi, en couleur ou en noir et blanc." page="kit">
+<section class="page-hero on-noir">
+    <div class="wrap">
+      <p class="eyebrow">Action 3 · Chez vous</p>
+      <h1>Imprimer <em>le kit</em></h1>
+      <p class="lead">Des flyers et une affiche à imprimer vous-même, en couleur ou en noir et blanc. Chacun porte le QR code qui mène au formulaire de signature.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap" style="display:grid;gap:28px">
+      <div class="kit">
+        {docs.map((d) => (
+          <div class="kit-doc">
+            <a class="apercu" href={`/kit/${d.nom}-couleur.pdf`}><img src={`/kit/${d.nom}-apercu.png`} width="360" height="509" alt={`Aperçu : ${d.titre}`} loading="lazy"></a>
+            <h3>{d.titre}</h3>
+            <p>{d.texte}</p>
+            <div class="partage">
+              <a class="btn btn-rouge" href={`/kit/${d.nom}-couleur.pdf`} download>PDF couleur</a>
+              <a class="btn btn-ghost" href={`/kit/${d.nom}-noir-et-blanc.pdf`} download>PDF noir et blanc</a>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="qr">
+        <img src="/kit/qr-petition.png" width="140" height="140" alt="QR code vers le formulaire de signature">
+        <div style="display:grid;gap:10px;justify-items:start">
+          <p style="color:var(--fg-2)">Le QR code seul, pour vos propres documents.</p>
+          <a class="btn btn-noir" href="/kit/qr-petition.png" download>Télécharger le QR code</a>
+        </div>
+      </div>
+      <p style="color:var(--fg-2)">Envie de tenir une table avec ces flyers&nbsp;? <a class="link" href="/distribution">Organisez-la et apparaissez sur la carte</a>.</p>
+    </div>
+  </section>
+</Site>

@@ -5,9 +5,6 @@ import "@fontsource/pt-sans/700.css";
 import "@fontsource/pt-sans/400-italic.css";
 import "@fontsource/antonio/500.css";
 import "@fontsource/antonio/700.css";
-import "@fontsource/fraunces/500.css";
-import "@fontsource/fraunces/400-italic.css";
-import "@fontsource/caveat-brush/400.css";
 import "../styles/site.css";
 
 interface Props {
@@ -16,16 +13,13 @@ interface Props {
   page: string;
 }
 const { titre, description, page } = Astro.props;
-const ogImage = new URL("/images/affiche-pesticides.jpg", Astro.site);
+const ogImage = new URL("/kit/partage.png", Astro.site);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 const nav = [
   { href: "/appel", label: "L'appel", pages: ["appel"] },
-  { href: "/#demandes", label: "Nos demandes", pages: [] },
-  { href: "/egalim", label: "EGalim", pages: ["egalim"] },
-  { href: "/#agir", label: "Agir", pages: ["commander", "distribution", "rencontre"] },
-  { href: "/elus", label: "Élu·es", pages: ["elus"] },
-  { href: "/visuels", label: "Visuels", pages: ["visuels"] },
+  { href: "/appel#a-demandes", label: "Nos demandes", pages: [] },
+  { href: "/#agir", label: "Agir", pages: ["relayer", "distribution", "kit"] },
   { href: "/actualites", label: "Actualités", pages: ["actualites"] },
 ];
 ---
@@ -38,27 +32,27 @@ const nav = [
     <title>{titre}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/jpeg" href="/images/logo-bca.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#E4362B" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={titre} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="fr_FR" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <header class="site">
       <div class="wrap row">
-        <a class="logo" href="/" aria-label="Pas de pesticides pour nos enfants, accueil">
-          <img src="/images/logo-bca.jpg" alt="" width="44" height="44" />
-          <span>Pas de pesticides <b>pour nos enfants&nbsp;!</b></span>
-        </a>
+        <a class="logo" href="/" aria-label="Pas de pesticides pour nos enfants, accueil">Pas de pesticides <b>pour nos enfants&nbsp;!</b></a>
         <nav class="main" aria-label="Navigation principale">
           {nav.map((n) => (
             <a href={n.href} aria-current={n.pages.includes(page) ? "page" : undefined}>{n.label}</a>
           ))}
         </nav>
-        <a class="btn btn-yellow" href="/#signer">Je signe</a>
+        <a class="btn btn-rouge" href="/#signer">Je signe</a>
       </div>
     </header>
 
@@ -70,11 +64,11 @@ const nav = [
       <div class="wrap cols">
         <div style="display:grid;gap:10px;align-content:start">
           <span class="brand">Pas de pesticides <b>pour nos enfants&nbsp;!</b></span>
-          <p>Pétition citoyenne portée par Bio Consom'acteurs. 10 rue Beaumarchais, 93100 Montreuil.</p>
+          <p>Une pétition de Bio Consom'acteurs. 10 rue Beaumarchais, 93100 Montreuil.</p>
         </div>
-        <div><h4>La campagne</h4><ul><li><a href="/appel">L'appel</a></li><li><a href="/#demandes">Nos demandes</a></li><li><a href="/egalim">La demande préalable EGalim</a></li><li><a href="/visuels">Visuels</a></li><li><a href="/actualites">Actualités</a></li><li><a href="/#signer">Signer</a></li></ul></div>
-        <div><h4>Agir</h4><ul><li><a href="/commander">Commander du matériel</a></li><li><a href="/distribution">Organiser une distribution</a></li><li><a href="/rencontre">Rencontrer vos élu·es</a></li><li><a href="/elus">Élu·es et candidat·es</a></li></ul></div>
-        <div><h4>Bio Consom'acteurs</h4><ul><li><a href="https://bioconsomacteurs.org" target="_blank" rel="noopener">Site de l'association ↗</a></li><li><a href="https://bioconsomacteurs.org" target="_blank" rel="noopener">Adhérer ↗</a></li><li><a href="https://bioconsomacteurs.org" target="_blank" rel="noopener">Faire un don ↗</a></li><li><a href="mailto:contact@bioconsomacteurs.org">contact@bioconsomacteurs.org</a></li></ul></div>
+        <div><h4>La pétition</h4><ul><li><a href="/appel">L'appel</a></li><li><a href="/appel#a-demandes">Nos demandes</a></li><li><a href="/#signer">Signer</a></li><li><a href="/actualites">Actualités</a></li></ul></div>
+        <div><h4>Agir</h4><ul><li><a href="/relayer">Relayer la pétition</a></li><li><a href="/distribution">Organiser une table</a></li><li><a href="/kit">Imprimer le kit</a></li></ul></div>
+        <div><h4>Bio Consom'acteurs</h4><ul><li><a href="https://bioconsomacteurs.org" target="_blank" rel="noopener">Site de l'association ↗</a></li><li><a href="https://bioconsomacteurs.org/projets/plusdebiosurmonplateau/" target="_blank" rel="noopener">Plus de Bio sur mon plateau ↗</a></li><li><a href="https://www.helloasso.com/associations/bio-consom-acteurs/formulaires/1" target="_blank" rel="noopener">Faire un don ↗</a></li><li><a href="mailto:contact@bioconsomacteurs.org">contact@bioconsomacteurs.org</a></li></ul></div>
       </div>
       <div class="wrap legal">
         <span>© 2026 Bio Consom'acteurs · pasdepesticidespournosenfants.net</span>

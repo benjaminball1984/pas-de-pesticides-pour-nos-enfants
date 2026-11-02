@@ -19,7 +19,7 @@ export function lireConfigSupabase() {
 
 /**
  * Brevo de Bio Consom'acteurs (clé posée en secret Cloudflare BREVO_API_KEY).
- * Expéditeur et destinataire des commandes modifiables par variables, sans redéployer le code.
+ * Expéditeur et destinataire des emails de l'équipe modifiables par variables, sans redéployer le code.
  */
 export function lireConfigBrevo() {
   const cfEnv = env as unknown as Record<string, string | undefined>;

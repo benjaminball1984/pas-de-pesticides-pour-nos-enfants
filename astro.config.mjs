@@ -14,6 +14,15 @@ export default defineConfig({
   // l'adaptateur Cloudflare réclame un namespace KV « SESSION » au déploiement.
   session: { driver: 'memory' },
 
+  // Pages retirées à la refonte de novembre 2026 : leurs anciennes adresses renvoient au plus proche.
+  redirects: {
+    '/commander': '/kit',
+    '/rencontre': '/#agir',
+    '/elus': '/#agir',
+    '/egalim': '/actualites',
+    '/visuels': '/kit',
+  },
+
   // Déploiement sur Cloudflare (Workers). En dev comme en prod, les variables/secrets
   // sont lus via `cloudflare:workers` (et .dev.vars / .env.local en local).
   adapter: cloudflare(),

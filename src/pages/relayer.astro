@@ -1,0 +1,64 @@
+---
+import Site from '../layouts/Site.astro';
+// Messages tirés de la V2 de la tribune ; Émilie pourra les remplacer, les visuels de Julie viendront s'ajouter.
+const lien = 'https://pasdepesticidespournosenfants.net';
+const messages = [
+  {
+    titre: 'Pour vos proches',
+    texte: `Nos enfants sont exposés chaque jour aux pesticides : dans leur assiette, à la cantine, aux abords des écoles et de leurs lieux de jeux. J'ai signé la pétition « Pas de pesticides pour nos enfants » de Bio Consom'acteurs. Signez aussi : ${lien}`,
+  },
+  {
+    titre: 'Pour les parents',
+    texte: `20 % de bio dans les cantines, c'est la loi depuis 2022. Selon l'Agence Bio, le bio représente moins de 7 % des achats de la restauration collective : on est loin du compte. Signons la pétition « Pas de pesticides pour nos enfants » : ${lien}`,
+  },
+  {
+    titre: 'Pour vos réseaux',
+    texte: `Ça suffit. Nos enfants ne doivent pas payer leurs profits de leur vie. Signez la pétition « Pas de pesticides pour nos enfants » : ${lien}`,
+  },
+];
+---
+
+<Site titre="Relayer la pétition · Pas de pesticides pour nos enfants" description="Faites signer votre entourage : le lien, des messages tout prêts et le QR code de la pétition." page="relayer">
+<section class="page-hero on-rouge">
+    <div class="wrap">
+      <p class="eyebrow">Action 1 · Partout</p>
+      <h1>Relayer <em>la pétition</em></h1>
+      <p class="lead">Chaque signature compte. Envoyez le lien à votre entourage, aux parents que vous connaissez, et republiez-le sur vos réseaux sociaux.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap" style="display:grid;gap:clamp(36px,5vw,56px)">
+      <div style="display:grid;gap:14px">
+        <h2 class="step-title">Partager le lien</h2>
+        <div class="partage" data-partage></div>
+      </div>
+
+      <div style="display:grid;gap:14px">
+        <h2 class="step-title">Des messages tout prêts</h2>
+        <p style="color:var(--fg-2);max-width:64ch">Copiez un message, collez-le dans un groupe, un email ou une publication. Modifiez-le comme vous voulez.</p>
+        <div class="messages">
+          {messages.map((m) => (
+            <div class="message">
+              <p class="eyebrow">{m.titre}</p>
+              <p class="txt">{m.texte}</p>
+              <div class="partage" data-partage data-texte={m.texte}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style="display:grid;gap:14px">
+        <h2 class="step-title">Le QR code de la pétition</h2>
+        <div class="qr">
+          <img src="/kit/qr-petition.png" width="140" height="140" alt="QR code vers pasdepesticidespournosenfants.net">
+          <div style="display:grid;gap:10px;justify-items:start">
+            <p style="color:var(--fg-2)">Il mène directement au formulaire de signature. À poser sur une affiche, un diaporama, une table.</p>
+            <a class="btn btn-noir" href="/kit/qr-petition.png" download>Télécharger le QR code</a>
+            <a class="link" href="/kit">Flyers et affiche à imprimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Site>
