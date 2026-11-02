@@ -50,9 +50,16 @@ export const POST: APIRoute = async ({ request }) => {
   const email = String(form.get('email') ?? '').trim().toLowerCase();
   const code_postal = String(form.get('code_postal') ?? '').trim();
   const telephone = String(form.get('telephone') ?? '').trim();
+  const type_signataire = String(form.get('type_signataire') ?? '') === 'organisation' ? 'organisation' : 'individu';
+  const organisation = type_signataire === 'organisation' ? nettoyer(String(form.get('organisation') ?? '')) : '';
+  const fonction = type_signataire === 'organisation' ? nettoyer(String(form.get('fonction') ?? '')) : '';
   const info_campagne = form.get('info_campagne') != null;
   const newsletter = form.get('newsletter') != null;
 
+  if (type_signataire === 'organisation' && !organisation) {
+    return json({ ok: false, erreur: 'Merci d’indiquer le nom de votre organisation.' }, 400);
+  }
+  if (organisation.length > 160 || fonction.length > 120) return json({ ok: false, erreur: 'Champs trop longs.' }, 400);
   if (!prenom || !nom) return json({ ok: false, erreur: 'Merci d’indiquer votre prénom et votre nom.' }, 400);
   if (prenom.length > 80 || nom.length > 80 || email.length > 160) {
     return json({ ok: false, erreur: 'Champs trop longs.' }, 400);
@@ -65,6 +72,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const res = await enregistrerSignature({
     prenom, nom, email, code_postal, telephone: telephone || null, info_campagne, newsletter,
+    type_signataire, organisation: organisation || null, fonction: fonction || null,
   });
 
   if (!res.ok) return json({ ok: false, erreur: 'Une erreur est survenue. Merci de réessayer dans un instant.' }, 500);

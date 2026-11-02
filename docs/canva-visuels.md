@@ -1,5 +1,23 @@
 # Visuels Canva de la campagne
 
+## Kit de novembre 2026 (page /kit)
+
+Tract A5, affiche A4 et visuel réseaux, dans la palette de novembre. Sources d'import produites par
+`node scripts/kit/kit.mjs` dans `public/modeles/` (tract-a5, affiche-a4, visuel-partage), importées le 02/11/2026
+dans le dossier Canva ci-dessous ; liens de modèle créés dans l'éditeur (Partager → Lien de modèle).
+
+| Document | Design Canva | Lien de modèle |
+|---|---|---|
+| Tract A5 | DAHZwTf5jKU | https://canva.link/trw9csldjm4fxfx |
+| Affiche A4 | DAHZwYd8IL4 | https://canva.link/558dphi6jijojql |
+| Visuel réseaux (1200 × 630) | DAHZwQu07uQ | https://canva.link/zckyimnfl21pk2g |
+
+Canva rend le PT Sans un peu plus large que Chrome : les paragraphes des sources Canva sont réduits de 6 %.
+Deux premiers essais sans cette correction (DAHZwS7GFbk tract, DAHZwb29VIU affiche) sont sortis du dossier, à la
+racine du Canva de Ben, à jeter à la main.
+
+## Anciens visuels (14/10/2026, retirés du site le 02/11/2026)
+
 Dossier Canva : https://www.canva.com/folder/FAHX98oaATQ (« Pas de pesticides pour nos enfants · visuels »).
 Les anciennes versions (12 designs) sont dans la corbeille Canva depuis le 14/10/2026. Le sous-dossier « Anciennes versions » est vide : Canva supprime un dossier définitivement, il est laissé à Ben.
 

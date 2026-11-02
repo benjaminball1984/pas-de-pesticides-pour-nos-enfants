@@ -1,26 +1,39 @@
 ---
 import Site from '../layouts/Site.astro';
-// Fichiers produits par `node scripts/kit/kit.mjs` dans public/kit/.
+// Fichiers produits par `node scripts/kit/kit.mjs` dans public/kit/. Les liens « Modifier sur Canva » sont des
+// liens de modèle (canva.link) créés dans l'éditeur Canva le 02/11/2026 : voir docs/canva-visuels.md.
 const docs = [
   {
-    nom: 'flyers',
-    titre: 'Flyers A5',
-    texte: 'Deux flyers par feuille A4 : imprimez, puis coupez au milieu.',
+    titre: 'Tract A5',
+    texte: 'Deux tracts par feuille A4 : imprimez, puis coupez au milieu.',
+    apercu: '/kit/flyers-apercu.png',
+    fichiers: [['PDF couleur', '/kit/flyers-couleur.pdf'], ['PDF noir et blanc', '/kit/flyers-noir-et-blanc.pdf']],
+    canva: 'https://canva.link/trw9csldjm4fxfx',
   },
   {
-    nom: 'affiche',
     titre: 'Affiche A4',
     texte: 'Pour une vitrine, un panneau, une table. Elle s’agrandit en A3 à l’impression.',
+    apercu: '/kit/affiche-apercu.png',
+    fichiers: [['PDF couleur', '/kit/affiche-couleur.pdf'], ['PDF noir et blanc', '/kit/affiche-noir-et-blanc.pdf']],
+    canva: 'https://canva.link/558dphi6jijojql',
+  },
+  {
+    titre: 'Visuel réseaux',
+    texte: 'Pour accompagner le lien de la pétition sur Facebook, X, Bluesky ou dans un email.',
+    apercu: '/kit/partage.png',
+    paysage: true,
+    fichiers: [['Image PNG', '/kit/partage.png']],
+    canva: 'https://canva.link/zckyimnfl21pk2g',
   },
 ];
 ---
 
-<Site titre="Le kit à imprimer · Pas de pesticides pour nos enfants" description="Flyers et affiche de la pétition à imprimer chez soi, en couleur ou en noir et blanc." page="kit">
+<Site titre="Le kit à imprimer · Pas de pesticides pour nos enfants" description="Tract, affiche et visuel de la pétition, à imprimer chez soi ou à modifier sur Canva." page="kit">
 <section class="page-hero on-noir">
     <div class="wrap">
       <p class="eyebrow">Action 3 · Chez vous</p>
       <h1>Imprimer <em>le kit</em></h1>
-      <p class="lead">Des flyers et une affiche à imprimer vous-même, en couleur ou en noir et blanc. Chacun porte le QR code qui mène au formulaire de signature.</p>
+      <p class="lead">Un tract, une affiche et un visuel pour les réseaux. Imprimez-les tels quels, en couleur ou en noir et blanc, ou adaptez-les sur Canva&nbsp;: ajoutez la date et le lieu de votre table, le nom de votre collectif. Le QR code mène au formulaire de signature.</p>
     </div>
   </section>
 
@@ -29,12 +42,14 @@ const docs = [
       <div class="kit">
         {docs.map((d) => (
           <div class="kit-doc">
-            <a class="apercu" href={`/kit/${d.nom}-couleur.pdf`}><img src={`/kit/${d.nom}-apercu.png`} width="360" height="509" alt={`Aperçu : ${d.titre}`} loading="lazy"></a>
+            <a class={d.paysage ? 'apercu paysage' : 'apercu'} href={d.fichiers[0][1]}><img src={d.apercu} width={d.paysage ? 1200 : 360} height={d.paysage ? 630 : 509} alt={`Aperçu : ${d.titre}`} loading="lazy"></a>
             <h3>{d.titre}</h3>
             <p>{d.texte}</p>
             <div class="partage">
-              <a class="btn btn-corail" href={`/kit/${d.nom}-couleur.pdf`} download>PDF couleur</a>
-              <a class="btn btn-ghost" href={`/kit/${d.nom}-noir-et-blanc.pdf`} download>PDF noir et blanc</a>
+              {d.fichiers.map(([label, href], i) => (
+                <a class={i === 0 ? 'btn btn-corail' : 'btn btn-ghost'} href={href} download>{label}</a>
+              ))}
+              <a class="btn btn-vert" href={d.canva} target="_blank" rel="noopener">Modifier sur Canva ↗</a>
             </div>
           </div>
         ))}
@@ -46,7 +61,7 @@ const docs = [
           <a class="btn btn-noir" href="/kit/qr-petition.png" download>Télécharger le QR code</a>
         </div>
       </div>
-      <p style="color:var(--fg-2)">Envie de tenir une table avec ces flyers&nbsp;? <a class="link" href="/distribution">Organisez-la et apparaissez sur la carte</a>.</p>
+      <p style="color:var(--fg-2)">Envie de tenir une table avec ces tracts&nbsp;? <a class="link" href="/distribution">Organisez-la et apparaissez sur la carte</a>.</p>
     </div>
   </section>
 </Site>

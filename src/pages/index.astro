@@ -24,10 +24,23 @@ const une = actus.filter((a) => a.une);
         <p class="eyebrow">Signer maintenant</p>
         <h2 class="h2" style="margin-top:10px">Ajoutez votre <em>signature</em> à l'appel.</h2>
         <p class="dest">Pétition adressée au gouvernement, aux député·es, aux eurodéputé·es, aux maires, aux conseils départementaux et aux conseils régionaux.</p>
+        <p style="margin-top:14px;color:var(--fg-2)">Signez en votre nom, ou au nom de votre association, collectif, syndicat, ferme ou entreprise.</p>
       </div>
       <div class="card-form">
         <form class="form" id="form-signer" novalidate>
           <input type="text" name="site_web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <!-- Qui signe : un particulier, ou une structure qui engage sa signature (modèle de l'appel du
+               26 septembre). Sans JavaScript, le formulaire reste celui d'un particulier. -->
+          <div class="qui-signe" role="tablist" aria-label="Qui signe">
+            <button type="button" class="onglet" role="tab" aria-selected="true" data-type="individu">Je signe</button>
+            <button type="button" class="onglet" role="tab" aria-selected="false" data-type="organisation">Je signe pour une organisation</button>
+          </div>
+          <input type="hidden" id="s-type" value="individu">
+          <div class="fld bloc-orga" hidden>
+            <label for="s-orga">Nom de l'organisation</label>
+            <input id="s-orga" name="organisation" maxlength="160" placeholder="Association, collectif, syndicat, ferme…" autocomplete="organization">
+          </div>
+          <p class="bloc-orga aide" hidden>Coordonnées de la personne qui engage l'organisation&nbsp;:</p>
           <div class="grid2">
             <div class="fld"><label for="s-prenom">Prénom</label><input id="s-prenom" name="prenom" autocomplete="given-name" required></div>
             <div class="fld"><label for="s-nom">Nom</label><input id="s-nom" name="nom" autocomplete="family-name" required></div>
@@ -37,6 +50,10 @@ const une = actus.filter((a) => a.une);
             <div class="fld"><label for="s-cp">Code postal</label><input id="s-cp" name="code_postal" inputmode="numeric" maxlength="5" autocomplete="postal-code" required></div>
             <div class="fld"><label for="s-tel">Téléphone <small>(facultatif)</small></label><input id="s-tel" name="telephone" type="tel" autocomplete="tel"></div>
           </div>
+          <div class="fld bloc-orga" hidden>
+            <label for="s-fonction">Fonction dans l'organisation <small>(facultatif)</small></label>
+            <input id="s-fonction" name="fonction" maxlength="120" placeholder="Présidente, porte-parole, co-gérant…">
+          </div>
           <label class="check"><input type="checkbox" id="s-info" checked><span>Je soutiens la campagne « Pas de pesticides pour nos enfants » et accepte de recevoir des informations sur son avancée. <small>Désinscription à tout moment.</small></span></label>
           <label class="check"><input type="checkbox" id="s-nl"><span>Je souhaite recevoir les Bio Consom'infos, la lettre d'information de Bio Consom'acteurs. <small>Consentement explicite.</small></span></label>
           <p class="form-err" role="alert" hidden></p>
@@ -45,7 +62,7 @@ const une = actus.filter((a) => a.une);
         </form>
         <div class="done" id="merci" hidden>
           <p class="eyebrow">Merci&nbsp;!</p>
-          <h3>Merci <span id="merci-prenom"></span>, votre signature est enregistrée.</h3>
+          <h3>Merci <span id="merci-prenom"></span>, <span id="merci-quoi">votre signature est enregistrée</span>.</h3>
           <p>Maintenant, faites signer votre entourage&nbsp;: envoyez le lien aux parents que vous connaissez, à vos proches, sur vos réseaux.</p>
           <div class="partage" data-partage></div>
           <p><a class="link" href="/relayer">Des messages tout prêts à envoyer</a></p>

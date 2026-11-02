@@ -53,6 +53,8 @@ function brancher(formId, doneId, envoyer) {
       if (formId === 'form-signer') {
         const p = document.getElementById('merci-prenom');
         if (p) p.textContent = valeur(f, 's-prenom');
+        const orga = valeur(f, 's-type') === 'organisation' ? valeur(f, 's-orga') : '';
+        if (orga) document.getElementById('merci-quoi').textContent = 'la signature de ' + orga + ' est enregistrée';
         f.hidden = true;
       }
       d.hidden = false;
@@ -65,6 +67,25 @@ function brancher(formId, doneId, envoyer) {
   });
 }
 
+// Pétition : « Je signe » ou « Je signe pour une organisation » (modèle de l'appel du 26 septembre).
+// Le nom de l'organisation n'est obligatoire qu'en mode organisation.
+const formSigner = document.getElementById('form-signer');
+if (formSigner) {
+  const type = formSigner.querySelector('#s-type');
+  const orga = formSigner.querySelector('#s-orga');
+  const onglets = formSigner.querySelectorAll('.qui-signe .onglet');
+  onglets.forEach((b) => b.addEventListener('click', () => {
+    const pourOrga = b.getAttribute('data-type') === 'organisation';
+    type.value = pourOrga ? 'organisation' : 'individu';
+    onglets.forEach((o) => o.setAttribute('aria-selected', String(o === b)));
+    formSigner.querySelectorAll('.bloc-orga').forEach((el) => { el.hidden = !pourOrga; });
+    orga.required = pourOrga;
+    if (!pourOrga) orga.setAttribute('aria-invalid', 'false');
+    formSigner.querySelector('button[type="submit"]').textContent = pourOrga ? 'Je signe pour mon organisation' : 'Je signe la pétition';
+    if (pourOrga) orga.focus();
+  }));
+}
+
 // Pétition : route /api/signer (FormData, champ piège site_web)
 brancher('form-signer', 'merci', (f) => {
   const fd = new FormData();
@@ -74,6 +95,11 @@ brancher('form-signer', 'merci', (f) => {
   fd.set('email', valeur(f, 's-email'));
   fd.set('code_postal', valeur(f, 's-cp'));
   fd.set('telephone', valeur(f, 's-tel'));
+  fd.set('type_signataire', valeur(f, 's-type'));
+  if (valeur(f, 's-type') === 'organisation') {
+    fd.set('organisation', valeur(f, 's-orga'));
+    fd.set('fonction', valeur(f, 's-fonction'));
+  }
   if (valeur(f, 's-info')) fd.set('info_campagne', 'on');
   if (valeur(f, 's-nl')) fd.set('newsletter', 'on');
   return fetch('/api/signer', { method: 'POST', body: fd });

@@ -9,12 +9,16 @@
  *   flyers-apercu.png, affiche-apercu.png          vignettes de la page /kit
  *   qr-petition.png                                QR code vers le formulaire de signature
  *   partage.png                                    image de partage des réseaux (1200 × 630)
+ * et dans public/modeles/ les sources d'import Canva (tract A5, affiche A4, visuel de partage) : chaque ligne
+ * posée en position absolue, chaque aplat et chaque filet en forme séparée, polices publiées dans
+ * public/modeles/polices/ (méthode des visuels du 14/10, reprise de 26septembre/scripts/novembre/canva-html.mjs).
+ * Canva les importe depuis https://pasdepesticidespournosenfants.net/modeles/<nom> (sans .html, qui répond 307).
  *
  * Rendu par Chrome ou Edge sans fenêtre, polices embarquées. Le QR code est relu après coup (jsQR
  * de 26septembre si présent) : on ne livre jamais un QR non vérifié.
  */
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync, copyFileSync } from "node:fs";
 import { join, resolve, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import QRCode from "qrcode";
@@ -142,14 +146,107 @@ rendre("affiche-apercu", vignette(210, affiche()), { png: { fichier: join(SORTIE
 
 /* Image de partage des réseaux, 1200 × 630. */
 const t = THEMES.couleur;
-rendre("partage", `<!doctype html><html><head><meta charset="utf-8"><style>${css(t)}
+const PARTAGE = `<!doctype html><html><head><meta charset="utf-8"><style>${css(t)}
 body{width:1200px;height:630px;background:${t.bandeau};color:${t.titre};display:flex;flex-direction:column;justify-content:center;padding:0 70px}
 h1{font-family:'Antonio';font-weight:700;text-transform:uppercase;font-size:140px;line-height:.94}
 h1 span{display:block;color:#2A2622}
+h1 span.l1{color:#FFCC45}
 p{font-family:'Antonio';font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:40px;margin-top:34px;color:#FFCC45}
 small{display:block;font-family:'Antonio';text-transform:uppercase;letter-spacing:.12em;font-size:24px;margin-top:22px;color:#2A2622}</style></head>
-<body><h1>Pas de pesticides <span>pour nos enfants&nbsp;!</span></h1><p>Une petite signature pour vous, un grand pas pour leur santé.</p><small>Une pétition de Bio Consom'acteurs</small></body></html>`,
-  { png: { fichier: join(SORTIE, "partage.png"), l: 1200, h: 630 } });
+<body><h1><span class="l1">Pas de pesticides</span> <span>pour nos enfants&nbsp;!</span></h1><p>Une petite signature pour vous, un grand pas pour leur santé.</p><small>Une pétition de Bio Consom'acteurs</small></body></html>`;
+rendre("partage", PARTAGE, { png: { fichier: join(SORTIE, "partage.png"), l: 1200, h: 630 } });
+
+/* ---------- Sources d'import Canva ---------- */
+const SITE = "https://pasdepesticidespournosenfants.net";
+const MODELES = join(RACINE, "public", "modeles");
+mkdirSync(join(MODELES, "polices"), { recursive: true });
+let ffPublie = "";
+for (const [dossier, fichier, fam, w] of [["antonio", "antonio-latin-500-normal.woff2", "Antonio", 500], ["antonio", "antonio-latin-700-normal.woff2", "Antonio", 700],
+  ["pt-sans", "pt-sans-latin-400-normal.woff2", "PT Sans", 400], ["pt-sans", "pt-sans-latin-700-normal.woff2", "PT Sans", 700]]) {
+  copyFileSync(join(FS, dossier, "files", fichier), join(MODELES, "polices", fichier));
+  ffPublie += `@font-face{font-family:'${fam}';font-weight:${w};src:url(${SITE}/modeles/polices/${fichier}) format('woff2')}\n`;
+}
+
+/* Relevé, dans le navigateur, de chaque aplat, filet, image et bloc de texte, avec sa position. */
+const RELEVE = `<script>
+addEventListener("load", () => document.fonts.ready.then(() => {
+  const els = [];
+  const px = (v) => Math.round(v * 10) / 10;
+  const enLigne = (c) => c.nodeType === 3 || c.nodeName === "BR" || (c.nodeType === 1 && getComputedStyle(c).display === "inline");
+  const maj = (cs) => cs.textTransform === "uppercase";
+  const html = (n, up) => {
+    if (n.nodeType === 3) { const t = up ? n.textContent.toUpperCase() : n.textContent; return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\\u00a0/g, "&nbsp;"); }
+    if (n.nodeName === "BR") return "<br>";
+    const cs = getComputedStyle(n);
+    const st = ["color:" + cs.color, "font-family:" + cs.fontFamily.replace(/"/g, "'"), "font-weight:" + cs.fontWeight, "font-size:" + cs.fontSize].join(";");
+    return '<span style="' + st + '">' + [...n.childNodes].map((c) => html(c, up || maj(cs))).join("") + "</span>";
+  };
+  for (const e of document.body.querySelectorAll("*")) {
+    if (["SCRIPT", "TEXTAREA", "STYLE"].includes(e.nodeName)) continue;
+    const cs = getComputedStyle(e), r = e.getBoundingClientRect();
+    if (cs.backgroundColor !== "rgba(0, 0, 0, 0)" && e.nodeName !== "IMG") els.push({ type: "aplat", top: px(r.top), left: px(r.left), width: px(r.width), height: px(r.height), fond: cs.backgroundColor });
+    // Les filets (bordures) deviennent de fines formes.
+    const bt = parseFloat(cs.borderTopWidth), bl = parseFloat(cs.borderLeftWidth), bb = parseFloat(cs.borderBottomWidth);
+    if (bt > 0 && cs.borderTopStyle !== "none") els.push({ type: "aplat", top: px(r.top), left: px(r.left), width: px(r.width), height: px(bt), fond: cs.borderTopColor });
+    if (bb > 0 && cs.borderBottomStyle !== "none") els.push({ type: "aplat", top: px(r.bottom - bb), left: px(r.left), width: px(r.width), height: px(bb), fond: cs.borderBottomColor });
+    if (bl > 0 && cs.borderLeftStyle !== "none") els.push({ type: "aplat", top: px(r.top), left: px(r.left), width: px(bl), height: px(r.height), fond: cs.borderLeftColor });
+    if (e.nodeName === "IMG") { els.push({ type: "image", top: px(r.top), left: px(r.left), width: px(r.width), height: px(r.height) }); continue; }
+    const enfants = [...e.childNodes];
+    if (cs.display !== "inline" && enfants.length && enfants.every(enLigne) && e.textContent.trim())
+      els.push({ type: "texte", top: px(r.top), left: px(r.left), width: px(r.width), height: px(r.height),
+        html: enfants.map((c) => html(c, maj(cs))).join("").trim(), famille: cs.fontFamily, taille: cs.fontSize, graisse: cs.fontWeight,
+        couleur: cs.color, interligne: cs.lineHeight, espacement: cs.letterSpacing, align: cs.textAlign });
+  }
+  const t = document.createElement("textarea"); t.id = "fige";
+  t.textContent = JSON.stringify({ fond: getComputedStyle(document.body).backgroundColor, els });
+  document.body.appendChild(t);
+}));
+<\/script>`;
+
+function releve(nom, html, l, h) {
+  const src = join(TEMPO, nom + "-releve.html");
+  writeFileSync(src, html.replace("</body>", RELEVE + "</body>"));
+  const dom = execFileSync(NAVIGATEUR, ["--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1", "--virtual-time-budget=5000",
+    `--user-data-dir=${join(TEMPO, "profil")}`, `--window-size=${l},${h}`, "--dump-dom", pathToFileURL(src).href], { stdio: ["ignore", "pipe", "ignore"], maxBuffer: 1 << 26 }).toString();
+  const m = dom.match(/<textarea id="fige">([\s\S]*?)<\/textarea>/);
+  if (!m) throw new Error("relevé introuvable : " + nom);
+  return JSON.parse(m[1].replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&"));
+}
+
+function pageCanva(rel, titre, l, h) {
+  const ordre = [...rel.els.filter((e) => e.type === "aplat"), ...rel.els.filter((e) => e.type !== "aplat")];
+  const morceaux = ordre.map((e) => {
+    if (e.type === "aplat") return `<div style="position:absolute;top:${e.top}px;left:${e.left}px;width:${e.width}px;height:${e.height}px;background:${e.fond}"></div>`;
+    if (e.type === "image") return `<img src="${SITE}/kit/qr-petition.png" alt="" style="position:absolute;top:${e.top}px;left:${e.left}px;width:${e.width}px;height:${e.height}px">`;
+    const interligne = e.interligne === "normal" ? `${Math.round(parseFloat(e.taille) * 1.2)}px` : e.interligne;
+    const uneLigne = e.height < parseFloat(interligne) * 1.5;
+    const marge = uneLigne ? Math.round(e.width * 0.16) : 0;
+    // Canva rend le PT Sans un peu plus large que Chrome : les paragraphes y débordaient de leur colonne.
+    const taille = !uneLigne && /PT Sans/.test(e.famille) ? `${(parseFloat(e.taille) * 0.94).toFixed(2)}px` : e.taille;
+    return `<div style="position:absolute;top:${e.top}px;left:${e.left}px;width:${e.width + marge}px;font-family:${e.famille.replace(/"/g, "'")};font-size:${taille};font-weight:${e.graisse};color:${e.couleur};line-height:${interligne};letter-spacing:${e.espacement};text-align:${e.align === "start" ? "left" : e.align};${uneLigne ? "white-space:nowrap;" : ""}">${e.html}</div>`;
+  });
+  return `<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>${titre}</title>
+<style>${ffPublie}
+  body{margin:0;background:#888}
+  [data-document-role="page"]{margin:0 auto 40px}
+</style></head><body>
+<div data-document-role="page" data-label="${titre}" style="position:relative;width:${l}px;height:${h}px;overflow:hidden;background:${rel.fond}">
+${morceaux.join("\n")}
+</div>
+</body></html>`;
+}
+
+const SOURCES = [
+  { nom: "tract-a5", titre: "Pas de pesticides pour nos enfants · Tract A5", l: 559, h: 794, html: page(THEMES.couleur, "148mm 210mm", flyer()) },
+  { nom: "affiche-a4", titre: "Pas de pesticides pour nos enfants · Affiche A4", l: 794, h: 1123, html: page(THEMES.couleur, "210mm 297mm", affiche()) },
+  { nom: "visuel-partage", titre: "Pas de pesticides pour nos enfants · Visuel réseaux", l: 1200, h: 630, html: PARTAGE },
+];
+for (const v of SOURCES) {
+  const rel = releve(v.nom, v.html, v.l, v.h);
+  writeFileSync(join(MODELES, v.nom + ".html"), pageCanva(rel, v.titre, v.l, v.h));
+  console.log(`  source Canva : /modeles/${v.nom} (${rel.els.length} éléments)`);
+}
 
 /* Vérification du QR code produit, relu depuis le PNG final. */
 const JSQR = ["jsqr", join(RACINE, "..", "26septembre", "node_modules", "jsqr", "dist", "jsQR.js")];

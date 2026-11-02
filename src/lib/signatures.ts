@@ -17,6 +17,10 @@ export interface DonneesSignature {
   telephone?: string | null;
   info_campagne: boolean;
   newsletter: boolean;
+  /** 'organisation' : la personne signe au nom de sa structure (modèle de l'appel du 26 septembre). */
+  type_signataire: 'individu' | 'organisation';
+  organisation?: string | null;
+  fonction?: string | null;
 }
 
 export interface Compteurs {
@@ -39,7 +43,8 @@ export async function enregistrerSignature(
   const { configure } = lireConfigSupabase();
 
   if (!configure) {
-    const existe = mockStore.some((s) => s.email.toLowerCase() === d.email.toLowerCase());
+    const cle = (x: DonneesSignature) => x.email.toLowerCase() + '|' + (x.organisation ?? '').toLowerCase();
+    const existe = mockStore.some((s) => cle(s) === cle(d));
     if (existe) return { ok: true, deja: true };
     mockStore.push(d);
     // Pas de PII dans les logs : on ne journalise qu'un compteur.
@@ -56,10 +61,14 @@ export async function enregistrerSignature(
     telephone: d.telephone || null,
     info_campagne: d.info_campagne,
     newsletter: d.newsletter,
+    type_signataire: d.type_signataire,
+    organisation: d.organisation || null,
+    fonction: d.fonction || null,
   });
 
   if (error) {
-    // 23505 = violation d'unicité = email déjà signataire : on traite ça comme un succès.
+    // 23505 = violation d'unicité = cet email a déjà signé (en son nom, ou pour cette organisation) :
+    // on traite ça comme un succès.
     if ((error as { code?: string }).code === '23505') return { ok: true, deja: true };
     // On logge le détail côté serveur mais on ne renvoie JAMAIS le message brut à l'appelant.
     console.error('[signature] erreur insertion:', error.message);
