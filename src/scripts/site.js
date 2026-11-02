@@ -114,7 +114,7 @@ document.querySelectorAll('[data-partage]').forEach((zone) => {
   });
   if (navigator.share) {
     const b = document.createElement('button');
-    b.type = 'button'; b.className = 'btn btn-rouge'; b.textContent = 'Partager…';
+    b.type = 'button'; b.className = 'btn btn-corail'; b.textContent = 'Partager…';
     b.addEventListener('click', () => navigator.share({ title: 'Pas de pesticides pour nos enfants', text: texte }).catch(() => {}));
     zone.prepend(b);
   }

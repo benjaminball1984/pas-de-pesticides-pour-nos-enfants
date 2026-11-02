@@ -46,6 +46,7 @@ PESTICIDES POUR NOS ENFANTS ») :
 
 - Système typo et couleurs sans images, comme les sites du 26 septembre et du 17 octobre.
 - Titres en Antonio (Caveat Brush abandonnée).
-- Palette : rouge tomate #E4362B (alerte, boutons), vert feuille #1E8A3E (bio, chiffres), crème #FFF8EC (fond),
-  noir #141414 (texte).
+- Palette (adoucie le 02/11, le rouge tomate était trop agressif) : vert sauge #4F7F57 en couleur principale
+  (bandeaux), corail #E07A5F pour les boutons seulement, jaune de Bio Consom'acteurs #FFCC45 pour les titres et
+  le slogan sur le vert, fond jaune pâle #FFF1C7, texte brun-noir #2A2622.
 - Les visuels actuels (/visuels, modèles Canva) ne servent plus ; Julie et Émilie feront les leurs.

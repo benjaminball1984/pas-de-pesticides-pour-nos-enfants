@@ -51,7 +51,7 @@ await QRCode.toFile(join(SORTIE, "qr-petition.png"), CIBLE, { errorCorrectionLev
 
 /* Couleurs : la charte de la campagne, ou du noir sur blanc pour imprimer sans encre de couleur. */
 const THEMES = {
-  couleur: { fond: "#FFF8EC", texte: "#141414", bandeau: "#E4362B", titre: "#FFF8EC", titre2: "#141414", chiffre: "#1E8A3E", trait: "#E4362B", cri: "#E4362B" },
+  couleur: { fond: "#FFF1C7", texte: "#2A2622", bandeau: "#4F7F57", titre: "#FFCC45", titre2: "#2A2622", chiffre: "#3F6B47", trait: "#E07A5F", cri: "#A9492F" },
   nb: { fond: "#FFFFFF", texte: "#141414", bandeau: "#FFFFFF", titre: "#141414", titre2: "#141414", chiffre: "#141414", trait: "#141414", cri: "#141414" },
 };
 
@@ -145,9 +145,9 @@ const t = THEMES.couleur;
 rendre("partage", `<!doctype html><html><head><meta charset="utf-8"><style>${css(t)}
 body{width:1200px;height:630px;background:${t.bandeau};color:${t.titre};display:flex;flex-direction:column;justify-content:center;padding:0 70px}
 h1{font-family:'Antonio';font-weight:700;text-transform:uppercase;font-size:140px;line-height:.94}
-h1 span{display:block;color:#141414}
-p{font-family:'Antonio';font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:40px;margin-top:34px;color:#FFF8EC}
-small{display:block;font-family:'Antonio';text-transform:uppercase;letter-spacing:.12em;font-size:24px;margin-top:22px;color:#141414}</style></head>
+h1 span{display:block;color:#2A2622}
+p{font-family:'Antonio';font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:40px;margin-top:34px;color:#FFCC45}
+small{display:block;font-family:'Antonio';text-transform:uppercase;letter-spacing:.12em;font-size:24px;margin-top:22px;color:#2A2622}</style></head>
 <body><h1>Pas de pesticides <span>pour nos enfants&nbsp;!</span></h1><p>Une petite signature pour vous, un grand pas pour leur santé.</p><small>Une pétition de Bio Consom'acteurs</small></body></html>`,
   { png: { fichier: join(SORTIE, "partage.png"), l: 1200, h: 630 } });
 

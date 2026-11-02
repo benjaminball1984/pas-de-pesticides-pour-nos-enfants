@@ -9,9 +9,9 @@ export const prerender = false;
 const page = (titre: string, corps: string, status = 200) =>
   new Response(`<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>${titre}</title></head>
-<body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#FFF8EC;color:#141414">
-<div style="background:#E4362B;color:#FFFFFF;padding:18px 24px;font-weight:bold;font-size:18px">Pas de pesticides pour nos enfants&nbsp;!</div>
-<main style="max-width:560px;margin:32px auto;padding:0 20px;line-height:1.55"><h1 style="font-size:22px;color:#141414">${titre}</h1>${corps}</main></body></html>`,
+<body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#FBF5EA;color:#2A2622">
+<div style="background:#4F7F57;color:#FFFFFF;padding:18px 24px;font-weight:bold;font-size:18px">Pas de pesticides pour nos enfants&nbsp;!</div>
+<main style="max-width:560px;margin:32px auto;padding:0 20px;line-height:1.55"><h1 style="font-size:22px;color:#2A2622">${titre}</h1>${corps}</main></body></html>`,
     { status, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
 
 const esc = (s: unknown) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -34,7 +34,7 @@ export const GET: APIRoute = async ({ url }) => {
   const r = await preparer(url);
   if ('erreur' in r) return page('Lien invalide', `<p>${r.erreur}</p>`, 400);
   return page(r.verbe, `<p>${r.verbe}&nbsp;: ${r.quoi}&nbsp;?</p>
-<form method="post"><button style="background:#E4362B;color:#fff;border:0;border-radius:999px;padding:12px 22px;font-size:16px;font-weight:bold;cursor:pointer">${r.verbe}</button></form>`);
+<form method="post"><button style="background:#A9492F;color:#fff;border:0;border-radius:999px;padding:12px 22px;font-size:16px;font-weight:bold;cursor:pointer">${r.verbe}</button></form>`);
 };
 
 export const POST: APIRoute = async ({ url }) => {
